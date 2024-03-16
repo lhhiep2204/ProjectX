@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  ProjectX
+
+  Created by Hoàng Hiệp Lê on 16/03/2024.
+  
+*/
+
+// MARK: - Common
+// MARK: - B
+"back_button" = "Back";
+// MARK: - C
+"cancel_button" = "Cancel";
+"close_button" = "Close";
+// MARK: - D
+"done_button" = "Done";
+// MARK: - O
+"ok_button" = "OK";
+
+// MARK: - Message
+// MARK: - L
+"logout_message" = "Are you sure you want to logout?";

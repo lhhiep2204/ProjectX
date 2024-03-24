@@ -16,11 +16,23 @@ public protocol IBaseService {
     /// - Returns: A publisher for the decoded response or a network error.
     func makeRequest<T: Decodable>(request: BaseRequest) -> AnyPublisher<T, NetworkError>
 
+    /// Makes a generic network request and returns a Combine publisher for raw data.
+    ///
+    /// - Parameter request: The request to be sent.
+    /// - Returns: A publisher for the raw data response or a network error.
+    func makeRequestForData(request: BaseRequest) -> AnyPublisher<Data, NetworkError>
+
     /// Makes a generic upload network request and returns a Combine publisher for the specified response type.
     ///
     /// - Parameter request: The request to be sent.
     /// - Returns: A publisher for the decoded response or a network error.
     func makeUploadRequest<T: Decodable>(request: BaseRequest) -> AnyPublisher<T, NetworkError>
+
+    /// Makes a generic upload network request and returns a Combine publisher for raw data.
+    ///
+    /// - Parameter request: The request to be sent.
+    /// - Returns: A publisher for the raw data response or a network error.
+    func makeUploadRequestForData(request: BaseRequest) -> AnyPublisher<Data, NetworkError>
 }
 
 public class BaseService: IBaseService {
@@ -39,46 +51,27 @@ public class BaseService: IBaseService {
 
 public extension BaseService {
     func makeRequest<T: Decodable>(request: BaseRequest) -> AnyPublisher<T, NetworkError> {
-        guard let request = request as? BaseAPIRequest else {
-            return Fail(error: .init(.invalidUrl)).eraseToAnyPublisher()
-        }
+        requestPublisher(request)
+            .flatMap { $0.handleResponse() }
+            .eraseToAnyPublisher()
+    }
 
-        guard let url = URL(string: request.baseURL + request.endpoint) else {
-            return Fail(error: .init(.invalidPayload)).eraseToAnyPublisher()
-        }
-
-        return session.request(url,
-                               method: getHTTPMethod(from: request.method),
-                               parameters: request.parameters,
-                               encoding: getParamEncoding(from: request.method),
-                               headers: getHTTPHeaders(form: request.headers),
-                               interceptor: self)
-        .validate()
-        .publishData()
-        .handleResponse()
+    func makeRequestForData(request: BaseRequest) -> AnyPublisher<Data, NetworkError> {
+        requestPublisher(request)
+            .flatMap { $0.handleResponseData() }
+            .eraseToAnyPublisher()
     }
 
     func makeUploadRequest<T: Decodable>(request: BaseRequest) -> AnyPublisher<T, NetworkError> {
-        guard let request = request as? BaseUploadRequest else {
-            return Fail(error: .init(.invalidUrl)).eraseToAnyPublisher()
-        }
+        uploadRequestPublisher(request)
+            .flatMap { $0.handleResponse() }
+            .eraseToAnyPublisher()
+    }
 
-        guard let url = URL(string: request.baseURL + request.endpoint) else {
-            return Fail(error: .init(.invalidPayload)).eraseToAnyPublisher()
-        }
-
-        guard let multipartFormData = getMultipartFormData(from: request.fileInfo) else {
-            return Fail(error: .init(.invalidPayload)).eraseToAnyPublisher()
-        }
-
-        return session.upload(multipartFormData: multipartFormData,
-                              to: url,
-                              method: getHTTPMethod(from: request.method),
-                              headers: getHTTPHeaders(form: request.headers),
-                              interceptor: self)
-        .validate()
-        .publishData()
-        .handleResponse()
+    func makeUploadRequestForData(request: BaseRequest) -> AnyPublisher<Data, NetworkError> {
+        uploadRequestPublisher(request)
+            .flatMap { $0.handleResponseData() }
+            .eraseToAnyPublisher()
     }
 }
 
@@ -133,8 +126,59 @@ extension BaseService: RequestInterceptor {
     }
 }
 
-extension BaseService {
-    private func getHTTPMethod(from method: RequestMethod) -> HTTPMethod {
+private extension BaseService {
+    func requestPublisher(_ request: BaseRequest) -> AnyPublisher<DataResponsePublisher<Data>, NetworkError> {
+        guard let request = request as? BaseAPIRequest else {
+            return Fail(error: .init(.invalidUrl)).eraseToAnyPublisher()
+        }
+
+        guard let url = URL(string: request.baseURL + request.endpoint) else {
+            return Fail(error: .init(.invalidPayload)).eraseToAnyPublisher()
+        }
+
+        let urlRequest = session.request(url,
+                                         method: getHTTPMethod(from: request.method),
+                                         parameters: request.parameters,
+                                         encoding: getParamEncoding(from: request.method),
+                                         headers: getHTTPHeaders(form: request.headers),
+                                         interceptor: self)
+            .validate()
+            .publishData()
+
+        return Just(urlRequest)
+            .setFailureType(to: NetworkError.self)
+            .eraseToAnyPublisher()
+    }
+
+    func uploadRequestPublisher(_ request: BaseRequest) -> AnyPublisher<DataResponsePublisher<Data>, NetworkError> {
+        guard let request = request as? BaseUploadRequest else {
+            return Fail(error: .init(.invalidUrl)).eraseToAnyPublisher()
+        }
+
+        guard let url = URL(string: request.baseURL + request.endpoint) else {
+            return Fail(error: .init(.invalidPayload)).eraseToAnyPublisher()
+        }
+
+        guard let multipartFormData = getMultipartFormData(from: request.fileInfo) else {
+            return Fail(error: .init(.invalidPayload)).eraseToAnyPublisher()
+        }
+
+        let urlRequest = session.upload(multipartFormData: multipartFormData,
+                                        to: url,
+                                        method: getHTTPMethod(from: request.method),
+                                        headers: getHTTPHeaders(form: request.headers),
+                                        interceptor: self)
+            .validate()
+            .publishData()
+
+        return Just(urlRequest)
+            .setFailureType(to: NetworkError.self)
+            .eraseToAnyPublisher()
+    }
+}
+
+private extension BaseService {
+    func getHTTPMethod(from method: RequestMethod) -> HTTPMethod {
         switch method {
         case .get: .get
         case .post: .post
@@ -144,47 +188,29 @@ extension BaseService {
         }
     }
 
-    private func getParamEncoding(from method: RequestMethod) -> ParameterEncoding {
+    func getParamEncoding(from method: RequestMethod) -> ParameterEncoding {
         switch method {
         case .get, .delete: URLEncoding.default
         case .post, .put, .patch: JSONEncoding.default
         }
     }
 
-    private func getHTTPHeaders(form header: [String: String]?) -> HTTPHeaders? {
+    func getHTTPHeaders(form header: [String: String]?) -> HTTPHeaders? {
         guard let header else { return nil }
 
         return .init(header)
     }
 
-    private func getMultipartFormData(from fileInfo: FileInfo) -> ((MultipartFormData) -> Void)? {
+    func getMultipartFormData(from fileInfo: FileInfo) -> ((MultipartFormData) -> Void)? {
         guard let filePath = fileInfo.filePath.data(using: .utf8) else { return nil }
 
-        return { multipartFormData in
-            multipartFormData.append(filePath,
-                                     withName: "[KEY_NAME]")
-            multipartFormData.append(fileInfo.file,
-                                     withName: "[FILE]",
-                                     fileName: fileInfo.fileName,
-                                     mimeType: fileInfo.mimeType)
+        return {
+            $0.append(filePath,
+                      withName: "[KEY_NAME]")
+            $0.append(fileInfo.file,
+                      withName: "[FILE]",
+                      fileName: fileInfo.fileName,
+                      mimeType: fileInfo.mimeType)
         }
-    }
-}
-
-extension DataResponsePublisher {
-    func handleResponse<T: Decodable>() -> AnyPublisher<T, NetworkError> {
-        self.tryMap { response -> T in
-            guard let data = response.data else {
-                throw NetworkError(.invalidResponse)
-            }
-
-            NetworkLogger.httpResponseLogger(data, response.response)
-
-            return try JSONDecoder().decode(T.self, from: data)
-        }
-        .mapError { error in
-            NetworkError(.networkError(error))
-        }
-        .eraseToAnyPublisher()
     }
 }

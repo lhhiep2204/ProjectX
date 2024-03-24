@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723C85202BAFEBA60001DE10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C851F2BAFEBA60001DE10 /* Extensions.swift */; };
 		724AB3CC2B89B621008EDD6F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 724AB3CB2B89B621008EDD6F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		728D2A892B96CA2600B98877 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 728D2A882B96CA2600B98877 /* Alamofire */; };
 		728D2A8B2B96CA2600B98877 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 728D2A8A2B96CA2600B98877 /* AlamofireDynamic */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		723C851F2BAFEBA60001DE10 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		724AB3C82B89B621008EDD6F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		724AB3CB2B89B621008EDD6F /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
 		72A5E81E2BA5986A00C57E7A /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
@@ -40,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723C851E2BAFEB910001DE10 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				723C851F2BAFEBA60001DE10 /* Extensions.swift */,
+				72A5E81E2BA5986A00C57E7A /* NetworkLogger.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		724AB3BE2B89B621008EDD6F = {
 			isa = PBXGroup;
 			children = (
@@ -62,8 +73,8 @@
 				72B49BCD2B89B709008DD228 /* BaseRequest.swift */,
 				72B49BC82B89B6E1008DD228 /* BaseService.swift */,
 				72B49BCE2B89B709008DD228 /* NetworkError.swift */,
-				72A5E81E2BA5986A00C57E7A /* NetworkLogger.swift */,
 				72B49BCC2B89B709008DD228 /* RefreshTokenRequest.swift */,
+				723C851E2BAFEB910001DE10 /* Utilities */,
 				724AB3CB2B89B621008EDD6F /* Networking.h */,
 			);
 			path = Networking;
@@ -157,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72A5E81F2BA5986A00C57E7A /* NetworkLogger.swift in Sources */,
+				723C85202BAFEBA60001DE10 /* Extensions.swift in Sources */,
 				72B49BC92B89B6E1008DD228 /* BaseService.swift in Sources */,
 				72B49BD12B89B709008DD228 /* NetworkError.swift in Sources */,
 				72B49BCF2B89B709008DD228 /* RefreshTokenRequest.swift in Sources */,

@@ -21,6 +21,8 @@
 		725958902B88D140006F7B8C /* Router.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 725958842B88D11A006F7B8C /* Router.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		725958912B88D140006F7B8C /* Utilities.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7259588A2B88D122006F7B8C /* Utilities.framework */; };
 		725958922B88D140006F7B8C /* Utilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7259588A2B88D122006F7B8C /* Utilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72A5E8492BA6EF3A00C57E7A /* UIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5E8482BA6EF2D00C57E7A /* UIComponents.framework */; };
+		72A5E84A2BA6EF3A00C57E7A /* UIComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5E8482BA6EF2D00C57E7A /* UIComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72B49BCA2B89B6EB008DD228 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B49BC72B89B6AB008DD228 /* Networking.framework */; };
 		72B49BCB2B89B6EB008DD228 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72B49BC72B89B6AB008DD228 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72FEDA732B88DF08000E8FF7 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FEDA722B88DF08000E8FF7 /* Route.swift */; };
@@ -71,6 +73,13 @@
 			remoteGlobalIDString = 7200121C2B1D87FB002A1F2C;
 			remoteInfo = Utilities;
 		};
+		72A5E8472BA6EF2D00C57E7A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 72A5E8432BA6EF2D00C57E7A /* UIComponents.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 72A5E82A2BA6EEF000C57E7A;
+			remoteInfo = UIComponents;
+		};
 		72B49BC62B89B6AB008DD228 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 72B49BC22B89B6AA008DD228 /* Networking.xcodeproj */;
@@ -91,6 +100,7 @@
 				725958902B88D140006F7B8C /* Router.framework in Embed Frameworks */,
 				7259588C2B88D140006F7B8C /* Extensions.framework in Embed Frameworks */,
 				725958922B88D140006F7B8C /* Utilities.framework in Embed Frameworks */,
+				72A5E84A2BA6EF3A00C57E7A /* UIComponents.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +123,7 @@
 		725958732B88D0FC006F7B8C /* Extensions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Extensions.xcodeproj; path = Modules/Extensions/Extensions.xcodeproj; sourceTree = "<group>"; };
 		7259587F2B88D11A006F7B8C /* Router.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Router.xcodeproj; path = Modules/Router/Router.xcodeproj; sourceTree = "<group>"; };
 		725958852B88D122006F7B8C /* Utilities.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Utilities.xcodeproj; path = Modules/Utilities/Utilities.xcodeproj; sourceTree = "<group>"; };
+		72A5E8432BA6EF2D00C57E7A /* UIComponents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIComponents.xcodeproj; path = Modules/UIComponents/UIComponents.xcodeproj; sourceTree = "<group>"; };
 		72B49BC22B89B6AA008DD228 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = Modules/Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 		72FEDA722B88DF08000E8FF7 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		72FEDA752B88DF43000E8FF7 /* SampleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRequest.swift; sourceTree = "<group>"; };
@@ -135,6 +146,7 @@
 				7259588F2B88D140006F7B8C /* Router.framework in Frameworks */,
 				7259588B2B88D140006F7B8C /* Extensions.framework in Frameworks */,
 				725958912B88D140006F7B8C /* Utilities.framework in Frameworks */,
+				72A5E8492BA6EF3A00C57E7A /* UIComponents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +242,7 @@
 				725958732B88D0FC006F7B8C /* Extensions.xcodeproj */,
 				72B49BC22B89B6AA008DD228 /* Networking.xcodeproj */,
 				7259587F2B88D11A006F7B8C /* Router.xcodeproj */,
+				72A5E8432BA6EF2D00C57E7A /* UIComponents.xcodeproj */,
 				725958852B88D122006F7B8C /* Utilities.xcodeproj */,
 			);
 			name = Modules;
@@ -255,6 +268,14 @@
 			isa = PBXGroup;
 			children = (
 				7259588A2B88D122006F7B8C /* Utilities.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72A5E8442BA6EF2D00C57E7A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				72A5E8482BA6EF2D00C57E7A /* UIComponents.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,6 +465,10 @@
 					ProjectRef = 7259587F2B88D11A006F7B8C /* Router.xcodeproj */;
 				},
 				{
+					ProductGroup = 72A5E8442BA6EF2D00C57E7A /* Products */;
+					ProjectRef = 72A5E8432BA6EF2D00C57E7A /* UIComponents.xcodeproj */;
+				},
+				{
 					ProductGroup = 725958862B88D122006F7B8C /* Products */;
 					ProjectRef = 725958852B88D122006F7B8C /* Utilities.xcodeproj */;
 				},
@@ -477,6 +502,13 @@
 			fileType = wrapper.framework;
 			path = Utilities.framework;
 			remoteRef = 725958892B88D122006F7B8C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		72A5E8482BA6EF2D00C57E7A /* UIComponents.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = UIComponents.framework;
+			remoteRef = 72A5E8472BA6EF2D00C57E7A /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		72B49BC72B89B6AB008DD228 /* Networking.framework */ = {

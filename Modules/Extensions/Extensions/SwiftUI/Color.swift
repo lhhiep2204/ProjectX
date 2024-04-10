@@ -8,7 +8,7 @@
 import SwiftUI
 
 public extension Color {
-    init(hex: String, opacity: Double = 1) {
+    init(hex: String, opacity: Double = 1.0) {
         let hexCode = hex.trim.replace("#", with: "")
 
         guard hexCode.count == 6, let rgb = UInt64(hexCode, radix: 16) else {

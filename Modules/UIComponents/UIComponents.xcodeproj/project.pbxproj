@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		724149872BC2FF6A000CA478 /* IconBorderedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724149862BC2FF6A000CA478 /* IconBorderedButtonStyle.swift */; };
+		724149892BC30E00000CA478 /* IconFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724149882BC30E00000CA478 /* IconFilledButtonStyle.swift */; };
 		72531AEC2BA6F713007654B7 /* BorderedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72531AEB2BA6F713007654B7 /* BorderedButtonStyle.swift */; };
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		724149862BC2FF6A000CA478 /* IconBorderedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBorderedButtonStyle.swift; sourceTree = "<group>"; };
+		724149882BC30E00000CA478 /* IconFilledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFilledButtonStyle.swift; sourceTree = "<group>"; };
 		72531AEB2BA6F713007654B7 /* BorderedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButtonStyle.swift; sourceTree = "<group>"; };
 		72A5E82A2BA6EEF000C57E7A /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A5E82D2BA6EEF000C57E7A /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
@@ -53,7 +57,8 @@
 		72A5E82C2BA6EEF000C57E7A /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				72A5E84D2BA6F09200C57E7A /* Button */,
+				72FCF4002BB87ED6002823D3 /* Components */,
+				72FCF3FF2BB87EB0002823D3 /* DesignSystem */,
 				72A5E82D2BA6EEF000C57E7A /* UIComponents.h */,
 			);
 			path = UIComponents;
@@ -73,9 +78,26 @@
 			children = (
 				72531AEB2BA6F713007654B7 /* BorderedButtonStyle.swift */,
 				72A5E84F2BA6F29500C57E7A /* FilledButtonStyle.swift */,
+				724149862BC2FF6A000CA478 /* IconBorderedButtonStyle.swift */,
+				724149882BC30E00000CA478 /* IconFilledButtonStyle.swift */,
 				72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */,
 			);
 			path = ButtonStyles;
+			sourceTree = "<group>";
+		};
+		72FCF3FF2BB87EB0002823D3 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		72FCF4002BB87ED6002823D3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				72A5E84D2BA6F09200C57E7A /* Button */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +122,7 @@
 				72A5E8262BA6EEF000C57E7A /* Sources */,
 				72A5E8272BA6EEF000C57E7A /* Frameworks */,
 				72A5E8282BA6EEF000C57E7A /* Resources */,
+				7241498C2BC313AE000CA478 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -117,7 +140,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastUpgradeCheck = 1520;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					72A5E8292BA6EEF000C57E7A = {
 						CreatedOnToolsVersion = 15.2;
@@ -159,8 +182,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				72531AEC2BA6F713007654B7 /* BorderedButtonStyle.swift in Sources */,
+				724149872BC2FF6A000CA478 /* IconBorderedButtonStyle.swift in Sources */,
 				72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,
+				724149892BC30E00000CA478 /* IconFilledButtonStyle.swift in Sources */,
 				72A5E8502BA6F29500C57E7A /* FilledButtonStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -203,6 +228,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -267,6 +293,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -292,8 +319,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = L257DXJNY8;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -332,8 +361,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = L257DXJNY8;
 				DYLIB_COMPATIBILITY_VERSION = 1;

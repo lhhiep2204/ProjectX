@@ -5,22 +5,29 @@
 //  Created by Hoàng Hiệp Lê on 17/03/2024.
 //
 
+import Extensions
 import SwiftUI
 
 public struct BorderedButtonStyle: ButtonStyle {
+    let size: ButtonSize
     let foregroundColor: Color
     let backgroundColor: Color
 
-    public init(foregroundColor: Color = .blue, backgroundColor: Color = .white) {
+    public init(size: ButtonSize = .medium,
+                foregroundColor: Color = .blue,
+                backgroundColor: Color = .white) {
+        self.size = size
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor
     }
 
     public func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .lineLimit(1)
+            .font(size.fontSize)
             .foregroundStyle(foregroundColor)
-            .padding()
-            .frame(maxWidth: .infinity)
+            .padding(size.padding)
+            .if(size == .medium) { $0.frame(maxWidth: .infinity) }
             .background(backgroundColor)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)

@@ -13,6 +13,7 @@
 		721428182B172FA200583F9E /* Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 721428172B172FA200583F9E /* Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		721428462B17303900583F9E /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721428442B17303900583F9E /* Encodable.swift */; };
 		721428472B17303900583F9E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721428452B17303900583F9E /* UserDefaults.swift */; };
+		7241497A2BC2FAA0000CA478 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724149792BC2FAA0000CA478 /* View.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		721428172B172FA200583F9E /* Extensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Extensions.h; sourceTree = "<group>"; };
 		721428442B17303900583F9E /* Encodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
 		721428452B17303900583F9E /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		724149792BC2FAA0000CA478 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,14 +57,31 @@
 		721428162B172FA200583F9E /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				7241497C2BC2FAC5000CA478 /* PropertyType */,
+				7241497B2BC2FAAF000CA478 /* SwiftUI */,
+				721428172B172FA200583F9E /* Extensions.h */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7241497B2BC2FAAF000CA478 /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
 				720556F52B6D41AC00DB93E6 /* Color.swift */,
+				724149792BC2FAA0000CA478 /* View.swift */,
+			);
+			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		7241497C2BC2FAC5000CA478 /* PropertyType */ = {
+			isa = PBXGroup;
+			children = (
 				7200120E2B18850B002A1F2C /* Date.swift */,
 				721428442B17303900583F9E /* Encodable.swift */,
 				720012102B18856E002A1F2C /* String.swift */,
 				721428452B17303900583F9E /* UserDefaults.swift */,
-				721428172B172FA200583F9E /* Extensions.h */,
 			);
-			path = Extensions;
+			path = PropertyType;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,6 +165,7 @@
 			files = (
 				721428472B17303900583F9E /* UserDefaults.swift in Sources */,
 				7200120F2B18850B002A1F2C /* Date.swift in Sources */,
+				7241497A2BC2FAA0000CA478 /* View.swift in Sources */,
 				720012112B18856E002A1F2C /* String.swift in Sources */,
 				720556F62B6D41AC00DB93E6 /* Color.swift in Sources */,
 				721428462B17303900583F9E /* Encodable.swift in Sources */,

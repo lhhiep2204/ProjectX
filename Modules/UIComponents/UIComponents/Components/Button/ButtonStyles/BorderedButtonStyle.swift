@@ -14,7 +14,7 @@ public struct BorderedButtonStyle: ButtonStyle {
     let backgroundColor: Color
 
     public init(size: ButtonSize = .medium,
-                foregroundColor: Color = .blue,
+                foregroundColor: Color = .appColor(.blue100),
                 backgroundColor: Color = .white) {
         self.size = size
         self.foregroundColor = foregroundColor

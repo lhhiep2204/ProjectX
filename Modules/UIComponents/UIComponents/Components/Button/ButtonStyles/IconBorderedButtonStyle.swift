@@ -15,7 +15,7 @@ public struct IconBorderedButtonStyle: ButtonStyle {
 
     public init(size: CGFloat = 44,
                 isCircle: Bool = false,
-                foregroundColor: Color = .blue,
+                foregroundColor: Color = .appColor(.blue100),
                 backgroundColor: Color = .white) {
         self.size = size
         self.isCircle = isCircle

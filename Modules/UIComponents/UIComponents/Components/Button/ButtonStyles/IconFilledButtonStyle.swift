@@ -16,7 +16,7 @@ public struct IconFilledButtonStyle: ButtonStyle {
     public init(size: CGFloat = 44,
                 isCircle: Bool = false,
                 foregroundColor: Color = .white,
-                backgroundColor: Color = .blue) {
+                backgroundColor: Color = .appColor(.blue100)) {
         self.size = size
         self.isCircle = isCircle
         self.foregroundColor = foregroundColor

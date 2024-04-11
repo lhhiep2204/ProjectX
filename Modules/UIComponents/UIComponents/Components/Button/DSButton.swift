@@ -42,22 +42,17 @@ public struct DSButton<S: ButtonStyle>: View {
         Button {
             action()
         } label: {
-            if let title = title {
-                titleView(title)
-            } else {
+            HStack {
                 imageView
+                titleView
             }
         }
         .buttonStyle(style)
     }
 
     @ViewBuilder
-    private func titleView(_ title: String) -> some View {
-        if let image = image {
-            Label(title, image: image)
-        } else if let systemImage = systemImage {
-            Label(title, systemImage: systemImage)
-        } else {
+    private var titleView: some View {
+        if let title = title {
             Text(title)
         }
     }

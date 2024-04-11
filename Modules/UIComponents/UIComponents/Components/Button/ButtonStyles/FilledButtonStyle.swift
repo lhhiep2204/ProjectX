@@ -15,7 +15,7 @@ public struct FilledButtonStyle: ButtonStyle {
 
     public init(size: ButtonSize = .medium,
                 foregroundColor: Color = .white,
-                backgroundColor: Color = .blue) {
+                backgroundColor: Color = .appColor(.blue100)) {
         self.size = size
         self.foregroundColor = foregroundColor
         self.backgroundColor = backgroundColor

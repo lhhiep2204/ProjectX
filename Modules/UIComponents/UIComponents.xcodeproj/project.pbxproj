@@ -10,21 +10,27 @@
 		724149872BC2FF6A000CA478 /* IconBorderedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724149862BC2FF6A000CA478 /* IconBorderedButtonStyle.swift */; };
 		724149892BC30E00000CA478 /* IconFilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724149882BC30E00000CA478 /* IconFilledButtonStyle.swift */; };
 		72531AEC2BA6F713007654B7 /* BorderedButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72531AEB2BA6F713007654B7 /* BorderedButtonStyle.swift */; };
+		72766FAA2BC6809D00F8290F /* DSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72766FA92BC6809D00F8290F /* DSColors.swift */; };
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */; };
 		72A5E8502BA6F29500C57E7A /* FilledButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84F2BA6F29500C57E7A /* FilledButtonStyle.swift */; };
 		72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */; };
+		72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE4CD12BC7937000F2F77D /* Extensions.swift */; };
+		72FE4CD52BC7969100F2F77D /* DSColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72FE4CD42BC7969100F2F77D /* DSColors.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		724149862BC2FF6A000CA478 /* IconBorderedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconBorderedButtonStyle.swift; sourceTree = "<group>"; };
 		724149882BC30E00000CA478 /* IconFilledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconFilledButtonStyle.swift; sourceTree = "<group>"; };
 		72531AEB2BA6F713007654B7 /* BorderedButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderedButtonStyle.swift; sourceTree = "<group>"; };
+		72766FA92BC6809D00F8290F /* DSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColors.swift; sourceTree = "<group>"; };
 		72A5E82A2BA6EEF000C57E7A /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A5E82D2BA6EEF000C57E7A /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
 		72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
 		72A5E84F2BA6F29500C57E7A /* FilledButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilledButtonStyle.swift; sourceTree = "<group>"; };
 		72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		72FE4CD12BC7937000F2F77D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		72FE4CD42BC7969100F2F77D /* DSColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DSColors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72766FA82BC6808D00F8290F /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				72766FA92BC6809D00F8290F /* DSColors.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
 		72A5E8202BA6EEF000C57E7A = {
 			isa = PBXGroup;
 			children = (
@@ -58,7 +72,9 @@
 			isa = PBXGroup;
 			children = (
 				72FCF4002BB87ED6002823D3 /* Components */,
-				72FCF3FF2BB87EB0002823D3 /* DesignSystem */,
+				72FE4CD32BC795FE00F2F77D /* Resources */,
+				72FCF3FF2BB87EB0002823D3 /* Styles */,
+				72FE4CD12BC7937000F2F77D /* Extensions.swift */,
 				72A5E82D2BA6EEF000C57E7A /* UIComponents.h */,
 			);
 			path = UIComponents;
@@ -85,11 +101,12 @@
 			path = ButtonStyles;
 			sourceTree = "<group>";
 		};
-		72FCF3FF2BB87EB0002823D3 /* DesignSystem */ = {
+		72FCF3FF2BB87EB0002823D3 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				72766FA82BC6808D00F8290F /* Color */,
 			);
-			path = DesignSystem;
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		72FCF4002BB87ED6002823D3 /* Components */ = {
@@ -98,6 +115,14 @@
 				72A5E84D2BA6F09200C57E7A /* Button */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		72FE4CD32BC795FE00F2F77D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				72FE4CD42BC7969100F2F77D /* DSColors.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +147,6 @@
 				72A5E8262BA6EEF000C57E7A /* Sources */,
 				72A5E8272BA6EEF000C57E7A /* Frameworks */,
 				72A5E8282BA6EEF000C57E7A /* Resources */,
-				7241498C2BC313AE000CA478 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -171,6 +195,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72FE4CD52BC7969100F2F77D /* DSColors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,10 +208,12 @@
 			files = (
 				72531AEC2BA6F713007654B7 /* BorderedButtonStyle.swift in Sources */,
 				724149872BC2FF6A000CA478 /* IconBorderedButtonStyle.swift in Sources */,
+				72766FAA2BC6809D00F8290F /* DSColors.swift in Sources */,
 				72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,
 				724149892BC30E00000CA478 /* IconFilledButtonStyle.swift in Sources */,
 				72A5E8502BA6F29500C57E7A /* FilledButtonStyle.swift in Sources */,
+				72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

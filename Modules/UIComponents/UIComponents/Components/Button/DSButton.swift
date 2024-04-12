@@ -8,13 +8,15 @@
 import SwiftUI
 
 public struct DSButton<S: ButtonStyle>: View {
-    let title: String?
-    let image: String?
-    let systemImage: String?
-    let style: S
-    let action: () -> Void
+    private let title: String?
+    private let image: String?
+    private let systemImage: String?
+    private let style: S
+    private let action: () -> Void
 
-    public init(title: String, style: S, action: @escaping () -> Void) {
+    public init(title: String,
+                style: S,
+                action: @escaping () -> Void) {
         self.title = title
         self.image = nil
         self.systemImage = nil
@@ -22,7 +24,10 @@ public struct DSButton<S: ButtonStyle>: View {
         self.action = action
     }
 
-    public init(title: String? = nil, image: String, style: S, action: @escaping () -> Void) {
+    public init(title: String? = nil,
+                image: String,
+                style: S,
+                action: @escaping () -> Void) {
         self.title = title
         self.image = image
         self.systemImage = nil
@@ -30,7 +35,10 @@ public struct DSButton<S: ButtonStyle>: View {
         self.action = action
     }
 
-    public init(title: String? = nil, systemImage: String, style: S, action: @escaping () -> Void) {
+    public init(title: String? = nil,
+                systemImage: String,
+                style: S,
+                action: @escaping () -> Void) {
         self.title = title
         self.image = nil
         self.systemImage = systemImage

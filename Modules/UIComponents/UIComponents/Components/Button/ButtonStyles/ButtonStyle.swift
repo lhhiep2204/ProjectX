@@ -7,72 +7,43 @@
 
 import SwiftUI
 
-public enum ButtonSize {
-    case small, medium
-
-    var fontSize: Font {
-        switch self {
-        case .small: .system(size: 12, weight: .bold)
-        case .medium: .system(size: 16, weight: .bold)
-        }
-    }
-
-    var padding: CGFloat {
-        switch self {
-        case .small: 10
-        case .medium: 16
-        }
-    }
-}
-
 // MARK: - FilledButtonStyle
-public extension ButtonStyle where Self == FilledButtonStyle {
-    static var filled: FilledButtonStyle {
-        FilledButtonStyle()
+public extension ButtonStyle where Self == DSButtonStyle {
+    static var filled: DSButtonStyle {
+        DSButtonStyle(type: .filled(.medium))
     }
 
-    static var filledSmall: FilledButtonStyle {
-        FilledButtonStyle(size: .small)
+    static var filledSmall: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.small))
     }
 
-    static var filledDestructive: FilledButtonStyle {
-        FilledButtonStyle(backgroundColor: .red)
+    static var filledDestructive: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.medium), primaryColor: .red)
     }
 }
 
 // MARK: - BorderedButtonStyle
-public extension ButtonStyle where Self == BorderedButtonStyle {
-    static var bordered: BorderedButtonStyle {
-        BorderedButtonStyle()
+public extension ButtonStyle where Self == DSButtonStyle {
+    static var bordered: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.medium))
     }
 
-    static var borderedSmall: BorderedButtonStyle {
-        BorderedButtonStyle(size: .small)
+    static var borderedSmall: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.small))
     }
 
-    static var borderedDestructive: BorderedButtonStyle {
-        BorderedButtonStyle(foregroundColor: .red)
-    }
-}
-
-// MARK: - IconFilledButtonStyle
-public extension ButtonStyle where Self == IconFilledButtonStyle {
-    static var filledIcon: IconFilledButtonStyle {
-        IconFilledButtonStyle()
-    }
-
-    static var filledIconCircle: IconFilledButtonStyle {
-        IconFilledButtonStyle(isCircle: true)
+    static var borderedDestructive: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.medium), primaryColor: .red)
     }
 }
 
-// MARK: - IconBorderedButtonStyle
-public extension ButtonStyle where Self == IconBorderedButtonStyle {
-    static var borderedIcon: IconBorderedButtonStyle {
-        IconBorderedButtonStyle()
+// MARK: - IconButtonStyle
+public extension ButtonStyle where Self == DSButtonStyle {
+    static var filledIcon: DSButtonStyle {
+        DSButtonStyle(type: .icon(.filled(.medium)))
     }
 
-    static var borderedIconCircle: IconBorderedButtonStyle {
-        IconBorderedButtonStyle(isCircle: true)
+    static var borderedIcon: DSButtonStyle {
+        DSButtonStyle(type: .icon(.bordered(.medium)))
     }
 }

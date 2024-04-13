@@ -9,6 +9,8 @@ import Extensions
 import SwiftUI
 
 public struct DSButtonStyle: ButtonStyle {
+    @Environment(\.isEnabled) var isEnabled
+
     private let type: DSButtonType
     private let primaryColor: Color
     private let secondaryColor: Color
@@ -28,34 +30,34 @@ public struct DSButtonStyle: ButtonStyle {
                     .font(type.fontSize)
                     .padding(.horizontal, type.padding)
                     .frame(height: type.height)
-                    .if(isMediumSize) { $0.frame(maxWidth: .infinity) }
+                    .if(type.sizeMode == .fill) { $0.frame(maxWidth: .infinity) }
             }
             .if(isIcon) { $0.frame(width: type.height, height: type.height) }
             .foregroundStyle(isBordered ? primaryColor : secondaryColor)
             .background(isBordered ? secondaryColor : primaryColor)
             .if(isBordered) {
                 $0.overlay(
-                    RoundedRectangle(cornerRadius: 8)
+                    RoundedRectangle(cornerRadius: isCircleIcon ? type.height / 2 : 8)
                         .strokeBorder(lineWidth: 2)
                         .foregroundStyle(isBordered ? primaryColor : secondaryColor)
                 )
             }
-            .if(isFilled) { $0.cornerRadius(8) }
-            .opacity(configuration.isPressed ? 0.5 : 1)
+            .clipShape(RoundedRectangle(cornerRadius: isCircleIcon ? type.height / 2 : 8))
+            .opacity(configuration.isPressed || !isEnabled ? 0.85 : 1)
     }
 }
 
 private extension DSButtonStyle {
     var isFilled: Bool {
         switch type {
-        case .filled(_), .icon(.filled(_)): true
+        case .filled(_), .icon(.normal(.filled(_))), .icon(.circle(.filled(_))): true
         default: false
         }
     }
 
     var isBordered: Bool {
         switch type {
-        case .bordered(_), .icon(.bordered(_)): true
+        case .bordered(_), .icon(.normal(.bordered(_))), .icon(.circle(.bordered(_))): true
         default: false
         }
     }
@@ -67,9 +69,9 @@ private extension DSButtonStyle {
         }
     }
 
-    var isMediumSize: Bool {
+    var isCircleIcon: Bool {
         switch type {
-        case .filled(.medium), .bordered(.medium), .icon(.filled(.medium)), .icon(.bordered(.medium)): true
+        case .icon(.circle(_)): true
         default: false
         }
     }

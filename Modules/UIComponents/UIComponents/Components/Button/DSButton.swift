@@ -7,16 +7,23 @@
 
 import SwiftUI
 
+final class DSButtonObservable: ObservableObject {
+    @Published var shadow: CGFloat = 0
+    @Published var loading: Bool = false
+}
+
 public struct DSButton<S: ButtonStyle>: View {
+    @ObservedObject private var object = DSButtonObservable()
+
     private let title: String?
     private let image: String?
     private let systemImage: String?
     private let style: S
     private let action: () -> Void
 
-    public init(title: String,
+    public init(_ title: String,
                 style: S,
-                action: @escaping () -> Void) {
+                _ action: @escaping () -> Void) {
         self.title = title
         self.image = nil
         self.systemImage = nil
@@ -24,10 +31,10 @@ public struct DSButton<S: ButtonStyle>: View {
         self.action = action
     }
 
-    public init(title: String? = nil,
+    public init(_ title: String? = nil,
                 image: String,
                 style: S,
-                action: @escaping () -> Void) {
+                _ action: @escaping () -> Void) {
         self.title = title
         self.image = image
         self.systemImage = nil
@@ -35,10 +42,10 @@ public struct DSButton<S: ButtonStyle>: View {
         self.action = action
     }
 
-    public init(title: String? = nil,
+    public init(_ title: String? = nil,
                 systemImage: String,
                 style: S,
-                action: @escaping () -> Void) {
+                _ action: @escaping () -> Void) {
         self.title = title
         self.image = nil
         self.systemImage = systemImage
@@ -50,12 +57,21 @@ public struct DSButton<S: ButtonStyle>: View {
         Button {
             action()
         } label: {
-            HStack {
-                imageView
-                titleView
+            if object.loading {
+                ProgressView()
+                    .tint(.appColor(.gray40))
+            } else {
+                HStack {
+                    imageView
+                    titleView
+                }
             }
         }
         .buttonStyle(style)
+        .if(object.shadow > 0) {
+            $0.shadow(radius: object.shadow, y: 3)
+        }
+        .disabled(object.loading)
     }
 
     @ViewBuilder
@@ -79,21 +95,69 @@ public struct DSButton<S: ButtonStyle>: View {
     }
 }
 
+public extension DSButton {
+    func shadow(_ radius: CGFloat = 5) -> Self {
+        object.shadow = radius
+        return self
+    }
+
+    func loading(_ state: Bool) -> Self {
+        object.loading = state
+        return self
+    }
+}
+
 #Preview {
     VStack(spacing: 16) {
-        DSButton(title: "Call to action",
-                 systemImage: "apple.logo",
-                 style: .filled,
-                 action: {})
-        DSButton(title: "Call to action",
-                 style: .borderedSmall,
-                 action: {})
-        DSButton(systemImage: "apple.logo",
-                 style: .filledIcon,
-                 action: {})
-        DSButton(title: "Call to action",
-                 style: .borderedDestructive,
-                 action: {})
+        VStack(spacing: 6) {
+            Text("Filled")
+            DSButton("Call to action",
+                     systemImage: "apple.logo",
+                     style: .filled) {}
+                .shadow()
+        }
+        VStack(spacing: 6) {
+            Text("Bordered - Loading")
+            DSButton("Call to action",
+                     style: .bordered) {}
+                .loading(true)
+        }
+        VStack(spacing: 6) {
+            Text("Filled - Destructive - Small - Fit")
+            DSButton("Call to action",
+                     style: .filledDestructiveSmallFit) {}
+                .shadow()
+        }
+        VStack(spacing: 6) {
+            Text("Bordered - Destructive")
+            DSButton("Call to action",
+                     style: .borderedDestructive) {}
+        }
+        VStack(spacing: 6) {
+            Text("Filled - Small")
+            DSButton("Call to action",
+                     style: .filledSmall) {}
+                .loading(true)
+                .frame(width: 160)
+        }
+        VStack(spacing: 6) {
+            Text("Bordered - Small - Fit")
+            DSButton("Call to action",
+                     systemImage: "apple.logo",
+                     style: .borderedSmallFit) {}
+                .shadow()
+        }
+        VStack(spacing: 6) {
+            Text("Filled - Circle - Icon")
+            DSButton(systemImage: "apple.logo",
+                     style: .filledCircleIcon) {}
+        }
+        VStack(spacing: 6) {
+            Text("Bordered - Icon")
+            DSButton(systemImage: "apple.logo",
+                     style: .borderedIcon) {}
+                .shadow()
+        }
     }
     .padding()
 }

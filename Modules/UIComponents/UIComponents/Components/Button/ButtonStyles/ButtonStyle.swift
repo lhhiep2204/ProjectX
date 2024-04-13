@@ -10,40 +10,40 @@ import SwiftUI
 // MARK: - FilledButtonStyle
 public extension ButtonStyle where Self == DSButtonStyle {
     static var filled: DSButtonStyle {
-        DSButtonStyle(type: .filled(.medium))
+        DSButtonStyle(type: .filled(.medium(.fill)))
     }
 
     static var filledSmall: DSButtonStyle {
-        DSButtonStyle(type: .bordered(.small))
+        DSButtonStyle(type: .filled(.small(.fill)))
     }
 
-    static var filledDestructive: DSButtonStyle {
-        DSButtonStyle(type: .bordered(.medium), primaryColor: .red)
+    static var filledDestructiveSmallFit: DSButtonStyle {
+        DSButtonStyle(type: .filled(.small(.fit)), primaryColor: .red)
     }
 }
 
 // MARK: - BorderedButtonStyle
 public extension ButtonStyle where Self == DSButtonStyle {
     static var bordered: DSButtonStyle {
-        DSButtonStyle(type: .bordered(.medium))
+        DSButtonStyle(type: .bordered(.medium(.fill)))
     }
 
-    static var borderedSmall: DSButtonStyle {
-        DSButtonStyle(type: .bordered(.small))
+    static var borderedSmallFit: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.small(.fit)))
     }
 
     static var borderedDestructive: DSButtonStyle {
-        DSButtonStyle(type: .bordered(.medium), primaryColor: .red)
+        DSButtonStyle(type: .bordered(.medium(.fill)), primaryColor: .red)
     }
 }
 
 // MARK: - IconButtonStyle
 public extension ButtonStyle where Self == DSButtonStyle {
-    static var filledIcon: DSButtonStyle {
-        DSButtonStyle(type: .icon(.filled(.medium)))
+    static var filledCircleIcon: DSButtonStyle {
+        DSButtonStyle(type: .icon(.circle(.filled(.medium(.fill)))))
     }
 
     static var borderedIcon: DSButtonStyle {
-        DSButtonStyle(type: .icon(.bordered(.medium)))
+        DSButtonStyle(type: .icon(.normal(.bordered(.medium(.fill)))))
     }
 }

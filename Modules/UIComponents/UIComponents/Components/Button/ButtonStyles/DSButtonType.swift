@@ -8,12 +8,15 @@
 import SwiftUI
 
 public indirect enum DSButtonType: Equatable {
-    case filled(DSButtonSize), bordered(DSButtonSize), icon(DSButtonType)
+    case filled(DSButtonSize), bordered(DSButtonSize), icon(DSButtonIconType)
 
-    private var size: DSButtonSize {
+    var sizeMode: DSButtonSizeMode {
         switch self {
-        case .bordered(let size), .filled(let size): size
-        case .icon(let type): type.size
+        case .bordered(let size), .filled(let size):
+            switch size {
+            case .small(let sizeMode), .medium(let sizeMode): sizeMode
+            }
+        case .icon(_): .fit
         }
     }
 
@@ -28,4 +31,50 @@ public indirect enum DSButtonType: Equatable {
     var height: CGFloat {
         size.height
     }
+
+    private var size: DSButtonSize {
+        switch self {
+        case .bordered(let size), .filled(let size): size
+        case .icon(let buttonType): buttonType.type.size
+        }
+    }
+}
+
+public enum DSButtonIconType: Equatable {
+    case normal(DSButtonType), circle(DSButtonType)
+
+    var type: DSButtonType {
+        switch self {
+        case .normal(let type), .circle(let type): type
+        }
+    }
+}
+
+public enum DSButtonSize: Equatable {
+    case small(DSButtonSizeMode), medium(DSButtonSizeMode)
+
+    var fontSize: Font {
+        switch self {
+        case .small: .system(size: 12, weight: .bold)
+        case .medium: .system(size: 16, weight: .bold)
+        }
+    }
+
+    var padding: CGFloat {
+        switch self {
+        case .small: 10
+        case .medium: 16
+        }
+    }
+
+    var height: CGFloat {
+        switch self {
+        case .small: 36
+        case .medium: 48
+        }
+    }
+}
+
+public enum DSButtonSizeMode {
+    case fit, fill
 }

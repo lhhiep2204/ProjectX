@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		721842982BC8E525003F402E /* DSButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721842972BC8E525003F402E /* DSButtonType.swift */; };
-		7218429A2BC8E54D003F402E /* DSButtonSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721842992BC8E54D003F402E /* DSButtonSize.swift */; };
 		72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */; };
 		72766FAA2BC6809D00F8290F /* DSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72766FA92BC6809D00F8290F /* DSColors.swift */; };
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -20,7 +19,6 @@
 
 /* Begin PBXFileReference section */
 		721842972BC8E525003F402E /* DSButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonType.swift; sourceTree = "<group>"; };
-		721842992BC8E54D003F402E /* DSButtonSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonSize.swift; sourceTree = "<group>"; };
 		72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonStyle.swift; sourceTree = "<group>"; };
 		72766FA92BC6809D00F8290F /* DSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColors.swift; sourceTree = "<group>"; };
 		72A5E82A2BA6EEF000C57E7A /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,7 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				721842972BC8E525003F402E /* DSButtonType.swift */,
-				721842992BC8E54D003F402E /* DSButtonSize.swift */,
 				72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */,
 				72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */,
 			);
@@ -205,7 +202,6 @@
 			files = (
 				72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */,
 				72766FAA2BC6809D00F8290F /* DSColors.swift in Sources */,
-				7218429A2BC8E54D003F402E /* DSButtonSize.swift in Sources */,
 				721842982BC8E525003F402E /* DSButtonType.swift in Sources */,
 				72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,

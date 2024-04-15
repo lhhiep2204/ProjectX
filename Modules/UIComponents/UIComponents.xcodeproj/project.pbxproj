@@ -16,6 +16,8 @@
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */; };
 		72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */; };
+		72EA978B2BCD05EF00178C6A /* DSText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA978A2BCD05EF00178C6A /* DSText.swift */; };
+		72EA978D2BCD083200178C6A /* DSTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA978C2BCD083200178C6A /* DSTextType.swift */; };
 		72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE4CD12BC7937000F2F77D /* Extensions.swift */; };
 		72FE4CD52BC7969100F2F77D /* DSColors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72FE4CD42BC7969100F2F77D /* DSColors.xcassets */; };
 /* End PBXBuildFile section */
@@ -31,6 +33,8 @@
 		72A5E82D2BA6EEF000C57E7A /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
 		72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
 		72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		72EA978A2BCD05EF00178C6A /* DSText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSText.swift; sourceTree = "<group>"; };
+		72EA978C2BCD083200178C6A /* DSTextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextType.swift; sourceTree = "<group>"; };
 		72FE4CD12BC7937000F2F77D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		72FE4CD42BC7969100F2F77D /* DSColors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DSColors.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,6 +97,23 @@
 			path = ButtonStyles;
 			sourceTree = "<group>";
 		};
+		72EA97892BCD05D300178C6A /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				72EA978E2BCD0FF000178C6A /* DSTextStype */,
+				72EA978A2BCD05EF00178C6A /* DSText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		72EA978E2BCD0FF000178C6A /* DSTextStype */ = {
+			isa = PBXGroup;
+			children = (
+				72EA978C2BCD083200178C6A /* DSTextType.swift */,
+			);
+			path = DSTextStype;
+			sourceTree = "<group>";
+		};
 		72FCF3FF2BB87EB0002823D3 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				72A5E84D2BA6F09200C57E7A /* Button */,
+				72EA97892BCD05D300178C6A /* Text */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -202,12 +224,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72EA978B2BCD05EF00178C6A /* DSText.swift in Sources */,
 				72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */,
 				72766FAA2BC6809D00F8290F /* DSColor.swift in Sources */,
 				721842982BC8E525003F402E /* DSButtonType.swift in Sources */,
 				72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,
 				7218429C2BCC2C37003F402E /* DSFont.swift in Sources */,
+				72EA978D2BCD083200178C6A /* DSTextType.swift in Sources */,
 				72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */,
 				721842C32BCCCD6F003F402E /* DSIcon.swift in Sources */,
 			);

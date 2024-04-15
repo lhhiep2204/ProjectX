@@ -12,6 +12,6 @@ class UIComponentsBundle { }
 
 extension Bundle {
     static var uiComponents: Bundle {
-        Bundle(for: UIComponentsBundle.self)
+        .init(for: UIComponentsBundle.self)
     }
 }

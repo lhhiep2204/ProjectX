@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721842BD2BCCCBE1003F402E /* MPLUSRounded1c-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 721842B92BCCCBE1003F402E /* MPLUSRounded1c-Bold.ttf */; };
+		721842BE2BCCCBE1003F402E /* MPLUSRounded1c-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 721842BA2BCCCBE1003F402E /* MPLUSRounded1c-Medium.ttf */; };
+		721842BF2BCCCBE1003F402E /* MPLUSRounded1c-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 721842BB2BCCCBE1003F402E /* MPLUSRounded1c-Regular.ttf */; };
 		725957F82B88CF6B006F7B8C /* ProjectXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725957F72B88CF6B006F7B8C /* ProjectXApp.swift */; };
 		725957FA2B88CF6B006F7B8C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725957F92B88CF6B006F7B8C /* ContentView.swift */; };
 		725957FC2B88CF6B006F7B8C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725957FB2B88CF6B006F7B8C /* Item.swift */; };
@@ -108,6 +111,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		721842A92BCC3713003F402E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		721842B92BCCCBE1003F402E /* MPLUSRounded1c-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUSRounded1c-Bold.ttf"; sourceTree = "<group>"; };
+		721842BA2BCCCBE1003F402E /* MPLUSRounded1c-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUSRounded1c-Medium.ttf"; sourceTree = "<group>"; };
+		721842BB2BCCCBE1003F402E /* MPLUSRounded1c-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MPLUSRounded1c-Regular.ttf"; sourceTree = "<group>"; };
 		725957F42B88CF6B006F7B8C /* ProjectX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725957F72B88CF6B006F7B8C /* ProjectXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectXApp.swift; sourceTree = "<group>"; };
 		725957F92B88CF6B006F7B8C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -167,6 +174,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721842AA2BCC3979003F402E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				725957FD2B88CF6C006F7B8C /* Assets.xcassets */,
+				721842BC2BCCCBE1003F402E /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		721842BC2BCCCBE1003F402E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				721842B92BCCCBE1003F402E /* MPLUSRounded1c-Bold.ttf */,
+				721842BA2BCCCBE1003F402E /* MPLUSRounded1c-Medium.ttf */,
+				721842BB2BCCCBE1003F402E /* MPLUSRounded1c-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		725957EB2B88CF6B006F7B8C = {
 			isa = PBXGroup;
 			children = (
@@ -197,7 +223,8 @@
 				72FEDA742B88DF2C000E8FF7 /* Networking */,
 				72FEDA6D2B88DEA1000E8FF7 /* Router */,
 				72FEDA7C2B88E02D000E8FF7 /* Features */,
-				725957FD2B88CF6C006F7B8C /* Assets.xcassets */,
+				721842AA2BCC3979003F402E /* Resources */,
+				721842A92BCC3713003F402E /* Info.plist */,
 				725957FF2B88CF6C006F7B8C /* ProjectX.entitlements */,
 				725958002B88CF6C006F7B8C /* Preview Content */,
 			);
@@ -525,9 +552,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				721842BE2BCCCBE1003F402E /* MPLUSRounded1c-Medium.ttf in Resources */,
 				725958022B88CF6C006F7B8C /* Preview Assets.xcassets in Resources */,
 				72FEDA8A2B88E556000E8FF7 /* Localizable.strings in Resources */,
+				721842BF2BCCCBE1003F402E /* MPLUSRounded1c-Regular.ttf in Resources */,
 				725957FE2B88CF6C006F7B8C /* Assets.xcassets in Resources */,
+				721842BD2BCCCBE1003F402E /* MPLUSRounded1c-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +760,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectX/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -769,6 +800,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ProjectX/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

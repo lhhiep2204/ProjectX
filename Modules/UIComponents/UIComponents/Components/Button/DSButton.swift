@@ -8,6 +8,7 @@
 import SwiftUI
 
 final class DSButtonObservable: ObservableObject {
+    @Published var image: Image? = nil
     @Published var shadow: CGFloat = 0
     @Published var loading: Bool = false
 }
@@ -16,8 +17,7 @@ public struct DSButton<S: ButtonStyle>: View {
     @ObservedObject private var object = DSButtonObservable()
 
     private let title: String?
-    private let image: String?
-    private let systemImage: String?
+    private let image: Image?
     private let style: S
     private let action: () -> Void
 
@@ -26,29 +26,15 @@ public struct DSButton<S: ButtonStyle>: View {
                 _ action: @escaping () -> Void) {
         self.title = title
         self.image = nil
-        self.systemImage = nil
         self.style = style
         self.action = action
     }
 
-    public init(_ title: String? = nil,
-                image: String,
+    public init(image: Image,
                 style: S,
                 _ action: @escaping () -> Void) {
-        self.title = title
+        self.title = nil
         self.image = image
-        self.systemImage = nil
-        self.style = style
-        self.action = action
-    }
-
-    public init(_ title: String? = nil,
-                systemImage: String,
-                style: S,
-                _ action: @escaping () -> Void) {
-        self.title = title
-        self.image = nil
-        self.systemImage = systemImage
         self.style = style
         self.action = action
     }
@@ -62,7 +48,7 @@ public struct DSButton<S: ButtonStyle>: View {
                     .tint(.appColor(.gray40))
             } else {
                 HStack {
-                    imageView
+                    image ?? object.image
                     titleView
                 }
             }
@@ -80,22 +66,14 @@ public struct DSButton<S: ButtonStyle>: View {
             Text(title)
         }
     }
-
-    @ViewBuilder
-    private var imageView: some View {
-        if let image = image {
-            Image(image)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-        }
-
-        if let systemImage = systemImage {
-            Image(systemName: systemImage)
-        }
-    }
 }
 
 public extension DSButton {
+    func image(_ image: Image) -> Self {
+        object.image = image
+        return self
+    }
+
     func shadow(_ radius: CGFloat = 5) -> Self {
         object.shadow = radius
         return self
@@ -112,8 +90,8 @@ public extension DSButton {
         VStack(spacing: 6) {
             Text("Filled")
             DSButton("Call to action",
-                     systemImage: "apple.logo",
                      style: .filled) {}
+                .image(.appIcon(.location))
                 .shadow()
         }
         VStack(spacing: 6) {
@@ -143,18 +121,18 @@ public extension DSButton {
         VStack(spacing: 6) {
             Text("Bordered - Small - Fit")
             DSButton("Call to action",
-                     systemImage: "apple.logo",
                      style: .borderedSmallFit) {}
+                .image(.appSystemIcon(.apple))
                 .shadow()
         }
         VStack(spacing: 6) {
             Text("Filled - Circle - Icon")
-            DSButton(systemImage: "apple.logo",
+            DSButton(image: .appIcon(.location),
                      style: .filledCircleIcon) {}
         }
         VStack(spacing: 6) {
             Text("Bordered - Icon")
-            DSButton(systemImage: "apple.logo",
+            DSButton(image: .appSystemIcon(.apple),
                      style: .borderedIcon) {}
                 .shadow()
         }

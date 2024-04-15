@@ -1,13 +1,13 @@
 //
-//  DSColors.swift
+//  DSColor.swift
 //  UIComponents
 //
 //  Created by Hoàng Hiệp Lê on 10/04/2024.
 //
 
-import Foundation
+import SwiftUI
 
-public enum AppColor: String {
+public enum DSColor: String {
     // MARK: - Background
     case backgroundPrimary = "background.primary"
     case backgroundSecondary = "background.secondary"
@@ -33,4 +33,10 @@ public enum AppColor: String {
 
     // MARK: - Other
     case divider = "divider"
+}
+
+public extension Color {
+    static func appColor(_ color: DSColor) -> Self {
+        .init(color.rawValue, bundle: .uiComponents)
+    }
 }

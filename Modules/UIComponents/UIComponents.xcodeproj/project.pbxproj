@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		721842982BC8E525003F402E /* DSButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721842972BC8E525003F402E /* DSButtonType.swift */; };
+		7218429C2BCC2C37003F402E /* DSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7218429B2BCC2C37003F402E /* DSFont.swift */; };
+		721842C12BCCCD43003F402E /* DSIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 721842C02BCCCD43003F402E /* DSIcons.xcassets */; };
+		721842C32BCCCD6F003F402E /* DSIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721842C22BCCCD6F003F402E /* DSIcon.swift */; };
 		72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */; };
-		72766FAA2BC6809D00F8290F /* DSColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72766FA92BC6809D00F8290F /* DSColors.swift */; };
+		72766FAA2BC6809D00F8290F /* DSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72766FA92BC6809D00F8290F /* DSColor.swift */; };
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */; };
 		72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */; };
@@ -19,8 +22,11 @@
 
 /* Begin PBXFileReference section */
 		721842972BC8E525003F402E /* DSButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonType.swift; sourceTree = "<group>"; };
+		7218429B2BCC2C37003F402E /* DSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFont.swift; sourceTree = "<group>"; };
+		721842C02BCCCD43003F402E /* DSIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DSIcons.xcassets; sourceTree = "<group>"; };
+		721842C22BCCCD6F003F402E /* DSIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSIcon.swift; sourceTree = "<group>"; };
 		72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonStyle.swift; sourceTree = "<group>"; };
-		72766FA92BC6809D00F8290F /* DSColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColors.swift; sourceTree = "<group>"; };
+		72766FA92BC6809D00F8290F /* DSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColor.swift; sourceTree = "<group>"; };
 		72A5E82A2BA6EEF000C57E7A /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A5E82D2BA6EEF000C57E7A /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
 		72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
@@ -40,14 +46,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72766FA82BC6808D00F8290F /* Color */ = {
-			isa = PBXGroup;
-			children = (
-				72766FA92BC6809D00F8290F /* DSColors.swift */,
-			);
-			path = Color;
-			sourceTree = "<group>";
-		};
 		72A5E8202BA6EEF000C57E7A = {
 			isa = PBXGroup;
 			children = (
@@ -98,7 +96,9 @@
 		72FCF3FF2BB87EB0002823D3 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				72766FA82BC6808D00F8290F /* Color */,
+				72766FA92BC6809D00F8290F /* DSColor.swift */,
+				7218429B2BCC2C37003F402E /* DSFont.swift */,
+				721842C22BCCCD6F003F402E /* DSIcon.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -115,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				72FE4CD42BC7969100F2F77D /* DSColors.xcassets */,
+				721842C02BCCCD43003F402E /* DSIcons.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -190,6 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72FE4CD52BC7969100F2F77D /* DSColors.xcassets in Resources */,
+				721842C12BCCCD43003F402E /* DSIcons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,11 +203,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */,
-				72766FAA2BC6809D00F8290F /* DSColors.swift in Sources */,
+				72766FAA2BC6809D00F8290F /* DSColor.swift in Sources */,
 				721842982BC8E525003F402E /* DSButtonType.swift in Sources */,
 				72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,
+				7218429C2BCC2C37003F402E /* DSFont.swift in Sources */,
 				72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */,
+				721842C32BCCCD6F003F402E /* DSIcon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

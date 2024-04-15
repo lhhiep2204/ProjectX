@@ -5,15 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 11/04/2024.
 //
 
-import Extensions
-import SwiftUI
-
-// MARK: - Color
-public extension Color {
-    static func appColor(_ named: AppColor) -> Color {
-        return .init(named.rawValue, bundle: .uiComponents)
-    }
-}
+import Foundation
 
 // MARK: - Bundle
 class UIComponentsBundle { }

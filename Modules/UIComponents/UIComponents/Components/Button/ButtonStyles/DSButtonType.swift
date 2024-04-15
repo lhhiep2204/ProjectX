@@ -55,8 +55,8 @@ public enum DSButtonSize: Equatable {
 
     var fontSize: Font {
         switch self {
-        case .small: .system(size: 12, weight: .bold)
-        case .medium: .system(size: 16, weight: .bold)
+        case .small: .appFont(.bold(12))
+        case .medium: .appFont(.bold(16))
         }
     }
 

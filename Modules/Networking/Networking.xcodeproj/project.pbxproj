@@ -10,7 +10,6 @@
 		723C85202BAFEBA60001DE10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C851F2BAFEBA60001DE10 /* Extensions.swift */; };
 		724AB3CC2B89B621008EDD6F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 724AB3CB2B89B621008EDD6F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		728D2A892B96CA2600B98877 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 728D2A882B96CA2600B98877 /* Alamofire */; };
-		728D2A8B2B96CA2600B98877 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 728D2A8A2B96CA2600B98877 /* AlamofireDynamic */; };
 		72A5E81F2BA5986A00C57E7A /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E81E2BA5986A00C57E7A /* NetworkLogger.swift */; };
 		72B49BC92B89B6E1008DD228 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49BC82B89B6E1008DD228 /* BaseService.swift */; };
 		72B49BCF2B89B709008DD228 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49BCC2B89B709008DD228 /* RefreshTokenRequest.swift */; };
@@ -35,7 +34,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				728D2A892B96CA2600B98877 /* Alamofire in Frameworks */,
-				728D2A8B2B96CA2600B98877 /* AlamofireDynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +100,7 @@
 				724AB3C42B89B621008EDD6F /* Sources */,
 				724AB3C52B89B621008EDD6F /* Frameworks */,
 				724AB3C62B89B621008EDD6F /* Resources */,
+				722F6F2A2BCE262B00E0BFAA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -110,7 +109,6 @@
 			name = Networking;
 			packageProductDependencies = (
 				728D2A882B96CA2600B98877 /* Alamofire */,
-				728D2A8A2B96CA2600B98877 /* AlamofireDynamic */,
 			);
 			productName = Networking;
 			productReference = 724AB3C82B89B621008EDD6F /* Networking.framework */;
@@ -423,11 +421,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 728D2A872B96CA2600B98877 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
-		};
-		728D2A8A2B96CA2600B98877 /* AlamofireDynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 728D2A872B96CA2600B98877 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

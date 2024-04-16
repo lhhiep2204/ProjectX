@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum Route {
-    case home
+    case home, button, text
 }
 
 extension Route: View, Hashable {
@@ -16,7 +16,20 @@ extension Route: View, Hashable {
     var body: some View {
         switch self {
         case .home:
-            ContentView()
+            ComponentView()
+                .navigationTitle("Components")
+        case .button:
+            ButtonView()
+                .navigationTitle("Button")
+#if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+#endif
+        case .text:
+            TextView()
+                .navigationTitle("Text")
+#if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+#endif
         }
     }
 }

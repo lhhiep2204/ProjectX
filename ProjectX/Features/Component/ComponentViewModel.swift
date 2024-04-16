@@ -1,5 +1,5 @@
 //
-//  ContentViewModel.swift
+//  ComponentViewModel.swift
 //  ProjectX
 //
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
@@ -8,7 +8,12 @@
 import Combine
 import Utilities
 
-class ContentViewModel: BaseViewModel {
+enum Component: String, CaseIterable {
+    case button = "Button"
+    case text = "Text"
+}
+
+class ComponentViewModel: BaseViewModel {
     enum State {
         case initial
         case fetchDataSuccess
@@ -23,6 +28,8 @@ class ContentViewModel: BaseViewModel {
     let intent = PassthroughSubject<Intent, Never>()
 
     private let service: ISampleService
+
+    let components = Component.allCases
 
     init(service: ISampleService = SampleService()) {
         self.service = service
@@ -40,7 +47,7 @@ class ContentViewModel: BaseViewModel {
 }
 
 // MARK: - Actions
-extension ContentViewModel {
+extension ComponentViewModel {
     private func handleAction(_ action: Intent) {
         switch action {
         case .fetchData:
@@ -50,7 +57,7 @@ extension ContentViewModel {
 }
 
 // MARK: - Methods
-extension ContentViewModel {
+extension ComponentViewModel {
     private func fetchData() {
         getData()
     }

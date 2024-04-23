@@ -11,6 +11,7 @@ import Utilities
 enum Component: String, CaseIterable {
     case button = "Button"
     case text = "Text"
+    case textfield = "TextField"
 }
 
 class ComponentViewModel: BaseViewModel {

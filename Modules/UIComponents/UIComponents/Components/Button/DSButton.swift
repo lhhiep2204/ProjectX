@@ -8,9 +8,10 @@
 import SwiftUI
 
 final class DSButtonObservable: ObservableObject {
+    @Published var disabled: Bool = false
     @Published var image: Image? = nil
-    @Published var shadow: CGFloat = 0
     @Published var loading: Bool = false
+    @Published var shadow: CGFloat = 0
 }
 
 public struct DSButton<S: ButtonStyle>: View {
@@ -57,7 +58,7 @@ public struct DSButton<S: ButtonStyle>: View {
         .if(object.shadow > 0) {
             $0.shadow(radius: object.shadow, y: 3)
         }
-        .disabled(object.loading)
+        .disabled(object.disabled || object.loading)
     }
 
     @ViewBuilder
@@ -69,18 +70,23 @@ public struct DSButton<S: ButtonStyle>: View {
 }
 
 public extension DSButton {
+    func disabled(_ disabled: Bool) -> Self {
+        object.disabled = disabled
+        return self
+    }
+
     func image(_ image: Image) -> Self {
         object.image = image
         return self
     }
 
-    func shadow(_ radius: CGFloat = 5) -> Self {
-        object.shadow = radius
+    func loading(_ state: Bool) -> Self {
+        object.loading = state
         return self
     }
 
-    func loading(_ state: Bool) -> Self {
-        object.loading = state
+    func shadow(_ radius: CGFloat = 5) -> Self {
+        object.shadow = radius
         return self
     }
 }
@@ -105,6 +111,7 @@ public extension DSButton {
             DSButton("Call to action",
                      style: .filledDestructiveSmallFit) {}
                 .shadow()
+                .disabled(true)
         }
         VStack(spacing: 6) {
             Text("Bordered - Destructive")

@@ -40,6 +40,7 @@ struct ComponentView: View {
                 switch component {
                 case .button: routerManager.push(.button)
                 case .text: routerManager.push(.text)
+                case .textfield: routerManager.push(.textfield)
                 }
             }
         }

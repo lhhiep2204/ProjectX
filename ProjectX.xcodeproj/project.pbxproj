@@ -28,6 +28,7 @@
 		725958922B88D140006F7B8C /* Utilities.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7259588A2B88D122006F7B8C /* Utilities.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72A5E8492BA6EF3A00C57E7A /* UIComponents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5E8482BA6EF2D00C57E7A /* UIComponents.framework */; };
 		72A5E84A2BA6EF3A00C57E7A /* UIComponents.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72A5E8482BA6EF2D00C57E7A /* UIComponents.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		72ADB9C82BCE90420043B97A /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADB9C72BCE90420043B97A /* TextFieldView.swift */; };
 		72B49BCA2B89B6EB008DD228 /* Networking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72B49BC72B89B6AB008DD228 /* Networking.framework */; };
 		72B49BCB2B89B6EB008DD228 /* Networking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 72B49BC72B89B6AB008DD228 /* Networking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		72FEDA732B88DF08000E8FF7 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FEDA722B88DF08000E8FF7 /* Route.swift */; };
@@ -135,6 +136,7 @@
 		7259587F2B88D11A006F7B8C /* Router.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Router.xcodeproj; path = Modules/Router/Router.xcodeproj; sourceTree = "<group>"; };
 		725958852B88D122006F7B8C /* Utilities.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Utilities.xcodeproj; path = Modules/Utilities/Utilities.xcodeproj; sourceTree = "<group>"; };
 		72A5E8432BA6EF2D00C57E7A /* UIComponents.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = UIComponents.xcodeproj; path = Modules/UIComponents/UIComponents.xcodeproj; sourceTree = "<group>"; };
+		72ADB9C72BCE90420043B97A /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		72B49BC22B89B6AA008DD228 /* Networking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Networking.xcodeproj; path = Modules/Networking/Networking.xcodeproj; sourceTree = "<group>"; };
 		72FEDA722B88DF08000E8FF7 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		72FEDA752B88DF43000E8FF7 /* SampleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRequest.swift; sourceTree = "<group>"; };
@@ -336,6 +338,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		72ADB9C12BCE902B0043B97A /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				72ADB9C72BCE90420043B97A /* TextFieldView.swift */,
+			);
+			path = TextField;
+			sourceTree = "<group>";
+		};
 		72B49BC32B89B6AA008DD228 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -378,6 +388,7 @@
 				722F6F2B2BCE28AA00E0BFAA /* Component */,
 				722F6F1E2BCE17AE00E0BFAA /* Button */,
 				722F6F262BCE194800E0BFAA /* Text */,
+				72ADB9C12BCE902B0043B97A /* TextField */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -623,6 +634,7 @@
 				72FEDA812B88E0DF000E8FF7 /* ComponentViewModel.swift in Sources */,
 				72FEDA7F2B88E09A000E8FF7 /* BaseViewModel.swift in Sources */,
 				722F6F252BCE17C000E0BFAA /* ButtonView.swift in Sources */,
+				72ADB9C82BCE90420043B97A /* TextFieldView.swift in Sources */,
 				725957FC2B88CF6B006F7B8C /* Item.swift in Sources */,
 				72FEDA862B88E4B3000E8FF7 /* Message.swift in Sources */,
 				725957F82B88CF6B006F7B8C /* ProjectXApp.swift in Sources */,

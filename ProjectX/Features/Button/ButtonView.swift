@@ -5,8 +5,8 @@
 //  Created by Hoàng Hiệp Lê on 16/4/24.
 //
 
-import UIComponents
 import SwiftUI
+import UIComponents
 
 struct ButtonView: View {
     var body: some View {
@@ -30,6 +30,7 @@ struct ButtonView: View {
                     DSButton("Call to action",
                              style: .filledDestructiveSmallFit) {}
                         .shadow()
+                        .disabled(true)
                 }
                 VStack(spacing: 6) {
                     Text("Bordered - Destructive")

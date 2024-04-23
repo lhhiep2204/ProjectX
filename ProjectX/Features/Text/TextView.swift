@@ -5,8 +5,8 @@
 //  Created by Hoàng Hiệp Lê on 16/4/24.
 //
 
-import UIComponents
 import SwiftUI
+import UIComponents
 
 struct TextView: View {
     var body: some View {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 enum Route {
-    case home, button, text
+    case home, button, text, textfield
 }
 
 extension Route: View, Hashable {
@@ -27,6 +27,12 @@ extension Route: View, Hashable {
         case .text:
             TextView()
                 .navigationTitle("Text")
+#if os(iOS)
+                .navigationBarTitleDisplayMode(.inline)
+#endif
+        case .textfield:
+            TextFieldView()
+                .navigationTitle("TextField")
 #if os(iOS)
                 .navigationBarTitleDisplayMode(.inline)
 #endif

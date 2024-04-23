@@ -13,6 +13,9 @@ public enum DSIcon: String {
 
 public enum DSSystemIcon: String {
     case apple = "apple.logo"
+    case clearText = "multiply.circle.fill"
+    case passwordShown = "eye"
+    case passwordHidden = "eye.slash"
 }
 
 public extension Image {

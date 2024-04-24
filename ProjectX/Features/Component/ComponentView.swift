@@ -39,6 +39,7 @@ struct ComponentView: View {
             .onTapGesture {
                 switch component {
                 case .button: routerManager.push(.button)
+                case .dialog: routerManager.push(.dialog)
                 case .text: routerManager.push(.text)
                 case .textfield: routerManager.push(.textfield)
                 }

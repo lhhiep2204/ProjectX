@@ -46,7 +46,7 @@ public struct DSButton<S: ButtonStyle>: View {
         } label: {
             if object.loading {
                 ProgressView()
-                    .tint(.appColor(.gray40))
+                    .tint(.appColor(.backgroundSecondaryReverse))
             } else {
                 HStack {
                     image ?? object.image

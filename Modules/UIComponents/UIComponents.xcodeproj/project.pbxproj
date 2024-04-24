@@ -13,11 +13,13 @@
 		721842C32BCCCD6F003F402E /* DSIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721842C22BCCCD6F003F402E /* DSIcon.swift */; };
 		72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */; };
 		72766FAA2BC6809D00F8290F /* DSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72766FA92BC6809D00F8290F /* DSColor.swift */; };
+		728E55A42BD789D800193806 /* DSDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E55A32BD789D800193806 /* DSDialog.swift */; };
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */; };
 		72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */; };
 		72ADB9B92BCE4CDA0043B97A /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADB9B82BCE4CDA0043B97A /* DSTextField.swift */; };
 		72ADB9C02BCE740A0043B97A /* DSTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADB9BF2BCE740A0043B97A /* DSTextFieldType.swift */; };
+		72B200602BD78C6A00CC836B /* DSDialogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2005F2BD78C6A00CC836B /* DSDialogType.swift */; };
 		72EA978B2BCD05EF00178C6A /* DSText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA978A2BCD05EF00178C6A /* DSText.swift */; };
 		72EA978D2BCD083200178C6A /* DSTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA978C2BCD083200178C6A /* DSTextType.swift */; };
 		72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE4CD12BC7937000F2F77D /* Extensions.swift */; };
@@ -31,12 +33,14 @@
 		721842C22BCCCD6F003F402E /* DSIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSIcon.swift; sourceTree = "<group>"; };
 		72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonStyle.swift; sourceTree = "<group>"; };
 		72766FA92BC6809D00F8290F /* DSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColor.swift; sourceTree = "<group>"; };
+		728E55A32BD789D800193806 /* DSDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDialog.swift; sourceTree = "<group>"; };
 		72A5E82A2BA6EEF000C57E7A /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A5E82D2BA6EEF000C57E7A /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
 		72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButton.swift; sourceTree = "<group>"; };
 		72A5E8512BA6F39000C57E7A /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		72ADB9B82BCE4CDA0043B97A /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
 		72ADB9BF2BCE740A0043B97A /* DSTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextFieldType.swift; sourceTree = "<group>"; };
+		72B2005F2BD78C6A00CC836B /* DSDialogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDialogType.swift; sourceTree = "<group>"; };
 		72EA978A2BCD05EF00178C6A /* DSText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSText.swift; sourceTree = "<group>"; };
 		72EA978C2BCD083200178C6A /* DSTextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextType.swift; sourceTree = "<group>"; };
 		72FE4CD12BC7937000F2F77D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -54,6 +58,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		728E55A22BD789C200193806 /* Dialog */ = {
+			isa = PBXGroup;
+			children = (
+				72B2005E2BD78C5100CC836B /* DSDialogStyle */,
+				728E55A32BD789D800193806 /* DSDialog.swift */,
+			);
+			path = Dialog;
+			sourceTree = "<group>";
+		};
 		72A5E8202BA6EEF000C57E7A = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +131,14 @@
 			path = TextFieldStyle;
 			sourceTree = "<group>";
 		};
+		72B2005E2BD78C5100CC836B /* DSDialogStyle */ = {
+			isa = PBXGroup;
+			children = (
+				72B2005F2BD78C6A00CC836B /* DSDialogType.swift */,
+			);
+			path = DSDialogStyle;
+			sourceTree = "<group>";
+		};
 		72EA97892BCD05D300178C6A /* Text */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				72A5E84D2BA6F09200C57E7A /* Button */,
+				728E55A22BD789C200193806 /* Dialog */,
 				72EA97892BCD05D300178C6A /* Text */,
 				72ADB9B72BCE4CBF0043B97A /* TextField */,
 			);
@@ -256,8 +278,10 @@
 				7218429C2BCC2C37003F402E /* DSFont.swift in Sources */,
 				72EA978D2BCD083200178C6A /* DSTextType.swift in Sources */,
 				72ADB9B92BCE4CDA0043B97A /* DSTextField.swift in Sources */,
+				72B200602BD78C6A00CC836B /* DSDialogType.swift in Sources */,
 				72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */,
 				721842C32BCCCD6F003F402E /* DSIcon.swift in Sources */,
+				728E55A42BD789D800193806 /* DSDialog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

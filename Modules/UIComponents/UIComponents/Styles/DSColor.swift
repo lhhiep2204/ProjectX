@@ -10,7 +10,9 @@ import SwiftUI
 public enum DSColor: String {
     // MARK: - Background
     case backgroundPrimary = "background.primary"
+    case backgroundPrimaryReverse = "background.primary.reverse"
     case backgroundSecondary = "background.secondary"
+    case backgroundSecondaryReverse = "background.secondary.reverse"
 
     // MARK: - Text
     case textPrimary = "text.primary"
@@ -18,10 +20,6 @@ public enum DSColor: String {
 
     // MARK: - Shade
     case blue10 = "blue.10"
-    case blue20 = "blue.20"
-    case blue40 = "blue.40"
-    case blue60 = "blue.60"
-    case blue80 = "blue.80"
     case blue100 = "blue.100"
 
     case gray10 = "gray.10"

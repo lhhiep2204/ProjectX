@@ -10,6 +10,7 @@ import Utilities
 
 enum Component: String, CaseIterable {
     case button = "Button"
+    case dialog = "Dialog"
     case text = "Text"
     case textfield = "TextField"
 }

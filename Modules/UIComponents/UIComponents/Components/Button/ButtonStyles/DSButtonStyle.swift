@@ -17,7 +17,7 @@ public struct DSButtonStyle: ButtonStyle {
 
     public init(type: DSButtonType,
                 primaryColor: Color = .appColor(.blue100),
-                secondaryColor: Color = .white) {
+                secondaryColor: Color = .appColor(.backgroundPrimary)) {
         self.type = type
         self.primaryColor = primaryColor
         self.secondaryColor = secondaryColor

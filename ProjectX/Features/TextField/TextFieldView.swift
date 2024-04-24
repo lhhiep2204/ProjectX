@@ -20,6 +20,7 @@ struct TextFieldView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 16) {
+                Spacer()
                 DSTextField(.constant("Username"),
                             text: $text)
                 .label("Username")
@@ -55,6 +56,7 @@ struct TextFieldView: View {
                 .bordered()
                 .description("Description text")
                 .focused($editing)
+                Spacer()
             }
             .padding()
         }

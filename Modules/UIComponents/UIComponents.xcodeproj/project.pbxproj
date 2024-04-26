@@ -20,6 +20,7 @@
 		72ADB9B92BCE4CDA0043B97A /* DSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADB9B82BCE4CDA0043B97A /* DSTextField.swift */; };
 		72ADB9C02BCE740A0043B97A /* DSTextFieldType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADB9BF2BCE740A0043B97A /* DSTextFieldType.swift */; };
 		72B200602BD78C6A00CC836B /* DSDialogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B2005F2BD78C6A00CC836B /* DSDialogType.swift */; };
+		72B2006A2BDA379500CC836B /* DSConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B200692BDA379500CC836B /* DSConstants.swift */; };
 		72EA978B2BCD05EF00178C6A /* DSText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA978A2BCD05EF00178C6A /* DSText.swift */; };
 		72EA978D2BCD083200178C6A /* DSTextType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72EA978C2BCD083200178C6A /* DSTextType.swift */; };
 		72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FE4CD12BC7937000F2F77D /* Extensions.swift */; };
@@ -41,6 +42,7 @@
 		72ADB9B82BCE4CDA0043B97A /* DSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextField.swift; sourceTree = "<group>"; };
 		72ADB9BF2BCE740A0043B97A /* DSTextFieldType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextFieldType.swift; sourceTree = "<group>"; };
 		72B2005F2BD78C6A00CC836B /* DSDialogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDialogType.swift; sourceTree = "<group>"; };
+		72B200692BDA379500CC836B /* DSConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSConstants.swift; sourceTree = "<group>"; };
 		72EA978A2BCD05EF00178C6A /* DSText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSText.swift; sourceTree = "<group>"; };
 		72EA978C2BCD083200178C6A /* DSTextType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSTextType.swift; sourceTree = "<group>"; };
 		72FE4CD12BC7937000F2F77D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -162,6 +164,7 @@
 				72766FA92BC6809D00F8290F /* DSColor.swift */,
 				7218429B2BCC2C37003F402E /* DSFont.swift */,
 				721842C22BCCCD6F003F402E /* DSIcon.swift */,
+				72B200692BDA379500CC836B /* DSConstants.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 				72766FAA2BC6809D00F8290F /* DSColor.swift in Sources */,
 				721842982BC8E525003F402E /* DSButtonType.swift in Sources */,
 				72A5E8522BA6F39000C57E7A /* ButtonStyle.swift in Sources */,
+				72B2006A2BDA379500CC836B /* DSConstants.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,
 				7218429C2BCC2C37003F402E /* DSFont.swift in Sources */,
 				72EA978D2BCD083200178C6A /* DSTextType.swift in Sources */,

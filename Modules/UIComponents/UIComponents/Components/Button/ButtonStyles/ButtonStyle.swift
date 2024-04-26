@@ -39,11 +39,11 @@ public extension ButtonStyle where Self == DSButtonStyle {
 
 // MARK: - IconButtonStyle
 public extension ButtonStyle where Self == DSButtonStyle {
-    static var filledCircleIcon: DSButtonStyle {
-        DSButtonStyle(type: .icon(.circle(.filled(.medium(.fill)))))
+    static var borderedCircleSmallIcon: DSButtonStyle {
+        DSButtonStyle(type: .icon(.circle(.bordered(.small(.fill)))))
     }
 
-    static var borderedIcon: DSButtonStyle {
-        DSButtonStyle(type: .icon(.normal(.bordered(.medium(.fill)))))
+    static var filledIcon: DSButtonStyle {
+        DSButtonStyle(type: .icon(.normal(.filled(.medium(.fill)))))
     }
 }

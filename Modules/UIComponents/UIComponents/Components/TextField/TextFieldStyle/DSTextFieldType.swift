@@ -42,13 +42,13 @@ struct DSTextFieldStyle: ViewModifier {
                 $0.frame(height: 44)
             }
             .if(object.axis == .vertical) {
-                $0.padding(.vertical, 12)
+                $0.padding(.vertical, DSConstants.Spacing.spacing12)
             }
-            .padding(.trailing, 16)
+            .padding(.trailing, DSConstants.Spacing.spacing16)
             .focused(editing)
             .disabled(object.disabled)
             .if(object.image == nil) {
-                $0.padding(.leading, 16)
+                $0.padding(.leading, DSConstants.Spacing.spacing16)
             }
     }
 }

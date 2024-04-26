@@ -37,12 +37,12 @@ public struct DSButtonStyle: ButtonStyle {
             .background(isBordered ? secondaryColor : primaryColor)
             .if(isBordered) {
                 $0.overlay(
-                    RoundedRectangle(cornerRadius: isCircleIcon ? type.height / 2 : 8)
+                    RoundedRectangle(cornerRadius: isCircleIcon ? type.height / 2 : DSConstants.Radius.large)
                         .strokeBorder(lineWidth: 2)
                         .foregroundStyle(isBordered ? primaryColor : secondaryColor)
                 )
             }
-            .clipShape(RoundedRectangle(cornerRadius: isCircleIcon ? type.height / 2 : 8))
+            .clipShape(RoundedRectangle(cornerRadius: isCircleIcon ? type.height / 2 : DSConstants.Radius.large))
             .opacity(configuration.isPressed || !isEnabled ? 0.85 : 1)
     }
 }

@@ -14,7 +14,7 @@ struct DialogView: View {
     @State private var showOptionDialog: Bool = false
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: DSConstants.Spacing.spacing16) {
             DSButton("Show dialog", style: .filled) {
                 withAnimation {
                     showDialog = true

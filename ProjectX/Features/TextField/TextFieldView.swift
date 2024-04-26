@@ -19,7 +19,7 @@ struct TextFieldView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 16) {
+            VStack(spacing: DSConstants.Spacing.spacing16) {
                 Spacer()
                 DSTextField(.constant("Username"),
                             text: $text)

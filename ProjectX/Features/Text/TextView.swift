@@ -10,7 +10,7 @@ import UIComponents
 
 struct TextView: View {
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: DSConstants.Spacing.spacing16) {
             DSText("Default")
             DSText("Bold - Large")
                 .type(.bold(.large))
@@ -23,11 +23,11 @@ struct TextView: View {
                 .color(.appColor(.blue100))
             DSText("This is a very very very very very very long Bold - Medium")
                 .type(.bold(.medium))
-            DSText("This is a very very very very very very long Medium - Small")
+            DSText("This is a very very very very very very very very very long Medium - Small")
                 .type(.medium(.small))
                 .lineLimit(1)
         }
-        .padding(.horizontal, 80)
+        .padding(.horizontal, DSConstants.Spacing.spacing40)
     }
 }
 

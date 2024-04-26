@@ -28,7 +28,7 @@ public struct DSDialog: View {
     }
 
     public var body: some View {
-        VStack(spacing: 8) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             titleView
             subtitleView
             imageView
@@ -36,11 +36,11 @@ public struct DSDialog: View {
                 .padding(.top)
         }
         .frame(maxWidth: 300)
-        .padding(24)
+        .padding(DSConstants.Spacing.spacing24)
         .background(.backgroundPrimary)
-        .cornerRadius(16)
-        .shadow(radius: 16, y: 3)
-        .padding(24)
+        .cornerRadius(DSConstants.Radius.xxLarge)
+        .shadow(radius: DSConstants.Radius.xxLarge, y: 3)
+        .padding(DSConstants.Spacing.spacing24)
     }
 
     @ViewBuilder
@@ -116,7 +116,7 @@ public struct DSDialog: View {
 
 #Preview {
     ScrollView {
-        VStack(spacing: 16) {
+        VStack(spacing: DSConstants.Spacing.spacing16) {
             DSDialog(.constant(true),
                      title: "Dialog",
                      subtitle: "Dialog text goes here",

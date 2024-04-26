@@ -85,62 +85,62 @@ public extension DSButton {
         return self
     }
 
-    func shadow(_ radius: CGFloat = 5) -> Self {
+    func shadow(_ radius: CGFloat = DSConstants.Radius.medium) -> Self {
         object.shadow = radius
         return self
     }
 }
 
 #Preview {
-    VStack(spacing: 16) {
-        VStack(spacing: 6) {
+    VStack(spacing: DSConstants.Spacing.spacing16) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Filled")
             DSButton("Call to action",
                      style: .filled) {}
                 .image(.appIcon(.location))
                 .shadow()
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Bordered - Loading")
             DSButton("Call to action",
                      style: .bordered) {}
                 .loading(true)
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Filled - Destructive - Small - Fit")
             DSButton("Call to action",
                      style: .filledDestructiveSmallFit) {}
                 .shadow()
                 .disabled(true)
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Bordered - Destructive")
             DSButton("Call to action",
                      style: .borderedDestructive) {}
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Filled - Small")
             DSButton("Call to action",
                      style: .filledSmall) {}
                 .loading(true)
                 .frame(width: 160)
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Bordered - Small - Fit")
             DSButton("Call to action",
                      style: .borderedSmallFit) {}
                 .image(.appSystemIcon(.apple))
                 .shadow()
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Filled - Circle - Icon")
-            DSButton(image: .appIcon(.location),
-                     style: .filledCircleIcon) {}
+            DSButton(image: .appSystemIcon(.apple),
+                     style: .borderedCircleSmallIcon) {}
         }
-        VStack(spacing: 6) {
+        VStack(spacing: DSConstants.Spacing.spacing8) {
             Text("Bordered - Icon")
             DSButton(image: .appSystemIcon(.apple),
-                     style: .borderedIcon) {}
+                     style: .filledIcon) {}
                 .shadow()
         }
     }

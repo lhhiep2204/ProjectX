@@ -7,31 +7,33 @@
 
 import Router
 import SwiftUI
-import SwiftData
+import UIComponents
+import Utilities
 
 @main
 struct ProjectXApp: App {
     // MARK: - Properties
-    private var routerManager: RouterManager<Route> = .init(root: .home)
+    private var routerManager: RouterManager<Route> = .init(root: .features)
+    @StateObject private var languageManager = LanguageManager()
+    @StateObject private var themeManager = ThemeManager()
 
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+#if os(iOS)
+    init() {
+        guard let largeTitleFont = UIFont(name: "RoundedMplus1c-Bold", size: 34),
+              let titleFont = UIFont(name: "RoundedMplus1c-Bold", size: 17) else { return }
 
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: largeTitleFont]
+        UINavigationBar.appearance().titleTextAttributes = [.font: titleFont]
+    }
+#endif
 
     var body: some Scene {
         WindowGroup {
             RouterView(routerManager)
                 .tint(.appColor(.blue100))
+                .preferredColorScheme(themeManager.currentTheme.colorScheme)
         }
-        .modelContainer(sharedModelContainer)
+        .environmentObject(languageManager)
+        .environmentObject(themeManager)
     }
 }

@@ -14,24 +14,26 @@ struct DialogView: View {
     @State private var showOptionDialog: Bool = false
 
     var body: some View {
-        VStack(spacing: DSConstants.Spacing.spacing16) {
-            DSButton("Show dialog", style: .filled) {
-                withAnimation {
-                    showDialog = true
+        ScrollView {
+            VStack(spacing: DSConstants.Spacing.spacing16) {
+                DSButton("Show dialog", style: .filled) {
+                    withAnimation {
+                        showDialog = true
+                    }
+                }
+                DSButton("Show confirmation dialog", style: .filled) {
+                    withAnimation {
+                        showConfirmationDialog = true
+                    }
+                }
+                DSButton("Show option dialog", style: .filled) {
+                    withAnimation {
+                        showOptionDialog = true
+                    }
                 }
             }
-            DSButton("Show confirmation dialog", style: .filled) {
-                withAnimation {
-                    showConfirmationDialog = true
-                }
-            }
-            DSButton("Show option dialog", style: .filled) {
-                withAnimation {
-                    showOptionDialog = true
-                }
-            }
+            .padding()
         }
-        .padding(.horizontal)
         .showDialog($showDialog,
                     title: "Dialog",
                     button: .init(title: "Call to action",

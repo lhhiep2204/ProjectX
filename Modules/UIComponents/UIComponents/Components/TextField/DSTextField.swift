@@ -11,6 +11,9 @@ final class DSTextFieldObservable: ObservableObject {
     @Published var axis: Axis = .horizontal
     @Published var disabled: Bool = false
     @Published var description: String = .empty
+#if os(iOS)
+    @Published var keyboardType: UIKeyboardType = .default
+#endif
     @Published var label: String = .empty
     @Published var lineLimit: Int = 2
     @Published var image: Image? = nil
@@ -88,10 +91,16 @@ public struct DSTextField: View {
             if isSecure && !showPassword {
                 SecureField(placeholder, text: $text)
                     .configureTextField(object, editing: $editing)
+#if os(iOS)
+                    .keyboardType(object.keyboardType)
+#endif
             } else {
                 TextField(placeholder, text: $text, axis: object.axis)
                     .lineLimit(object.lineLimit, reservesSpace: true)
                     .configureTextField(object, editing: $editing)
+#if os(iOS)
+                    .keyboardType(object.keyboardType)
+#endif
             }
 
             if object.axis == .horizontal && editing && !text.isEmpty {
@@ -180,6 +189,13 @@ public extension DSTextField {
         return self
     }
 
+#if os(iOS)
+    func keyboardType(_ type: UIKeyboardType) -> Self {
+        object.keyboardType = type
+        return self
+    }
+#endif
+
     func multiline(lineLimit: Int = 5) -> Self {
         object.axis = .vertical
         object.lineLimit = lineLimit
@@ -192,10 +208,16 @@ public extension DSTextField {
         DSTextField(.constant("Username"),
                     text: .constant(""))
         .label("Username")
+#if os(iOS)
+        .keyboardType(.emailAddress)
+#endif
         DSTextField(.constant("Password"),
                     text: .constant(""),
                     isSecure: true)
         .label("Password")
+#if os(iOS)
+        .keyboardType(.numberPad)
+#endif
         DSTextField(.constant("Text placeholder"),
                     text: .constant(""))
         .image(.appSystemIcon(.apple))

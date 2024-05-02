@@ -20,15 +20,20 @@ struct TextFieldView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: DSConstants.Spacing.spacing16) {
-                Spacer()
                 DSTextField(.constant("Username"),
                             text: $text)
                 .label("Username")
+#if os(iOS)
+                .keyboardType(.emailAddress)
+#endif
                 .focused($focusField, equals: .username)
                 DSTextField(.constant("Password"),
                             text: $text,
                             isSecure: true)
                 .label("Password")
+#if os(iOS)
+                .keyboardType(.numberPad)
+#endif
                 .focused($focusField, equals: .password)
                 DSTextField(.constant("Text placeholder"),
                             text: $text)
@@ -56,7 +61,6 @@ struct TextFieldView: View {
                 .bordered()
                 .description("Description text")
                 .focused($editing)
-                Spacer()
             }
             .padding()
         }

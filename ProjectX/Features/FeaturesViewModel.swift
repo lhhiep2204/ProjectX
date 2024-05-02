@@ -1,5 +1,5 @@
 //
-//  ComponentViewModel.swift
+//  FeaturesViewModel.swift
 //  ProjectX
 //
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
@@ -8,14 +8,24 @@
 import Combine
 import Utilities
 
+enum Features: String, CaseIterable {
+    case components = "Components"
+    case settings = "Settings"
+}
+
 enum Component: String, CaseIterable {
     case button = "Button"
     case dialog = "Dialog"
     case text = "Text"
-    case textfield = "TextField"
+    case textField = "TextField"
 }
 
-class ComponentViewModel: BaseViewModel {
+enum Setting: String, CaseIterable {
+    case language = "Language"
+    case theme = "Theme"
+}
+
+class FeaturesViewModel: BaseViewModel {
     enum State {
         case initial
         case fetchDataSuccess
@@ -30,8 +40,6 @@ class ComponentViewModel: BaseViewModel {
     let intent = PassthroughSubject<Intent, Never>()
 
     private let service: ISampleService
-
-    let components = Component.allCases
 
     init(service: ISampleService = SampleService()) {
         self.service = service
@@ -49,7 +57,7 @@ class ComponentViewModel: BaseViewModel {
 }
 
 // MARK: - Actions
-extension ComponentViewModel {
+extension FeaturesViewModel {
     private func handleAction(_ action: Intent) {
         switch action {
         case .fetchData:
@@ -59,7 +67,7 @@ extension ComponentViewModel {
 }
 
 // MARK: - Methods
-extension ComponentViewModel {
+extension FeaturesViewModel {
     private func fetchData() {
         getData()
     }

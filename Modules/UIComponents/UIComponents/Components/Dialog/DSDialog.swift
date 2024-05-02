@@ -40,7 +40,6 @@ public struct DSDialog: View {
         .background(.backgroundPrimary)
         .cornerRadius(DSConstants.Radius.xxLarge)
         .shadow(radius: DSConstants.Radius.xxLarge, y: 3)
-        .padding(DSConstants.Spacing.spacing24)
     }
 
     @ViewBuilder

@@ -36,7 +36,7 @@ public struct DSDialogModifier: ViewModifier {
             content
             ZStack {
                 Rectangle()
-                    .foregroundColor(.backgroundSecondaryReverse.opacity(0.2))
+                    .foregroundColor(.gray.opacity(0.2))
                     .ignoresSafeArea()
                 DSDialog($isPresented,
                          title: title,

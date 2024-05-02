@@ -30,7 +30,7 @@ public struct DSButtonStyle: ButtonStyle {
                     .font(type.fontSize)
                     .padding(.horizontal, type.padding)
                     .frame(height: type.height)
-                    .if(type.sizeMode == .fill) { $0.frame(maxWidth: .infinity) }
+                    .if(type.sizeMode == .fill) { $0.frame(maxWidth: 400) }
             }
             .if(isIcon) { $0.frame(width: type.height, height: type.height) }
             .foregroundStyle(isBordered ? primaryColor : secondaryColor)

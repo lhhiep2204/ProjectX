@@ -26,7 +26,11 @@ struct TextFieldView: View {
 #if os(iOS)
                 .keyboardType(.emailAddress)
 #endif
+                .submitLabel(.next)
                 .focused($focusField, equals: .username)
+                .onSubmit {
+                    focusField = .password
+                }
                 DSTextField(.constant("Password"),
                             text: $text,
                             isSecure: true)

@@ -18,6 +18,7 @@ final class DSTextFieldObservable: ObservableObject {
     @Published var lineLimit: Int = 2
     @Published var image: Image? = nil
     @Published var style: DSTextFieldType = .plain
+    @Published var submitLabel: SubmitLabel = .return
 }
 
 public struct DSTextField: View {
@@ -196,9 +197,14 @@ public extension DSTextField {
     }
 #endif
 
-    func multiline(lineLimit: Int = 5) -> Self {
-        object.axis = .vertical
+    func multiline(_ multiline: Bool = true, lineLimit: Int = 5) -> Self {
+        object.axis = multiline ? .vertical : .horizontal
         object.lineLimit = lineLimit
+        return self
+    }
+
+    func submitLabel(_ label: SubmitLabel) -> Self {
+        object.submitLabel = label
         return self
     }
 }

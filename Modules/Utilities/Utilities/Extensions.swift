@@ -7,36 +7,6 @@
 
 import SwiftUI
 
-// MARK: - Bundle
-public extension Bundle {
-    static func setLanguage(lang: String) {
-        UserDefaults.standard.set(lang, forKey: "app_lang")
-        let path = Bundle.main.path(forResource: lang, ofType: "lproj")
-        LanguageManager.bundle = Bundle(path: path!)!
-    }
-}
-
-// MARK: - String
-public extension String {
-    static func localized(_ key: LocalizedKey) -> String {
-        NSLocalizedString(key.identifier, bundle: LanguageManager.bundle, comment: "")
-    }
-}
-
-// MARK: - Text
-public extension Text {
-    init(_ key: LocalizedKey) {
-        self.init(String.localized(key))
-    }
-}
-
-// MARK: - Button
-public extension Button where Label == Text {
-    init(_ key: LocalizedKey, action: @escaping () -> Void) {
-        self.init(String.localized(key), action: action)
-    }
-}
-
 // MARK: - UserDefaults
 enum UserDefaultKey {
     static let currentLanguage = "CURRENT_LANGUAGE"

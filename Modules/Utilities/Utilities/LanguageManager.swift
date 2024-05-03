@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// MARK: - Localization
 public struct Keys {}
 public protocol LocalizedKey {}
 
@@ -16,6 +17,25 @@ extension LocalizedKey {
     }
 }
 
+public extension String {
+    static func localized(_ key: LocalizedKey) -> String {
+        NSLocalizedString(key.identifier, bundle: LanguageManager.bundle, comment: "")
+    }
+}
+
+public extension Text {
+    init(_ key: LocalizedKey) {
+        self.init(String.localized(key))
+    }
+}
+
+public extension Button where Label == Text {
+    init(_ key: LocalizedKey, action: @escaping () -> Void) {
+        self.init(String.localized(key), action: action)
+    }
+}
+
+// MARK: - Language manager
 @propertyWrapper
 struct LocalizedBundle {
     private var bundle: Bundle?
@@ -23,14 +43,42 @@ struct LocalizedBundle {
     var wrappedValue: Bundle {
         mutating get {
             if bundle == nil {
-                let appLang = UserDefaults.standard.string(forKey: "app_lang") ?? "en"
-                let path = Bundle.main.path(forResource: appLang, ofType: "lproj")
-                bundle = Bundle(path: path!)
+                let language = UserDefaults.language
+                if let path = Bundle.main.path(forResource: language.code, ofType: "lproj") {
+                    bundle = Bundle(path: path)
+                }
             }
-            return bundle!
+            return bundle ?? Bundle.main
         }
         set {
             bundle = newValue
+        }
+    }
+}
+
+public extension Bundle {
+    static func setLanguage(_ language: Language) {
+        UserDefaults.language = language
+        if let path = Bundle.main.path(forResource: language.code, ofType: "lproj") {
+            LanguageManager.bundle = Bundle(path: path) ?? Bundle.main
+        } else {
+            LanguageManager.bundle = Bundle.main
+        }
+    }
+}
+
+public enum Language: String, CaseIterable {
+    case system = "System"
+    case english = "English"
+    case french = "French"
+    case vietnamese = "Vietnamese"
+
+    public var code: String {
+        switch self {
+        case .system: Locale.preferredLanguages.first ?? "en"
+        case .english: "en"
+        case .french: "fr"
+        case .vietnamese: "vi"
         }
     }
 }
@@ -40,28 +88,11 @@ public class LanguageManager: ObservableObject {
 
     @Published public var currentLanguage: Language {
         didSet {
-            UserDefaults.language = currentLanguage
-            Bundle.setLanguage(lang: currentLanguage.code)
+            Bundle.setLanguage(currentLanguage)
         }
     }
 
     public init() {
         currentLanguage = UserDefaults.language
-    }
-}
-
-public enum Language: String, CaseIterable {
-    case system = "System"
-    case english = "English"
-    case french = "French"
-    case vietnamese = "Vietnamese"
-    
-    public var code: String {
-        switch self {
-        case .system: Locale.preferredLanguages.first ?? "en"
-        case .english: "en"
-        case .french: "fr"
-        case .vietnamese: "vi"
-        }
     }
 }

@@ -38,6 +38,7 @@ struct DSTextFieldStyle: ViewModifier {
     func body(content: Content) -> some View {
         content
             .textFieldStyle(.plain)
+            .submitLabel(object.submitLabel)
             .font(.appFont(.regular(14)))
             .if(object.axis == .horizontal) {
                 $0.frame(height: 44)

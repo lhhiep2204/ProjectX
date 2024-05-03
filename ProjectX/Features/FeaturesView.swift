@@ -101,7 +101,7 @@ struct FeaturesView: View {
 #if os(macOS)
         .pickerStyle(.radioGroup)
 #else
-        .pickerStyle(.navigationLink)
+        .pickerStyle(.menu)
 #endif
     }
 
@@ -123,7 +123,7 @@ struct FeaturesView: View {
 #if os(macOS)
         .pickerStyle(.radioGroup)
 #else
-        .pickerStyle(.navigationLink)
+        .pickerStyle(.menu)
 #endif
     }
 }

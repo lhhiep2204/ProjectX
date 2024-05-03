@@ -88,10 +88,10 @@
 		72A5E82C2BA6EEF000C57E7A /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				72FE4CD12BC7937000F2F77D /* Extensions.swift */,
 				72FCF4002BB87ED6002823D3 /* Components */,
 				72FE4CD32BC795FE00F2F77D /* Resources */,
 				72FCF3FF2BB87EB0002823D3 /* Styles */,
-				72FE4CD12BC7937000F2F77D /* Extensions.swift */,
 				72A5E82D2BA6EEF000C57E7A /* UIComponents.h */,
 			);
 			path = UIComponents;

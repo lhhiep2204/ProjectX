@@ -8,24 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		723C85202BAFEBA60001DE10 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723C851F2BAFEBA60001DE10 /* Extensions.swift */; };
-		724AB3CC2B89B621008EDD6F /* Networking.h in Headers */ = {isa = PBXBuildFile; fileRef = 724AB3CB2B89B621008EDD6F /* Networking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		724AB3CC2B89B621008EDD6F /* CoreModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 724AB3CB2B89B621008EDD6F /* CoreModule.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		728D2A892B96CA2600B98877 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 728D2A882B96CA2600B98877 /* Alamofire */; };
 		72A5E81F2BA5986A00C57E7A /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E81E2BA5986A00C57E7A /* NetworkLogger.swift */; };
 		72B49BC92B89B6E1008DD228 /* BaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49BC82B89B6E1008DD228 /* BaseService.swift */; };
 		72B49BCF2B89B709008DD228 /* RefreshTokenRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49BCC2B89B709008DD228 /* RefreshTokenRequest.swift */; };
 		72B49BD02B89B709008DD228 /* BaseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49BCD2B89B709008DD228 /* BaseRequest.swift */; };
 		72B49BD12B89B709008DD228 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B49BCE2B89B709008DD228 /* NetworkError.swift */; };
+		72BF65F02BE4C942004C4243 /* RouterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF65EE2BE4C942004C4243 /* RouterManager.swift */; };
+		72BF65F12BE4C942004C4243 /* RouterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF65EF2BE4C942004C4243 /* RouterView.swift */; };
+		72BF66172BE4DFDB004C4243 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF66162BE4DFDB004C4243 /* KeychainManager.swift */; };
+		72BF66192BE4E039004C4243 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF66182BE4E039004C4243 /* Extension.swift */; };
+		72BF661B2BE4E07C004C4243 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF661A2BE4E07C004C4243 /* UserDefaultsManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		723C851F2BAFEBA60001DE10 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		724AB3C82B89B621008EDD6F /* Networking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Networking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		724AB3CB2B89B621008EDD6F /* Networking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Networking.h; sourceTree = "<group>"; };
+		724AB3C82B89B621008EDD6F /* CoreModule.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CoreModule.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		724AB3CB2B89B621008EDD6F /* CoreModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreModule.h; sourceTree = "<group>"; };
 		72A5E81E2BA5986A00C57E7A /* NetworkLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
 		72B49BC82B89B6E1008DD228 /* BaseService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseService.swift; sourceTree = "<group>"; };
 		72B49BCC2B89B709008DD228 /* RefreshTokenRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshTokenRequest.swift; sourceTree = "<group>"; };
 		72B49BCD2B89B709008DD228 /* BaseRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRequest.swift; sourceTree = "<group>"; };
 		72B49BCE2B89B709008DD228 /* NetworkError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		72BF65EE2BE4C942004C4243 /* RouterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterManager.swift; sourceTree = "<group>"; };
+		72BF65EF2BE4C942004C4243 /* RouterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RouterView.swift; sourceTree = "<group>"; };
+		72BF66162BE4DFDB004C4243 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		72BF66182BE4E039004C4243 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		72BF661A2BE4E07C004C4243 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +62,7 @@
 		724AB3BE2B89B621008EDD6F = {
 			isa = PBXGroup;
 			children = (
-				724AB3CA2B89B621008EDD6F /* Networking */,
+				724AB3CA2B89B621008EDD6F /* CoreModule */,
 				724AB3C92B89B621008EDD6F /* Products */,
 			);
 			sourceTree = "<group>";
@@ -60,12 +70,23 @@
 		724AB3C92B89B621008EDD6F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				724AB3C82B89B621008EDD6F /* Networking.framework */,
+				724AB3C82B89B621008EDD6F /* CoreModule.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		724AB3CA2B89B621008EDD6F /* Networking */ = {
+		724AB3CA2B89B621008EDD6F /* CoreModule */ = {
+			isa = PBXGroup;
+			children = (
+				72BF65EC2BE4C8DE004C4243 /* Networking */,
+				72BF65ED2BE4C91F004C4243 /* Routing */,
+				72BF66132BE4DF6F004C4243 /* Storage */,
+				724AB3CB2B89B621008EDD6F /* CoreModule.h */,
+			);
+			path = CoreModule;
+			sourceTree = "<group>";
+		};
+		72BF65EC2BE4C8DE004C4243 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				72B49BCD2B89B709008DD228 /* BaseRequest.swift */,
@@ -73,9 +94,43 @@
 				72B49BCE2B89B709008DD228 /* NetworkError.swift */,
 				72B49BCC2B89B709008DD228 /* RefreshTokenRequest.swift */,
 				723C851E2BAFEB910001DE10 /* Utilities */,
-				724AB3CB2B89B621008EDD6F /* Networking.h */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		72BF65ED2BE4C91F004C4243 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				72BF65EE2BE4C942004C4243 /* RouterManager.swift */,
+				72BF65EF2BE4C942004C4243 /* RouterView.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
+		72BF66132BE4DF6F004C4243 /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				72BF66152BE4DFC0004C4243 /* Keychain */,
+				72BF66142BE4DF87004C4243 /* UserDefaults */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		72BF66142BE4DF87004C4243 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				72BF66182BE4E039004C4243 /* Extension.swift */,
+				72BF661A2BE4E07C004C4243 /* UserDefaultsManager.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		72BF66152BE4DFC0004C4243 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				72BF66162BE4DFDB004C4243 /* KeychainManager.swift */,
+			);
+			path = Keychain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,33 +140,32 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				724AB3CC2B89B621008EDD6F /* Networking.h in Headers */,
+				724AB3CC2B89B621008EDD6F /* CoreModule.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		724AB3C72B89B621008EDD6F /* Networking */ = {
+		724AB3C72B89B621008EDD6F /* CoreModule */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 724AB3CF2B89B621008EDD6F /* Build configuration list for PBXNativeTarget "Networking" */;
+			buildConfigurationList = 724AB3CF2B89B621008EDD6F /* Build configuration list for PBXNativeTarget "CoreModule" */;
 			buildPhases = (
 				724AB3C32B89B621008EDD6F /* Headers */,
 				724AB3C42B89B621008EDD6F /* Sources */,
 				724AB3C52B89B621008EDD6F /* Frameworks */,
 				724AB3C62B89B621008EDD6F /* Resources */,
-				722F6F2A2BCE262B00E0BFAA /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = Networking;
+			name = CoreModule;
 			packageProductDependencies = (
 				728D2A882B96CA2600B98877 /* Alamofire */,
 			);
-			productName = Networking;
-			productReference = 724AB3C82B89B621008EDD6F /* Networking.framework */;
+			productName = CoreModule;
+			productReference = 724AB3C82B89B621008EDD6F /* CoreModule.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -129,7 +183,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 724AB3C22B89B621008EDD6F /* Build configuration list for PBXProject "Networking" */;
+			buildConfigurationList = 724AB3C22B89B621008EDD6F /* Build configuration list for PBXProject "CoreModule" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -145,7 +199,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				724AB3C72B89B621008EDD6F /* Networking */,
+				724AB3C72B89B621008EDD6F /* CoreModule */,
 			);
 		};
 /* End PBXProject section */
@@ -167,10 +221,15 @@
 			files = (
 				72A5E81F2BA5986A00C57E7A /* NetworkLogger.swift in Sources */,
 				723C85202BAFEBA60001DE10 /* Extensions.swift in Sources */,
+				72BF65F02BE4C942004C4243 /* RouterManager.swift in Sources */,
+				72BF661B2BE4E07C004C4243 /* UserDefaultsManager.swift in Sources */,
 				72B49BC92B89B6E1008DD228 /* BaseService.swift in Sources */,
+				72BF66172BE4DFDB004C4243 /* KeychainManager.swift in Sources */,
 				72B49BD12B89B709008DD228 /* NetworkError.swift in Sources */,
+				72BF66192BE4E039004C4243 /* Extension.swift in Sources */,
 				72B49BCF2B89B709008DD228 /* RefreshTokenRequest.swift in Sources */,
 				72B49BD02B89B709008DD228 /* BaseRequest.swift in Sources */,
+				72BF65F12BE4C942004C4243 /* RouterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +388,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hieplee.Networking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hieplee.CoreModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
@@ -371,7 +430,7 @@
 				MARKETING_VERSION = 1.0;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu17 gnu++20";
-				PRODUCT_BUNDLE_IDENTIFIER = com.hieplee.Networking;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hieplee.CoreModule;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = auto;
 				SKIP_INSTALL = YES;
@@ -385,7 +444,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		724AB3C22B89B621008EDD6F /* Build configuration list for PBXProject "Networking" */ = {
+		724AB3C22B89B621008EDD6F /* Build configuration list for PBXProject "CoreModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				724AB3CD2B89B621008EDD6F /* Debug */,
@@ -394,7 +453,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		724AB3CF2B89B621008EDD6F /* Build configuration list for PBXNativeTarget "Networking" */ = {
+		724AB3CF2B89B621008EDD6F /* Build configuration list for PBXNativeTarget "CoreModule" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				724AB3D02B89B621008EDD6F /* Debug */,

@@ -6,7 +6,7 @@
 //
 
 import Combine
-import Networking
+import CoreModule
 
 protocol ISampleService {
     func getDeviceInfo() -> AnyPublisher<[DeviceInfo], NetworkError>

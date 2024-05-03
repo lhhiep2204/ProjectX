@@ -10,11 +10,11 @@ import SwiftUI
 final class DSTextFieldObservable: ObservableObject {
     @Published var axis: Axis = .horizontal
     @Published var disabled: Bool = false
-    @Published var description: String = .empty
+    @Published var description: String = ""
 #if os(iOS)
     @Published var keyboardType: UIKeyboardType = .default
 #endif
-    @Published var label: String = .empty
+    @Published var label: String = ""
     @Published var lineLimit: Int = 2
     @Published var image: Image? = nil
     @Published var style: DSTextFieldType = .plain

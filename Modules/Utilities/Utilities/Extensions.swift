@@ -8,29 +8,29 @@
 import SwiftUI
 
 // MARK: - UserDefaults
-enum UserDefaultKey {
+enum UserDefaultsKey {
     static let currentLanguage = "CURRENT_LANGUAGE"
     static let currentTheme = "CURRENT_THEME"
 }
 
-public extension UserDefaults {
+extension UserDefaults {
     static var language: Language {
         get {
-            let currentLanguage = UserDefaults.get(forKey: UserDefaultKey.currentLanguage) as? String
+            let currentLanguage = UserDefaults.standard.object(forKey: UserDefaultsKey.currentLanguage) as? String
             return Language(rawValue: currentLanguage ?? Language.system.rawValue) ?? .system
         }
         set {
-            UserDefaults.set(newValue.rawValue, forKey: UserDefaultKey.currentLanguage)
+            UserDefaults.standard.set(newValue.rawValue, forKey: UserDefaultsKey.currentLanguage)
         }
     }
-    
+
     static var theme: Theme {
         get {
-            let currentTheme = UserDefaults.get(forKey: UserDefaultKey.currentTheme) as? String
+            let currentTheme = UserDefaults.standard.object(forKey: UserDefaultsKey.currentTheme) as? String
             return Theme(rawValue: currentTheme ?? Theme.system.rawValue) ?? .system
         }
         set {
-            UserDefaults.set(newValue.rawValue, forKey: UserDefaultKey.currentTheme)
+            UserDefaults.standard.set(newValue.rawValue, forKey: UserDefaultsKey.currentTheme)
         }
     }
 }

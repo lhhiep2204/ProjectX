@@ -1,6 +1,6 @@
 //
 //  RouterView.swift
-//  Router
+//  CoreModule
 //
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //

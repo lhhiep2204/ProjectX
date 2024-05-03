@@ -1,6 +1,6 @@
 //
 //  Extensions.swift
-//  Networking
+//  CoreModule
 //
 //  Created by Hoàng Hiệp Lê on 24/03/2024.
 //

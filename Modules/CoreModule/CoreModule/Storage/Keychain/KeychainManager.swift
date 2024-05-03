@@ -1,5 +1,5 @@
 //
-//  KeychainHelper.swift
+//  KeychainManager.swift
 //  Utilities
 //
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
@@ -9,8 +9,8 @@
 /*
 import KeychainAccess
 
-public class KeychainHelper {
-    public static let shared = KeychainHelper()
+public class KeychainManager {
+    public static let shared = KeychainManager()
 
     private init() {}
 

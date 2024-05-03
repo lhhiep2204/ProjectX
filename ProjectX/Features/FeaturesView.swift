@@ -5,8 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
-import Extensions
-import Router
+import CoreModule
 import SwiftUI
 import UIComponents
 import Utilities

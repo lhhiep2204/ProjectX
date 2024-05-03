@@ -5,8 +5,8 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
+import CoreModule
 import Extensions
-import Networking
 
 enum SampleRequest {
     case getDeviceInfo

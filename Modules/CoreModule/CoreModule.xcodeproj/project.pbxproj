@@ -20,6 +20,7 @@
 		72BF66172BE4DFDB004C4243 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF66162BE4DFDB004C4243 /* KeychainManager.swift */; };
 		72BF66192BE4E039004C4243 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF66182BE4E039004C4243 /* Extension.swift */; };
 		72BF661B2BE4E07C004C4243 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72BF661A2BE4E07C004C4243 /* UserDefaultsManager.swift */; };
+		72C76EC82BE4E87000754BB3 /* SwiftDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C76EC72BE4E87000754BB3 /* SwiftDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		72BF66162BE4DFDB004C4243 /* KeychainManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		72BF66182BE4E039004C4243 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		72BF661A2BE4E07C004C4243 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		72C76EC72BE4E87000754BB3 /* SwiftDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				72BF66152BE4DFC0004C4243 /* Keychain */,
+				72C76EC62BE4E84900754BB3 /* SwiftData */,
 				72BF66142BE4DF87004C4243 /* UserDefaults */,
 			);
 			path = Storage;
@@ -131,6 +134,14 @@
 				72BF66162BE4DFDB004C4243 /* KeychainManager.swift */,
 			);
 			path = Keychain;
+			sourceTree = "<group>";
+		};
+		72C76EC62BE4E84900754BB3 /* SwiftData */ = {
+			isa = PBXGroup;
+			children = (
+				72C76EC72BE4E87000754BB3 /* SwiftDataManager.swift */,
+			);
+			path = SwiftData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +233,7 @@
 				72A5E81F2BA5986A00C57E7A /* NetworkLogger.swift in Sources */,
 				723C85202BAFEBA60001DE10 /* Extensions.swift in Sources */,
 				72BF65F02BE4C942004C4243 /* RouterManager.swift in Sources */,
+				72C76EC82BE4E87000754BB3 /* SwiftDataManager.swift in Sources */,
 				72BF661B2BE4E07C004C4243 /* UserDefaultsManager.swift in Sources */,
 				72B49BC92B89B6E1008DD228 /* BaseService.swift in Sources */,
 				72BF66172BE4DFDB004C4243 /* KeychainManager.swift in Sources */,

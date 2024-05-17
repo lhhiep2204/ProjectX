@@ -43,7 +43,7 @@ struct FeaturesView: View {
                         case .settings: settingView
                         }
                     }
-                    .font(.appFont(.medium(16)))
+                    .font(.appFont(.medium(.medium)))
                 }
             }
 #if os(macOS)

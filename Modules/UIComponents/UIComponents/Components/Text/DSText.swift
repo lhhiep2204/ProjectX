@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class DSTextObservable: ObservableObject {
-    @Published var type: DSTextType = .regular(.medium)
+    @Published var font: DSFont = .regular(.medium)
     @Published var color: Color = .appColor(.textPrimary)
     @Published var lineLimit: Int? = nil
 }
@@ -24,15 +24,15 @@ public struct DSText: View {
 
     public var body: some View {
         Text(title)
-            .font(object.type.font)
+            .font(.appFont(object.font))
             .foregroundStyle(object.color)
             .lineLimit(object.lineLimit)
     }
 }
 
 public extension DSText {
-    func type(_ type: DSTextType) -> Self {
-        object.type = type
+    func font(_ font: DSFont) -> Self {
+        object.font = font
         return self
     }
 
@@ -51,18 +51,18 @@ public extension DSText {
     VStack(spacing: DSConstants.Spacing.spacing16) {
         DSText("Default")
         DSText("Bold - Large")
-            .type(.bold(.large))
+            .font(.bold(.large))
             .color(.appColor(.blue100))
         DSText("Medium - Medium")
-            .type(.medium(.medium))
+            .font(.medium(.medium))
             .color(.appColor(.blue10))
         DSText("Small - Regular")
-            .type(.regular(.small))
+            .font(.regular(.small))
             .color(.appColor(.blue100))
         DSText("This is a very very very very very very long Bold - Medium")
-            .type(.bold(.medium))
+            .font(.bold(.medium))
         DSText("This is a very very very very very very very very very long Medium - Small")
-            .type(.medium(.small))
+            .font(.medium(.small))
             .lineLimit(1)
     }
     .padding(.horizontal, DSConstants.Spacing.spacing40)

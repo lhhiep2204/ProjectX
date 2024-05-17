@@ -46,7 +46,7 @@ public struct DSDialog: View {
     private var titleView: some View {
         if let title = title {
             DSText(title)
-                .type(.bold(.large))
+                .font(.bold(.large))
         }
     }
 
@@ -54,7 +54,7 @@ public struct DSDialog: View {
     private var subtitleView: some View {
         if let subtitle = subtitle {
             DSText(subtitle)
-                .type(.medium(.medium))
+                .font(.medium(.medium))
         }
     }
 

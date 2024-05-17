@@ -9,10 +9,10 @@ import SwiftUI
 
 public enum DSColor: String {
     // MARK: - Background
-    case backgroundPrimary = "background.primary"
-    case backgroundPrimaryReverse = "background.primary.reverse"
-    case backgroundSecondary = "background.secondary"
-    case backgroundSecondaryReverse = "background.secondary.reverse"
+    case bgPrimary = "background.primary"
+    case bgPrimaryReverse = "background.primary.reverse"
+    case bgSecondary = "background.secondary"
+    case bgSecondaryReverse = "background.secondary.reverse"
 
     // MARK: - Text
     case textPrimary = "text.primary"

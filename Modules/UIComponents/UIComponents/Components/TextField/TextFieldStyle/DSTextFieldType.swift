@@ -39,7 +39,7 @@ struct DSTextFieldStyle: ViewModifier {
         content
             .textFieldStyle(.plain)
             .submitLabel(object.submitLabel)
-            .font(.appFont(.regular(14)))
+            .font(.appFont(.regular(.other(14))))
             .if(object.axis == .horizontal) {
                 $0.frame(height: 44)
             }

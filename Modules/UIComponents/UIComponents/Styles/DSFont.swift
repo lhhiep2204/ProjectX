@@ -8,7 +8,7 @@
 import SwiftUI
 
 public enum DSFont {
-    case regular(CGFloat), medium(CGFloat), bold(CGFloat)
+    case regular(DSFontSize), medium(DSFontSize), bold(DSFontSize)
 
     var weight: String {
         switch self {
@@ -20,13 +20,13 @@ public enum DSFont {
 
     var size: CGFloat {
         switch self {
-        case .regular(let size), .medium(let size), .bold(let size): size
+        case .regular(let size), .medium(let size), .bold(let size): size.size
         }
     }
 }
 
 public enum DSSystemFont {
-    case regular(CGFloat), medium(CGFloat), bold(CGFloat)
+    case regular(DSFontSize), medium(DSFontSize), bold(DSFontSize)
 
     var weight: Font.Weight {
         switch self {
@@ -38,7 +38,20 @@ public enum DSSystemFont {
 
     var size: CGFloat {
         switch self {
-        case .regular(let size), .medium(let size), .bold(let size): size
+        case .regular(let size), .medium(let size), .bold(let size): size.size
+        }
+    }
+}
+
+public enum DSFontSize {
+    case small, medium, large, other(CGFloat)
+
+    var size: CGFloat {
+        switch self {
+        case .small: 12
+        case .medium: 16
+        case .large: 20
+        case .other(let size): size
         }
     }
 }

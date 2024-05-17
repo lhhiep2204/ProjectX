@@ -55,14 +55,14 @@ public enum DSButtonSize: Equatable {
 
     var fontSize: Font {
         switch self {
-        case .small: .appFont(.bold(12))
-        case .medium: .appFont(.bold(16))
+        case .small: .appFont(.bold(.small))
+        case .medium: .appFont(.bold(.medium))
         }
     }
 
     var padding: CGFloat {
         switch self {
-        case .small: 10
+        case .small: 12
         case .medium: 16
         }
     }
@@ -70,7 +70,7 @@ public enum DSButtonSize: Equatable {
     var height: CGFloat {
         switch self {
         case .small: 36
-        case .medium: 48
+        case .medium: 44
         }
     }
 }

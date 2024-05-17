@@ -80,7 +80,7 @@ public struct DSTextField: View {
     private var labelView: some View {
         if !object.label.isEmpty {
             DSText(object.label)
-                .type(.medium(.small))
+                .font(.medium(.small))
         }
     }
 
@@ -112,7 +112,7 @@ public struct DSTextField: View {
                 showPasswordButtonView
             }
         }
-        .background(Color.appColor(.backgroundSecondary))
+        .background(Color.appColor(.bgSecondary))
         .if(object.style == .bordered) {
             $0.overlay {
                 RoundedRectangle(cornerRadius: DSConstants.Radius.large)
@@ -136,7 +136,7 @@ public struct DSTextField: View {
     private var descriptionView: some View {
         if !object.description.isEmpty {
             DSText(object.description)
-                .type(.medium(.small))
+                .font(.medium(.small))
                 .color(state.textColor)
         }
     }

@@ -97,7 +97,7 @@ public struct DSTextField: View {
 #endif
             } else {
                 TextField(placeholder, text: $text, axis: object.axis)
-                    .lineLimit(object.lineLimit, reservesSpace: true)
+                    .lineLimit(object.lineLimit)
                     .configureTextField(object, editing: $editing)
 #if os(iOS)
                     .keyboardType(object.keyboardType)

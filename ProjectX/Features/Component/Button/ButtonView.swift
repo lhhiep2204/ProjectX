@@ -34,7 +34,7 @@ struct ButtonView: View {
                     .image(.appSystemIcon(.apple))
                     .shadow()
                 DSButton(image: .appSystemIcon(.apple),
-                         style: .borderedCircleSmallIcon) {}
+                         style: .borderedCircleIcon) {}
                 DSButton(image: .appSystemIcon(.apple),
                          style: .filledIcon) {}
                     .shadow()

@@ -24,7 +24,7 @@ public struct DSBottomSheet<Content: View>: View {
     public init(detents: Set<PresentationDetent>,
                 _ content: () -> Content) {
         self.detents = detents
-        _selectedDetent = .constant(.medium)
+        _selectedDetent = .constant(detents.first ?? .medium)
         self.content = content()
     }
 
@@ -37,8 +37,8 @@ public struct DSBottomSheet<Content: View>: View {
     }
 }
 
-extension DSBottomSheet {
-    private var containerView: some View {
+private extension DSBottomSheet {
+    var containerView: some View {
         VStack {
             content
             Spacer()
@@ -47,7 +47,19 @@ extension DSBottomSheet {
 }
 
 #Preview {
-    DSBottomSheet(detents: [.medium]) {
-        Text("Bottom sheet content")
+    struct DSPreview: View {
+        @State private var isPresented = true
+
+        var body: some View {
+            Color.white
+                .sheet(isPresented: $isPresented) {
+                    DSBottomSheet(detents: [.medium]) {
+                        Text("Bottom sheet content")
+                            .padding()
+                    }
+                }
+        }
     }
+
+    return DSPreview()
 }

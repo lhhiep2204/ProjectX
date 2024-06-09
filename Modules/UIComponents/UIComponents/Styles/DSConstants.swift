@@ -9,14 +9,17 @@ import Foundation
 
 public enum DSConstants {
     public enum Spacing {
-        public static let spacing4: CGFloat = 4,
+        public static let spacing2: CGFloat = 2,
+                          spacing4: CGFloat = 4,
                           spacing8: CGFloat = 8,
                           spacing12: CGFloat = 12,
                           spacing16: CGFloat = 16,
                           spacing20: CGFloat = 20,
                           spacing24: CGFloat = 24,
                           spacing32: CGFloat = 32,
-                          spacing40: CGFloat = 40
+                          spacing36: CGFloat = 36,
+                          spacing40: CGFloat = 40,
+                          spacing44: CGFloat = 44
     }
 
     public enum Radius {

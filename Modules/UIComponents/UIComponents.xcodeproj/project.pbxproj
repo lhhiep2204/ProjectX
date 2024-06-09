@@ -16,6 +16,7 @@
 		72531AEC2BA6F713007654B7 /* DSButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */; };
 		72766FAA2BC6809D00F8290F /* DSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72766FA92BC6809D00F8290F /* DSColor.swift */; };
 		727EFBF72C0E1509000BCF27 /* DSDrawer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EFBF52C0E1509000BCF27 /* DSDrawer.swift */; };
+		727EFC1D2C15EF74000BCF27 /* DSAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727EFC1C2C15EF74000BCF27 /* DSAsyncImage.swift */; };
 		728E55A42BD789D800193806 /* DSDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728E55A32BD789D800193806 /* DSDialog.swift */; };
 		72A5E82E2BA6EEF000C57E7A /* UIComponents.h in Headers */ = {isa = PBXBuildFile; fileRef = 72A5E82D2BA6EEF000C57E7A /* UIComponents.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5E84B2BA6EF6A00C57E7A /* DSButton.swift */; };
@@ -39,6 +40,7 @@
 		72531AEB2BA6F713007654B7 /* DSButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonStyle.swift; sourceTree = "<group>"; };
 		72766FA92BC6809D00F8290F /* DSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSColor.swift; sourceTree = "<group>"; };
 		727EFBF52C0E1509000BCF27 /* DSDrawer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSDrawer.swift; sourceTree = "<group>"; };
+		727EFC1C2C15EF74000BCF27 /* DSAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSAsyncImage.swift; sourceTree = "<group>"; };
 		728E55A32BD789D800193806 /* DSDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSDialog.swift; sourceTree = "<group>"; };
 		72A5E82A2BA6EEF000C57E7A /* UIComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UIComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A5E82D2BA6EEF000C57E7A /* UIComponents.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIComponents.h; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		7207B3012BE9FD09003CC828 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				727EFC1C2C15EF74000BCF27 /* DSAsyncImage.swift */,
 				7207B3022BE9FD17003CC828 /* DSImage.swift */,
 			);
 			path = Image;
@@ -306,6 +309,7 @@
 				720EB07F2BF70BD600BE6A70 /* DSBottomSheet.swift in Sources */,
 				72ADB9B92BCE4CDA0043B97A /* DSTextField.swift in Sources */,
 				72B200602BD78C6A00CC836B /* DSDialogType.swift in Sources */,
+				727EFC1D2C15EF74000BCF27 /* DSAsyncImage.swift in Sources */,
 				72FE4CD22BC7937000F2F77D /* Extensions.swift in Sources */,
 				721842C32BCCCD6F003F402E /* DSIcon.swift in Sources */,
 				728E55A42BD789D800193806 /* DSDialog.swift in Sources */,

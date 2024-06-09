@@ -28,7 +28,7 @@ public struct DSImage: View {
     }
 }
 
-extension DSImage {
+public extension DSImage {
     func type(_ font: DSFont) -> Self {
         object.font = font
         return self

@@ -27,6 +27,7 @@ public struct DSDrawer<Menu: View, Content: View>: View {
             if isOpened {
                 Color.gray.opacity(0.2)
                     .contentShape(Rectangle())
+                    .ignoresSafeArea()
                     .onTapGesture {
                         isOpened.toggle()
                     }

@@ -15,7 +15,7 @@ public final class RouterManager<V: View & Hashable>: ObservableObject {
     @Published var root: V
     /// The stack of navigation paths.
     @Published var paths = [V]()
-    
+
     // MARK: - Initializer
     /// Initializes the `RouterManager` with a root view.
     ///
@@ -32,22 +32,27 @@ public extension RouterManager {
     func push(_ path: V) {
         paths.append(path)
     }
-    
+
     /// Pops the top view from the navigation stack.
     func pop() {
         paths.removeLast()
     }
-    
+
     /// Pops all views from the navigation stack, leaving only the root view.
     func popToRoot() {
         paths.removeAll()
     }
-    
+
     /// Updates the root view of the navigation hierarchy.
-    /// 
+    ///
     /// - Parameter rootView: The new root view.
     func updateRoot(_ rootView: V) {
         root = rootView
         paths.removeAll()
+    }
+
+    /// The current root view in the navigation hierarchy.
+    var currentRoot: V {
+        root
     }
 }

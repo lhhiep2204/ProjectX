@@ -17,6 +17,10 @@ public extension ButtonStyle where Self == DSButtonStyle {
         DSButtonStyle(type: .filled(.small(.fill)))
     }
 
+    static var filledLarge: DSButtonStyle {
+        DSButtonStyle(type: .filled(.large(.fill)))
+    }
+
     static var filledDestructiveSmallFit: DSButtonStyle {
         DSButtonStyle(type: .filled(.small(.fit)), primaryColor: .red)
     }
@@ -28,8 +32,16 @@ public extension ButtonStyle where Self == DSButtonStyle {
         DSButtonStyle(type: .bordered(.medium(.fill)))
     }
 
+    static var borderedFit: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.medium(.fit)))
+    }
+
     static var borderedSmallFit: DSButtonStyle {
         DSButtonStyle(type: .bordered(.small(.fit)))
+    }
+
+    static var borderedLargeFit: DSButtonStyle {
+        DSButtonStyle(type: .bordered(.large(.fit)))
     }
 
     static var borderedDestructive: DSButtonStyle {

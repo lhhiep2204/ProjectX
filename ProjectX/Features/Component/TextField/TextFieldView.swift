@@ -20,51 +20,44 @@ struct TextFieldView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: DSConstants.Spacing.spacing16) {
-                DSTextField(.constant("Username"),
-                            text: $text)
-                .label("Username")
+                DSTextField(.constant("Username"), text: $text)
+                    .label("Username")
 #if os(iOS)
-                .keyboardType(.emailAddress)
+                    .keyboardType(.emailAddress)
 #endif
-                .submitLabel(.next)
-                .focused($focusField, equals: .username)
-                .onSubmit {
-                    focusField = .password
-                }
-                DSTextField(.constant("Password"),
-                            text: $text,
-                            isSecure: true)
-                .label("Password")
+                    .submitLabel(.next)
+                    .focused($focusField, equals: .username)
+                    .onSubmit {
+                        focusField = .password
+                    }
+                DSTextField(.constant("Password"), text: $text, isSecure: true)
+                    .label("Password")
 #if os(iOS)
-                .keyboardType(.numberPad)
+                    .keyboardType(.numberPad)
 #endif
-                .focused($focusField, equals: .password)
-                DSTextField(.constant("Text placeholder"),
-                            text: $text)
-                .image(.appSystemIcon(.apple))
-                .bordered()
-                .focused($editing)
+                    .focused($focusField, equals: .password)
+                DSTextField(.constant("Text placeholder"), text: $text)
+                    .image(.appSystemIcon(.apple))
+                    .type(.bordered)
+                    .focused($editing)
                 DSTextField(text: $text)
                     .image(.appSystemIcon(.apple))
-                    .bordered()
+                    .type(.bordered)
                     .disabled(true)
                     .focused($editing)
-                DSTextField(text: $text,
-                            state: .success)
-                .bordered()
-                .description("Description success text")
-                .focused($editing)
-                DSTextField(text: $text,
-                            state: .error)
-                .bordered()
-                .description("Description error text")
-                .focused($editing)
-                DSTextField(text: $text,
-                            state: .normal)
-                .multiline()
-                .bordered()
-                .description("Description text")
-                .focused($editing)
+                DSTextField(text: $text, state: .success)
+                    .description("Description success text")
+                    .type(.bordered)
+                    .focused($editing)
+                DSTextField(text: $text, state: .error)
+                    .description("Description error text")
+                    .type(.bordered)
+                    .focused($editing)
+                DSTextField(text: $text, state: .normal)
+                    .description("Description text")
+                    .multiline()
+                    .type(.bordered)
+                    .focused($editing)
             }
             .padding()
         }

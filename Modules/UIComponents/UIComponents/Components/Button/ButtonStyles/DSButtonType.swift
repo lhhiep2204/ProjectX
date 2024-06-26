@@ -14,7 +14,7 @@ public indirect enum DSButtonType: Equatable {
         switch self {
         case .bordered(let size), .filled(let size):
             switch size {
-            case .small(let sizeMode), .medium(let sizeMode): sizeMode
+            case .small(let sizeMode), .medium(let sizeMode), .large(let sizeMode): sizeMode
             }
         case .icon(_): .fit
         }
@@ -51,26 +51,29 @@ public enum DSButtonIconType: Equatable {
 }
 
 public enum DSButtonSize: Equatable {
-    case small(DSButtonSizeMode), medium(DSButtonSizeMode)
+    case small(DSButtonSizeMode), medium(DSButtonSizeMode), large(DSButtonSizeMode)
 
     var fontSize: Font {
         switch self {
         case .small: .appFont(.bold(.small))
         case .medium: .appFont(.bold(.medium))
+        case .large: .appFont(.bold(.medium))
         }
     }
 
     var padding: CGFloat {
         switch self {
         case .small: 12
-        case .medium: 16
+        case .medium: 14
+        case .large: 16
         }
     }
 
     var height: CGFloat {
         switch self {
         case .small: 36
-        case .medium: 44
+        case .medium: 40
+        case .large: 44
         }
     }
 }

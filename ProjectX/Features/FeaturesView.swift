@@ -17,6 +17,15 @@ struct FeaturesView: View {
     @EnvironmentObject var languageManager: LanguageManager
     @EnvironmentObject var themeManager: ThemeManager
 
+    var body: some View {
+        containerView
+            .onReceive(viewModel.state) { state in
+                handleState(state)
+            }
+    }
+}
+
+extension FeaturesView {
     private func handleState(_ state: FeaturesViewModel.State) {
         switch state {
         case .initial:
@@ -24,13 +33,6 @@ struct FeaturesView: View {
         default:
             break
         }
-    }
-
-    var body: some View {
-        containerView
-            .onReceive(viewModel.state) { state in
-                handleState(state)
-            }
     }
 
     private var containerView: some View {
@@ -63,6 +65,7 @@ struct FeaturesView: View {
             .contentShape(Rectangle())
             .onTapGesture {
                 switch component {
+                case .bottomSheet: routerManager.push(.bottomSheet)
                 case .button: routerManager.push(.button)
                 case .dialog: routerManager.push(.dialog)
                 case .text: routerManager.push(.text)

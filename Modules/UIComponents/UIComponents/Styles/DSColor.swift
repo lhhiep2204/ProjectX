@@ -38,3 +38,15 @@ public extension Color {
         .init(color.rawValue, bundle: .uiComponents)
     }
 }
+
+public extension UIColor {
+    static func appColor(_ color: DSColor) -> UIColor {
+        guard let color = UIColor(named: color.rawValue, 
+                                  in: .uiComponents,
+                                  compatibleWith: .current) else {
+            return .clear
+        }
+
+        return color
+    }
+}

@@ -6,6 +6,7 @@
 //
 
 import CoreModule
+import SwiftData
 import SwiftUI
 import UIComponents
 import Utilities
@@ -17,13 +18,25 @@ struct ProjectXApp: App {
     @StateObject private var languageManager = LanguageManager()
     @StateObject private var themeManager = ThemeManager()
 
+    private var container: ModelContainer = {
+        let schema = Schema([/* Add models here */])
+
+        let modelConfiguration = ModelConfiguration(schema: schema)
+
+        do {
+            let modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
+            SwiftDataManager.configure(with: modelContainer)
+
+            return modelContainer
+        } catch {
+            fatalError("Could not create ModelContainer: \(error)")
+        }
+    }()
+
 #if os(iOS)
     init() {
-        guard let largeTitleFont = UIFont(name: "RoundedMplus1c-Bold", size: 34),
-              let titleFont = UIFont(name: "RoundedMplus1c-Bold", size: 17) else { return }
-
-        UINavigationBar.appearance().largeTitleTextAttributes = [.font: largeTitleFont]
-        UINavigationBar.appearance().titleTextAttributes = [.font: titleFont]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.font: UIFont.appFont(.bold(.other(34)))]
+        UINavigationBar.appearance().titleTextAttributes = [.font: UIFont.appFont(.bold(.other(17)))]
     }
 #endif
 
@@ -33,6 +46,7 @@ struct ProjectXApp: App {
                 .tint(.appColor(.blue100))
                 .preferredColorScheme(themeManager.currentTheme.colorScheme)
         }
+        .modelContainer(container)
         .environmentObject(languageManager)
         .environmentObject(themeManager)
     }

@@ -7,7 +7,14 @@
 
 import SwiftUI
 
+final class DSBottomSheetObservable: ObservableObject {
+    @Published var backgroundInteraction: PresentationBackgroundInteraction = .automatic
+    @Published var dismissible: Bool = false
+}
+
 public struct DSBottomSheet<Content: View>: View {
+    @ObservedObject private var object = DSBottomSheetObservable()
+
     private let content: Content
     private let detents: Set<PresentationDetent>
     @Binding private var selectedDetent: PresentationDetent
@@ -32,8 +39,10 @@ public struct DSBottomSheet<Content: View>: View {
         containerView
             .presentationDetents(detents,
                                  selection: $selectedDetent)
-            .presentationBackgroundInteraction(.enabled)
-            .interactiveDismissDisabled()
+            .presentationBackgroundInteraction(object.backgroundInteraction)
+            .if(!object.dismissible) {
+                $0.interactiveDismissDisabled()
+            }
     }
 }
 
@@ -43,6 +52,18 @@ private extension DSBottomSheet {
             content
             Spacer()
         }
+    }
+}
+
+public extension DSBottomSheet {
+    func backgroundInteraction(_ bginteraction: PresentationBackgroundInteraction) -> Self {
+        object.backgroundInteraction = bginteraction
+        return self
+    }
+
+    func dismissible() -> Self {
+        object.dismissible = true
+        return self
     }
 }
 

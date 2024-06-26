@@ -28,12 +28,19 @@ public struct DSImage: View {
     }
 }
 
+// MARK: - Public methods
 public extension DSImage {
-    func type(_ font: DSFont) -> Self {
+    /// Sets the font of the image.
+    /// - Parameter font: The desired DSFont for the image.
+    /// - Returns: The updated DSImage.
+    func font(_ font: DSFont) -> Self {
         object.font = font
         return self
     }
 
+    /// Sets the color of the image.
+    /// - Parameter color: The desired color for the image.
+    /// - Returns: The updated DSImage.
     func color(_ color: Color) -> Self {
         object.color = color
         return self

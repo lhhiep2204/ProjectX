@@ -24,6 +24,22 @@
         }
       }
     },
+    "Bottom sheet" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
     "Button" : {
       "localizations" : {
         "en" : {
@@ -32,6 +48,22 @@
             "value" : "Button"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        },
+        "vi" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",

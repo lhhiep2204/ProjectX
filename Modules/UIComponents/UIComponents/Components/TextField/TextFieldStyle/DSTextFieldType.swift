@@ -27,7 +27,7 @@ public enum DSTextFieldState {
     }
 }
 
-enum DSTextFieldType {
+public enum DSTextFieldType {
     case plain, bordered
 }
 
@@ -41,7 +41,7 @@ struct DSTextFieldStyle: ViewModifier {
             .submitLabel(object.submitLabel)
             .font(.appFont(.regular(.other(14))))
             .if(object.axis == .horizontal) {
-                $0.frame(height: 44)
+                $0.frame(height: 40)
             }
             .if(object.axis == .vertical) {
                 $0.padding(.vertical, DSConstants.Spacing.spacing12)

@@ -34,25 +34,26 @@ struct DialogView: View {
             }
             .padding()
         }
-        .showDialog($showDialog,
-                    title: "Dialog",
-                    button: .init(title: "Call to action",
-                                  action: {}))
-        .showConfirmationDialog($showConfirmationDialog,
-                                title: "Dialog",
-                                subtitle: "Alert text goes here",
-                                leftButton: .init(title: "Cancel",
-                                                  action: {}),
-                                rightButton: .init(title: "Call to action",
-                                                   action: {}))
-        .showOptionDialog($showOptionDialog,
-                          title: "Dialog",
-                          subtitle: "Alert text goes here",
-                          image: .appSystemIcon(.apple),
-                          leftButton: .init(title: "Call to action",
-                                            action: {}),
-                          rightButton: .init(title: "Call to action",
-                                             action: {}))
+        .dialog($showDialog,
+                title: "Dialog",
+                subtitle: "Alert text goes here",
+                button: .init(title: "Call to action",
+                              action: {}))
+        .confirmationDialog($showConfirmationDialog,
+                            title: "Dialog",
+                            subtitle: "Alert text goes here",
+                            leftButton: .init(title: "Cancel",
+                                              action: {}),
+                            rightButton: .init(title: "Call to action",
+                                               action: {}))
+        .optionDialog($showOptionDialog,
+                      title: "Dialog",
+                      subtitle: "Alert text goes here",
+                      image: .appSystemIcon(.apple),
+                      leftButton: .init(title: "Call to action",
+                                        action: {}),
+                      rightButton: .init(title: "Call to action",
+                                         action: {}))
     }
 }
 

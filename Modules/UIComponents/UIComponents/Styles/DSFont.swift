@@ -65,3 +65,13 @@ public extension Font {
         .system(size: font.size, weight: font.weight)
     }
 }
+
+public extension UIFont {
+    static func appFont(_ font: DSFont) -> UIFont {
+        guard let font = UIFont(name: font.weight, size: font.size) else {
+            return .systemFont(ofSize: 16.0)
+        }
+
+        return font
+    }
+}

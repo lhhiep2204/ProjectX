@@ -12,6 +12,7 @@ public enum DSConstants {
         public static let spacing2: CGFloat = 2,
                           spacing4: CGFloat = 4,
                           spacing8: CGFloat = 8,
+                          spacing10: CGFloat = 10,
                           spacing12: CGFloat = 12,
                           spacing16: CGFloat = 16,
                           spacing20: CGFloat = 20,
@@ -19,7 +20,11 @@ public enum DSConstants {
                           spacing32: CGFloat = 32,
                           spacing36: CGFloat = 36,
                           spacing40: CGFloat = 40,
-                          spacing44: CGFloat = 44
+                          spacing44: CGFloat = 44,
+                          spacing48: CGFloat = 48,
+                          spacing52: CGFloat = 52,
+                          spacing56: CGFloat = 56,
+                          spacing60: CGFloat = 60
     }
 
     public enum Radius {

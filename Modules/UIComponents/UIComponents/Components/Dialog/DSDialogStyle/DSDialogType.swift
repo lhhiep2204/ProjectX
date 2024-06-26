@@ -50,11 +50,11 @@ public struct DSDialogModifier: ViewModifier {
 }
 
 public extension View {
-    func showDialog(_ isPresented: Binding<Bool>,
-                    title: String? = nil,
-                    subtitle: String? = nil,
-                    image: Image? = nil,
-                    button: DSDialogButton) -> some View {
+    func dialog(_ isPresented: Binding<Bool>,
+                title: String? = nil,
+                subtitle: String? = nil,
+                image: Image? = nil,
+                button: DSDialogButton) -> some View {
         modifier(DSDialogModifier(isPresented: isPresented,
                                   title: title,
                                   subtitle: subtitle,
@@ -62,12 +62,12 @@ public extension View {
                                   buttonType: .alert(button)))
     }
 
-    func showConfirmationDialog(_ isPresented: Binding<Bool>,
-                                title: String? = nil,
-                                subtitle: String? = nil,
-                                image: Image? = nil,
-                                leftButton: DSDialogButton,
-                                rightButton: DSDialogButton) -> some View {
+    func confirmationDialog(_ isPresented: Binding<Bool>,
+                            title: String? = nil,
+                            subtitle: String? = nil,
+                            image: Image? = nil,
+                            leftButton: DSDialogButton,
+                            rightButton: DSDialogButton) -> some View {
         modifier(DSDialogModifier(isPresented: isPresented,
                                   title: title,
                                   subtitle: subtitle,
@@ -75,12 +75,12 @@ public extension View {
                                   buttonType: .confirmation(leftButton, rightButton)))
     }
 
-    func showOptionDialog(_ isPresented: Binding<Bool>,
-                          title: String? = nil,
-                          subtitle: String? = nil,
-                          image: Image? = nil,
-                          leftButton: DSDialogButton,
-                          rightButton: DSDialogButton) -> some View {
+    func optionDialog(_ isPresented: Binding<Bool>,
+                      title: String? = nil,
+                      subtitle: String? = nil,
+                      image: Image? = nil,
+                      leftButton: DSDialogButton,
+                      rightButton: DSDialogButton) -> some View {
         modifier(DSDialogModifier(isPresented: isPresented,
                                   title: title,
                                   subtitle: subtitle,

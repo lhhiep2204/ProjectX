@@ -14,6 +14,7 @@ enum Features: String, CaseIterable {
 }
 
 enum Component: String, CaseIterable {
+    case bottomSheet = "Bottom sheet"
     case button = "Button"
     case dialog = "Dialog"
     case text = "Text"
@@ -83,6 +84,7 @@ extension FeaturesViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self else { return }
+
                 Logger.info("Value: \(value)")
                 state.send(.fetchDataSuccess)
             }
@@ -100,6 +102,7 @@ extension FeaturesViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self else { return }
+
                 Logger.info("Value: \(value)")
                 state.send(.fetchDataSuccess)
             }
@@ -117,6 +120,7 @@ extension FeaturesViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self else { return }
+
                 Logger.info("Value: \(value)")
                 state.send(.fetchDataSuccess)
             }
@@ -134,6 +138,7 @@ extension FeaturesViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self else { return }
+
                 Logger.info("Value: \(value)")
                 state.send(.fetchDataSuccess)
             }
@@ -151,6 +156,7 @@ extension FeaturesViewModel {
                 }
             } receiveValue: { [weak self] value in
                 guard let self else { return }
+
                 Logger.info("Value: \(value)")
                 state.send(.fetchDataSuccess)
             }

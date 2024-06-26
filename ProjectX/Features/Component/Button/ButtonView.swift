@@ -17,27 +17,36 @@ struct ButtonView: View {
                     .image(.appIcon(.location))
                     .shadow()
                 DSButton("Call to action",
+                         style: .borderedDestructive) {}
+                DSButton("Call to action",
                          style: .bordered) {}
                     .loading(true)
-                DSButton("Call to action",
-                         style: .filledDestructiveSmallFit) {}
-                    .shadow()
-                    .disabled(true)
-                DSButton("Call to action",
-                         style: .borderedDestructive) {}
                 DSButton("Call to action",
                          style: .filledSmall) {}
                     .loading(true)
                     .frame(width: 160)
                 DSButton("Call to action",
-                         style: .borderedSmallFit) {}
-                    .image(.appSystemIcon(.apple))
+                         style: .filledDestructiveSmallFit) {}
                     .shadow()
-                DSButton(image: .appSystemIcon(.apple),
-                         style: .borderedCircleIcon) {}
-                DSButton(image: .appSystemIcon(.apple),
-                         style: .filledIcon) {}
-                    .shadow()
+                    .disabled(true)
+                HStack(spacing: DSConstants.Spacing.spacing20) {
+                    DSButton("Small",
+                             style: .borderedSmallFit) {}
+                        .shadow()
+                    DSButton("Medium",
+                             style: .borderedFit) {}
+                        .shadow()
+                    DSButton("Large",
+                             style: .borderedLargeFit) {}
+                        .shadow()
+                }
+                HStack(spacing: DSConstants.Spacing.spacing20) {
+                    DSButton(image: .appSystemIcon(.apple),
+                             style: .borderedCircleIcon) {}
+                    DSButton(image: .appSystemIcon(.apple),
+                             style: .filledIcon) {}
+                        .shadow()
+                }
             }
             .padding()
         }

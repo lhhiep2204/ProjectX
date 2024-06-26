@@ -30,17 +30,27 @@ public struct DSText: View {
     }
 }
 
+// MARK: - Public methods
 public extension DSText {
+    /// Sets the font of the text.
+    /// - Parameter font: The desired DSFont for the text.
+    /// - Returns: The updated DSText.
     func font(_ font: DSFont) -> Self {
         object.font = font
         return self
     }
 
+    /// Sets the color of the text.
+    /// - Parameter color: The desired color for the text.
+    /// - Returns: The updated DSText.
     func color(_ color: Color) -> Self {
         object.color = color
         return self
     }
 
+    /// Sets the line limit of the text.
+    /// - Parameter number: The maximum number of lines for the text.
+    /// - Returns: The updated DSText.
     func lineLimit(_ number: Int) -> Self {
         object.lineLimit = number
         return self

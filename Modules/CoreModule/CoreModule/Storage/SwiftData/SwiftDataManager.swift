@@ -11,26 +11,17 @@ import SwiftData
 
 public class SwiftDataManager {
     // MARK: - Properties
-    public static var shared = SwiftDataManager()
+    public static var shared: SwiftDataManager!
 
     private var context: ModelContext?
 
     // MARK: - Constructors
-    private init() {
-        initializeContext()
+    private init(container: ModelContainer) {
+        context = ModelContext(container)
     }
 
-    private func initializeContext() {
-        let schema = Schema([]) // Initialize schema as needed
-
-        let modelConfiguration = ModelConfiguration(schema: schema)
-
-        do {
-            let container = try ModelContainer(for: schema, configurations: [modelConfiguration])
-            context = ModelContext(container)
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
+    public static func configure(with container: ModelContainer) {
+        shared = SwiftDataManager(container: container)
     }
 }
 
@@ -50,7 +41,7 @@ public extension SwiftDataManager {
                 let model = try context.fetch(descriptor)
                 return promise(.success(model))
             } catch {
-                print("DatabaseManager - fetch object error: \(error.localizedDescription)")
+                print("SwiftDataManager - fetch object error: \(error.localizedDescription)")
                 return promise(.success(nil))
             }
         }

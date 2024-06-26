@@ -69,22 +69,35 @@ public struct DSButton<S: ButtonStyle>: View {
     }
 }
 
+// MARK: - Public methods
 public extension DSButton {
+    /// Sets the disabled state of the button.
+    /// - Parameter disabled: A Boolean value indicating whether the button is disabled.
+    /// - Returns: The updated DSButton.
     func disabled(_ disabled: Bool) -> Self {
         object.disabled = disabled
         return self
     }
 
+    /// Sets an image to be displayed in the button.
+    /// - Parameter image: The image to be displayed.
+    /// - Returns: The updated DSButton.
     func image(_ image: Image) -> Self {
         object.image = image
         return self
     }
 
+    /// Sets the loading state of the button.
+    /// - Parameter state: A Boolean value indicating whether the button is in a loading state.
+    /// - Returns: The updated DSButton.
     func loading(_ state: Bool) -> Self {
         object.loading = state
         return self
     }
 
+    /// Sets the shadow radius of the button.
+    /// - Parameter radius: The shadow radius. Default is DSConstants.Radius.medium.
+    /// - Returns: The updated DSButton.
     func shadow(_ radius: CGFloat = DSConstants.Radius.medium) -> Self {
         object.shadow = radius
         return self
@@ -98,27 +111,36 @@ public extension DSButton {
             .image(.appIcon(.location))
             .shadow()
         DSButton("Call to action",
+                 style: .borderedDestructive) {}
+        DSButton("Call to action",
                  style: .bordered) {}
             .loading(true)
-        DSButton("Call to action",
-                 style: .filledDestructiveSmallFit) {}
-            .shadow()
-            .disabled(true)
-        DSButton("Call to action",
-                 style: .borderedDestructive) {}
         DSButton("Call to action",
                  style: .filledSmall) {}
             .loading(true)
             .frame(width: 160)
         DSButton("Call to action",
-                 style: .borderedSmallFit) {}
-            .image(.appSystemIcon(.apple))
+                 style: .filledDestructiveSmallFit) {}
             .shadow()
-        DSButton(image: .appSystemIcon(.apple),
-                 style: .borderedCircleIcon) {}
-        DSButton(image: .appSystemIcon(.apple),
-                 style: .filledIcon) {}
-            .shadow()
+            .disabled(true)
+        HStack(spacing: DSConstants.Spacing.spacing20) {
+            DSButton("Small",
+                     style: .borderedSmallFit) {}
+                .shadow()
+            DSButton("Medium",
+                     style: .borderedFit) {}
+                .shadow()
+            DSButton("Large",
+                     style: .borderedLargeFit) {}
+                .shadow()
+        }
+        HStack(spacing: DSConstants.Spacing.spacing20) {
+            DSButton(image: .appSystemIcon(.apple),
+                     style: .borderedCircleIcon) {}
+            DSButton(image: .appSystemIcon(.apple),
+                     style: .filledIcon) {}
+                .shadow()
+        }
     }
     .padding()
 }

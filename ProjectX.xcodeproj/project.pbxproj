@@ -32,6 +32,8 @@
 		72ADB9C82BCE90420043B97A /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72ADB9C72BCE90420043B97A /* TextFieldView.swift */; };
 		72B200682BD792D900CC836B /* DialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72B200672BD792D900CC836B /* DialogView.swift */; };
 		72B200862BDBB3EC00CC836B /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 72B200852BDBB3EC00CC836B /* Localizable.xcstrings */; };
+		72C881822C35375E0043000C /* DemoRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C881812C35375E0043000C /* DemoRequestView.swift */; };
+		72C881842C35376A0043000C /* DemoRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C881832C35376A0043000C /* DemoRequestViewModel.swift */; };
 		72FEDA732B88DF08000E8FF7 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FEDA722B88DF08000E8FF7 /* Route.swift */; };
 		72FEDA762B88DF43000E8FF7 /* SampleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FEDA752B88DF43000E8FF7 /* SampleRequest.swift */; };
 		72FEDA782B88DF58000E8FF7 /* SampleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72FEDA772B88DF58000E8FF7 /* SampleService.swift */; };
@@ -132,6 +134,8 @@
 		72ADB9C72BCE90420043B97A /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		72B200672BD792D900CC836B /* DialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogView.swift; sourceTree = "<group>"; };
 		72B200852BDBB3EC00CC836B /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		72C881812C35375E0043000C /* DemoRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoRequestView.swift; sourceTree = "<group>"; };
+		72C881832C35376A0043000C /* DemoRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoRequestViewModel.swift; sourceTree = "<group>"; };
 		72FEDA722B88DF08000E8FF7 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		72FEDA752B88DF43000E8FF7 /* SampleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRequest.swift; sourceTree = "<group>"; };
 		72FEDA772B88DF58000E8FF7 /* SampleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleService.swift; sourceTree = "<group>"; };
@@ -215,7 +219,7 @@
 			path = Text;
 			sourceTree = "<group>";
 		};
-		722F6F2B2BCE28AA00E0BFAA /* Component */ = {
+		722F6F2B2BCE28AA00E0BFAA /* DemoComponenta */ = {
 			isa = PBXGroup;
 			children = (
 				72316C402C2AB84600C36FA1 /* BottomSheet */,
@@ -224,7 +228,7 @@
 				722F6F262BCE194800E0BFAA /* Text */,
 				72ADB9C12BCE902B0043B97A /* TextField */,
 			);
-			path = Component;
+			path = DemoComponenta;
 			sourceTree = "<group>";
 		};
 		72316C402C2AB84600C36FA1 /* BottomSheet */ = {
@@ -356,6 +360,15 @@
 			path = Dialog;
 			sourceTree = "<group>";
 		};
+		72C881802C35373A0043000C /* DemoRequest */ = {
+			isa = PBXGroup;
+			children = (
+				72C881812C35375E0043000C /* DemoRequestView.swift */,
+				72C881832C35376A0043000C /* DemoRequestViewModel.swift */,
+			);
+			path = DemoRequest;
+			sourceTree = "<group>";
+		};
 		72FEDA6D2B88DEA1000E8FF7 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -386,7 +399,8 @@
 			isa = PBXGroup;
 			children = (
 				72FEDA7D2B88E08C000E8FF7 /* Bases */,
-				722F6F2B2BCE28AA00E0BFAA /* Component */,
+				722F6F2B2BCE28AA00E0BFAA /* DemoComponenta */,
+				72C881802C35373A0043000C /* DemoRequest */,
 				725957F92B88CF6B006F7B8C /* FeaturesView.swift */,
 				72FEDA802B88E0DF000E8FF7 /* FeaturesViewModel.swift */,
 			);
@@ -616,6 +630,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				72FEDA7B2B88DF7F000E8FF7 /* DeviceInfo.swift in Sources */,
+				72C881842C35376A0043000C /* DemoRequestViewModel.swift in Sources */,
+				72C881822C35375E0043000C /* DemoRequestView.swift in Sources */,
 				72FEDA8C2B88E589000E8FF7 /* Localized.swift in Sources */,
 				72FEDA762B88DF43000E8FF7 /* SampleRequest.swift in Sources */,
 				7244C5B12BDD5BC4007D00E1 /* Setting.swift in Sources */,

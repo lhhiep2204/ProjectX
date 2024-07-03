@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct DeviceInfo: Codable {
+struct DeviceInfo: Codable, Identifiable {
+    var id: String = UUID().uuidString
     let name: String
 }
 

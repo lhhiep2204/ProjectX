@@ -25,16 +25,15 @@ struct FeaturesView: View {
     }
 }
 
+// MARK: - State
 extension FeaturesView {
     private func handleState(_ state: FeaturesViewModel.State) {
-        switch state {
-        case .initial:
-            viewModel.intent.send(.fetchData)
-        default:
-            break
-        }
+        Logger.info("FeaturesView state: \(state)")
     }
+}
 
+// MARK: - Views
+extension FeaturesView {
     private var containerView: some View {
         NavigationSplitView {
             List {
@@ -42,6 +41,7 @@ extension FeaturesView {
                     Section(feature.rawValue) {
                         switch feature {
                         case .components: componentView
+                        case .httpRequest: httpRequestView
                         case .settings: settingView
                         }
                     }
@@ -70,6 +70,21 @@ extension FeaturesView {
                 case .dialog: routerManager.push(.dialog)
                 case .text: routerManager.push(.text)
                 case .textField: routerManager.push(.textField)
+                }
+            }
+        }
+    }
+
+    private var httpRequestView: some View {
+        ForEach(HTTPRequest.allCases, id: \.self) { httpRequest in
+            HStack {
+                DSText(httpRequest.rawValue)
+                Spacer()
+            }
+            .contentShape(Rectangle())
+            .onTapGesture {
+                switch httpRequest {
+                case .requests: routerManager.push(.demoRequest)
                 }
             }
         }

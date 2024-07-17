@@ -15,7 +15,9 @@ enum Features: String, CaseIterable {
 }
 
 enum Component: String, CaseIterable {
+#if os(iOS)
     case bottomSheet = "Bottom sheet"
+#endif
     case button = "Button"
     case dialog = "Dialog"
     case text = "Text"

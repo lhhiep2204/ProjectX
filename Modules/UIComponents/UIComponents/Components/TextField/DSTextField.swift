@@ -150,10 +150,10 @@ public struct DSTextField: View {
     private var clearButtonView: some View {
         Button(action: {
             text = ""
-        }, label: {
+        }) {
             Image.appSystemIcon(.clearText)
                 .foregroundStyle(.textSecondary)
-        })
+        }
         .if(!isSecure) {
             $0.padding(.trailing, DSConstants.Spacing.spacing16)
         }
@@ -162,10 +162,10 @@ public struct DSTextField: View {
     private var showPasswordButtonView: some View {
         Button(action: {
             showPassword.toggle()
-        }, label: {
+        }) {
             Image.appSystemIcon(showPassword ? .passwordShown : .passwordHidden)
                 .foregroundStyle(.textSecondary)
-        })
+        }
         .padding(.trailing, DSConstants.Spacing.spacing16)
     }
 }

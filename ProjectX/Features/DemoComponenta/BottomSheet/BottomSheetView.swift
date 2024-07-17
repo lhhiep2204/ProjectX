@@ -20,9 +20,9 @@ struct BottomSheetView: View {
             }
             .padding()
         }
-        .sheet(isPresented: $showBottonSheet, content: {
+        .sheet(isPresented: $showBottonSheet) {
             bottomSheet
-        })
+        }
     }
 }
 

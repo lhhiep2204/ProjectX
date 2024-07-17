@@ -65,7 +65,9 @@ extension FeaturesView {
             .contentShape(Rectangle())
             .onTapGesture {
                 switch component {
+#if os(iOS)
                 case .bottomSheet: routerManager.push(.bottomSheet)
+#endif
                 case .button: routerManager.push(.button)
                 case .dialog: routerManager.push(.dialog)
                 case .text: routerManager.push(.text)

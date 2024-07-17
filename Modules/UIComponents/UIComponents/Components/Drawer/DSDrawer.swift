@@ -49,18 +49,17 @@ public struct DSDrawer<Menu: View, Content: View>: View {
                      menu: {
                 Color.gray
                     .frame(width: 250)
-            },
-                     content: {
+            }) {
                 ZStack {
                     Color.white
-                    
+
                     Button("Open") {
                         withAnimation {
                             isOpened = true
                         }
                     }
                 }
-            })
+            }
             .ignoresSafeArea()
         }
     }

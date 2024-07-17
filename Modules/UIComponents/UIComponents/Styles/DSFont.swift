@@ -66,6 +66,7 @@ public extension Font {
     }
 }
 
+#if os(iOS)
 public extension UIFont {
     static func appFont(_ font: DSFont) -> UIFont {
         guard let font = UIFont(name: font.weight, size: font.size) else {
@@ -75,3 +76,4 @@ public extension UIFont {
         return font
     }
 }
+#endif

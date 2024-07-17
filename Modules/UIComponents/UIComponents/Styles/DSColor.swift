@@ -39,6 +39,7 @@ public extension Color {
     }
 }
 
+#if os(iOS)
 public extension UIColor {
     static func appColor(_ color: DSColor) -> UIColor {
         guard let color = UIColor(named: color.rawValue, 
@@ -50,3 +51,4 @@ public extension UIColor {
         return color
     }
 }
+#endif

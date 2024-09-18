@@ -24,22 +24,6 @@
         }
       }
     },
-    "Bottom sheet" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        },
-        "vi" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "Button" : {
       "localizations" : {
         "en" : {

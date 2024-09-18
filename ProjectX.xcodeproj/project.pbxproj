@@ -14,7 +14,6 @@
 		722598872BE4C83200AAE971 /* CoreModule.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 722598852BE4C73E00AAE971 /* CoreModule.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		722F6F252BCE17C000E0BFAA /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F6F242BCE17C000E0BFAA /* ButtonView.swift */; };
 		722F6F282BCE195200E0BFAA /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722F6F272BCE195200E0BFAA /* TextView.swift */; };
-		72316C462C2AB86E00C36FA1 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72316C452C2AB86E00C36FA1 /* BottomSheetView.swift */; };
 		7244C5B12BDD5BC4007D00E1 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7244C5B02BDD5BC4007D00E1 /* Setting.swift */; };
 		725957F82B88CF6B006F7B8C /* ProjectXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725957F72B88CF6B006F7B8C /* ProjectXApp.swift */; };
 		725957FA2B88CF6B006F7B8C /* FeaturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725957F92B88CF6B006F7B8C /* FeaturesView.swift */; };
@@ -115,7 +114,6 @@
 		722598802BE4C73E00AAE971 /* CoreModule.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CoreModule.xcodeproj; path = Modules/CoreModule/CoreModule.xcodeproj; sourceTree = "<group>"; };
 		722F6F242BCE17C000E0BFAA /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		722F6F272BCE195200E0BFAA /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
-		72316C452C2AB86E00C36FA1 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		7244C5B02BDD5BC4007D00E1 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		725957F42B88CF6B006F7B8C /* ProjectX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjectX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725957F72B88CF6B006F7B8C /* ProjectXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectXApp.swift; sourceTree = "<group>"; };
@@ -222,21 +220,12 @@
 		722F6F2B2BCE28AA00E0BFAA /* DemoComponenta */ = {
 			isa = PBXGroup;
 			children = (
-				72316C402C2AB84600C36FA1 /* BottomSheet */,
 				722F6F1E2BCE17AE00E0BFAA /* Button */,
 				72B200612BD792C900CC836B /* Dialog */,
 				722F6F262BCE194800E0BFAA /* Text */,
 				72ADB9C12BCE902B0043B97A /* TextField */,
 			);
 			path = DemoComponenta;
-			sourceTree = "<group>";
-		};
-		72316C402C2AB84600C36FA1 /* BottomSheet */ = {
-			isa = PBXGroup;
-			children = (
-				72316C452C2AB86E00C36FA1 /* BottomSheetView.swift */,
-			);
-			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		725957EB2B88CF6B006F7B8C = {
@@ -642,7 +631,6 @@
 				72FEDA882B88E4DA000E8FF7 /* Common.swift in Sources */,
 				72FEDA732B88DF08000E8FF7 /* Route.swift in Sources */,
 				72FEDA812B88E0DF000E8FF7 /* FeaturesViewModel.swift in Sources */,
-				72316C462C2AB86E00C36FA1 /* BottomSheetView.swift in Sources */,
 				72FEDA7F2B88E09A000E8FF7 /* BaseViewModel.swift in Sources */,
 				722F6F252BCE17C000E0BFAA /* ButtonView.swift in Sources */,
 				72ADB9C82BCE90420043B97A /* TextFieldView.swift in Sources */,

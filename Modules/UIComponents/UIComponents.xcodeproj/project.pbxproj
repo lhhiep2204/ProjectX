@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7207B3032BE9FD17003CC828 /* DSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7207B3022BE9FD17003CC828 /* DSImage.swift */; };
-		720EB07F2BF70BD600BE6A70 /* DSBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720EB07D2BF70BD600BE6A70 /* DSBottomSheet.swift */; };
 		721842982BC8E525003F402E /* DSButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721842972BC8E525003F402E /* DSButtonType.swift */; };
 		7218429C2BCC2C37003F402E /* DSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7218429B2BCC2C37003F402E /* DSFont.swift */; };
 		721842C12BCCCD43003F402E /* DSIcons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 721842C02BCCCD43003F402E /* DSIcons.xcassets */; };
@@ -32,7 +31,6 @@
 
 /* Begin PBXFileReference section */
 		7207B3022BE9FD17003CC828 /* DSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSImage.swift; sourceTree = "<group>"; };
-		720EB07D2BF70BD600BE6A70 /* DSBottomSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DSBottomSheet.swift; sourceTree = "<group>"; };
 		721842972BC8E525003F402E /* DSButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSButtonType.swift; sourceTree = "<group>"; };
 		7218429B2BCC2C37003F402E /* DSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSFont.swift; sourceTree = "<group>"; };
 		721842C02BCCCD43003F402E /* DSIcons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = DSIcons.xcassets; sourceTree = "<group>"; };
@@ -73,14 +71,6 @@
 				7207B3022BE9FD17003CC828 /* DSImage.swift */,
 			);
 			path = Image;
-			sourceTree = "<group>";
-		};
-		720EB07E2BF70BD600BE6A70 /* BottomSheet */ = {
-			isa = PBXGroup;
-			children = (
-				720EB07D2BF70BD600BE6A70 /* DSBottomSheet.swift */,
-			);
-			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		727EFBF62C0E1509000BCF27 /* Drawer */ = {
@@ -194,7 +184,6 @@
 		72FCF4002BB87ED6002823D3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				720EB07E2BF70BD600BE6A70 /* BottomSheet */,
 				72A5E84D2BA6F09200C57E7A /* Button */,
 				728E55A22BD789C200193806 /* Dialog */,
 				727EFBF62C0E1509000BCF27 /* Drawer */,
@@ -306,7 +295,6 @@
 				72B2006A2BDA379500CC836B /* DSConstants.swift in Sources */,
 				72A5E84C2BA6EF6A00C57E7A /* DSButton.swift in Sources */,
 				7218429C2BCC2C37003F402E /* DSFont.swift in Sources */,
-				720EB07F2BF70BD600BE6A70 /* DSBottomSheet.swift in Sources */,
 				72ADB9B92BCE4CDA0043B97A /* DSTextField.swift in Sources */,
 				72B200602BD78C6A00CC836B /* DSDialogType.swift in Sources */,
 				727EFC1D2C15EF74000BCF27 /* DSAsyncImage.swift in Sources */,

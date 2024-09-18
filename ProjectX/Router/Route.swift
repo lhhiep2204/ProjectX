@@ -10,7 +10,7 @@ import SwiftUI
 
 enum Route {
     case features
-    case bottomSheet, button, dialog, text, textField
+    case button, dialog, text, textField
     case demoRequest
 }
 
@@ -21,12 +21,6 @@ extension Route: AppRoute {
         case .features:
             FeaturesView()
                 .navigationTitle("Features")
-        case .bottomSheet:
-            BottomSheetView()
-                .navigationTitle("Bottom sheet")
-#if os(iOS)
-                .navigationBarTitleDisplayMode(.inline)
-#endif
         case .button:
             ButtonView()
                 .navigationTitle("Button")

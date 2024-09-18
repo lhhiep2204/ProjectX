@@ -29,9 +29,6 @@ enum FeaturesItem: Identifiable, Hashable {
 }
 
 enum Component: String, CaseIterable {
-#if os(iOS)
-    case bottomSheet = "Bottom sheet"
-#endif
     case button = "Button"
     case dialog = "Dialog"
     case text = "Text"
@@ -39,9 +36,6 @@ enum Component: String, CaseIterable {
     
     var route: Route {
         switch self {
-#if os(iOS)
-        case .bottomSheet: .bottomSheet
-#endif
         case .button: .button
         case .dialog: .dialog
         case .text: .text

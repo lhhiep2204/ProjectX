@@ -5,6 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
+import CoreModule
 import SwiftUI
 
 enum Route {
@@ -13,7 +14,7 @@ enum Route {
     case demoRequest
 }
 
-extension Route: View, Hashable {
+extension Route: AppRoute {
     // MARK: - Views
     var body: some View {
         switch self {

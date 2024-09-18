@@ -8,20 +8,26 @@
 import Combine
 import SwiftUI
 
+public typealias RouterHandler = View & Hashable
+
+public protocol AppRoute: RouterHandler { }
+
 /// A class responsible for managing navigation paths in a SwiftUI application.
-public final class RouterManager<V: View & Hashable>: ObservableObject {
+public final class RouterManager<Route: AppRoute>: ObservableObject {
     // MARK: - Published Properties
     /// The root view of the navigation hierarchy.
-    @Published var root: V
+    @Published var root: Route
     /// The stack of navigation paths.
-    @Published var paths = [V]()
+    @Published var paths: NavigationPath
 
     // MARK: - Initializer
     /// Initializes the `RouterManager` with a root view.
     ///
     /// - Parameter rootView: The root view of the navigation hierarchy.
-    public init(root rootView: V) {
-        root = rootView
+    public init(paths: NavigationPath = .init(),
+                root: Route) {
+        self.paths = paths
+        self.root = root
     }
 }
 
@@ -29,7 +35,7 @@ public extension RouterManager {
     /// Pushes a new view onto the navigation stack.
     ///
     /// - Parameter path: The view to be pushed onto the stack.
-    func push(_ path: V) {
+    func push(_ path: Route) {
         paths.append(path)
     }
 
@@ -40,19 +46,14 @@ public extension RouterManager {
 
     /// Pops all views from the navigation stack, leaving only the root view.
     func popToRoot() {
-        paths.removeAll()
+        paths.removeLast(paths.count)
     }
 
     /// Updates the root view of the navigation hierarchy.
     ///
     /// - Parameter rootView: The new root view.
-    func updateRoot(_ rootView: V) {
+    func updateRoot(_ rootView: Route) {
         root = rootView
-        paths.removeAll()
-    }
-
-    /// The current root view in the navigation hierarchy.
-    var currentRoot: V {
-        root
+        paths.removeLast(paths.count)
     }
 }

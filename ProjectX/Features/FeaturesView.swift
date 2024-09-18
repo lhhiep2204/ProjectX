@@ -19,75 +19,46 @@ struct FeaturesView: View {
 
     var body: some View {
         containerView
-            .onReceive(viewModel.state) { state in
-                handleState(state)
-            }
-    }
-}
-
-// MARK: - State
-extension FeaturesView {
-    private func handleState(_ state: FeaturesViewModel.State) {
-        Logger.info("FeaturesView state: \(state)")
     }
 }
 
 // MARK: - Views
 extension FeaturesView {
     private var containerView: some View {
-        NavigationSplitView {
-            List {
-                ForEach(Features.allCases, id: \.self) { feature in
-                    Section(feature.rawValue) {
-                        switch feature {
-                        case .components: componentView
-                        case .httpRequest: httpRequestView
-                        case .settings: settingView
-                        }
+        List {
+            ForEach(Features.allCases, id: \.self) { feature in
+                Section(feature.rawValue) {
+                    switch feature {
+                    case .components: componentView
+                    case .httpRequest: httpRequestView
+                    case .settings: settingView
                     }
-                    .font(.appFont(.medium(.medium)))
                 }
+                .font(.appFont(.medium(.medium)))
             }
-#if os(macOS)
-            .navigationSplitViewColumnWidth(220)
-#endif
-        } detail: {
-            EmptyView()
         }
     }
 
     private var componentView: some View {
         ForEach(Component.allCases, id: \.self) { component in
-            HStack {
-                DSText(component.rawValue)
-                Spacer()
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                switch component {
-#if os(iOS)
-                case .bottomSheet: routerManager.push(.bottomSheet)
-#endif
-                case .button: routerManager.push(.button)
-                case .dialog: routerManager.push(.dialog)
-                case .text: routerManager.push(.text)
-                case .textField: routerManager.push(.textField)
+            NavigationLink(value: component.route) {
+                HStack {
+                    DSText(component.rawValue)
+                    Spacer()
                 }
+                .contentShape(Rectangle())
             }
         }
     }
 
     private var httpRequestView: some View {
         ForEach(HTTPRequest.allCases, id: \.self) { httpRequest in
-            HStack {
-                DSText(httpRequest.rawValue)
-                Spacer()
-            }
-            .contentShape(Rectangle())
-            .onTapGesture {
-                switch httpRequest {
-                case .requests: routerManager.push(.demoRequest)
+            NavigationLink(value: httpRequest.route) {
+                HStack {
+                    DSText(httpRequest.rawValue)
+                    Spacer()
                 }
+                .contentShape(Rectangle())
             }
         }
     }

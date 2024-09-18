@@ -14,6 +14,20 @@ enum Features: String, CaseIterable {
     case settings = "Settings"
 }
 
+enum FeaturesItem: Identifiable, Hashable {
+    case components(Component)
+    case httpRequest(HTTPRequest)
+    case settings(Setting)
+
+    var id: String {
+        switch self {
+        case .components(let c): "components_\(c.rawValue)"
+        case .httpRequest(let r): "httpRequest_\(r.rawValue)"
+        case .settings(let s): "settings_\(s.rawValue)"
+        }
+    }
+}
+
 enum Component: String, CaseIterable {
 #if os(iOS)
     case bottomSheet = "Bottom sheet"
@@ -22,10 +36,28 @@ enum Component: String, CaseIterable {
     case dialog = "Dialog"
     case text = "Text"
     case textField = "TextField"
+    
+    var route: Route {
+        switch self {
+#if os(iOS)
+        case .bottomSheet: .bottomSheet
+#endif
+        case .button: .button
+        case .dialog: .dialog
+        case .text: .text
+        case .textField: .textField
+        }
+    }
 }
 
 enum HTTPRequest: String, CaseIterable {
     case requests = "Requests"
+    
+    var route: Route {
+        switch self {
+        case .requests: .demoRequest
+        }
+    }
 }
 
 enum Setting: String, CaseIterable {
@@ -33,19 +65,16 @@ enum Setting: String, CaseIterable {
     case theme = "Theme"
 }
 
-class FeaturesViewModel: BaseViewModel {
-    enum State {
-        case initial
-        case error(_ message: String)
-    }
+struct FeaturesModel {}
 
-    let state = CurrentValueSubject<State, Never>(.initial)
+class FeaturesViewModel: BaseViewModel {
+    @Published private(set) var state = FeaturesModel()
 
     private let service: ISampleService
-
+    
     init(service: ISampleService = SampleService()) {
         self.service = service
-
+        
         super.init()
     }
 }

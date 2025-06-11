@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Utilities
 
 enum Features: String, CaseIterable {
     case components = "Components"
@@ -33,7 +32,7 @@ enum Component: String, CaseIterable {
     case dialog = "Dialog"
     case text = "Text"
     case textField = "TextField"
-    
+
     var route: Route {
         switch self {
         case .button: .button
@@ -46,7 +45,7 @@ enum Component: String, CaseIterable {
 
 enum HTTPRequest: String, CaseIterable {
     case requests = "Requests"
-    
+
     var route: Route {
         switch self {
         case .requests: .demoRequest
@@ -64,11 +63,11 @@ struct FeaturesModel {}
 class FeaturesViewModel: BaseViewModel {
     @Published private(set) var state = FeaturesModel()
 
-    private let service: ISampleService
-    
-    init(service: ISampleService = SampleService()) {
+    private let service: DeviceInfoServiceProtocol
+
+    init(service: DeviceInfoServiceProtocol = DeviceInfoService()) {
         self.service = service
-        
+
         super.init()
     }
 }

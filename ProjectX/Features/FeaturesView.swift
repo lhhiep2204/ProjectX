@@ -5,10 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
-import CoreModule
 import SwiftUI
-import UIComponents
-import Utilities
 
 struct FeaturesView: View {
     @EnvironmentObject private var routerManager: RouterManager<Route>
@@ -120,4 +117,6 @@ extension FeaturesView {
 
 #Preview {
     FeaturesView()
+        .environmentObject(LanguageManager())
+        .environmentObject(ThemeManager())
 }

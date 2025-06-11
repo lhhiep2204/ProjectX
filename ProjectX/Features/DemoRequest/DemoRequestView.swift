@@ -5,9 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 3/7/24.
 //
 
-import CoreModule
 import SwiftUI
-import UIComponents
 
 struct DemoRequestView: View {
     // MARK: - Properties

@@ -7,7 +7,6 @@
 
 import Combine
 import Foundation
-import Utilities
 
 class DemoRequestViewModel: BaseViewModel {
     // MARK: - Enums
@@ -25,12 +24,12 @@ class DemoRequestViewModel: BaseViewModel {
     let state = CurrentValueSubject<State, Never>(.initial)
     let intent = PassthroughSubject<Intent, Never>()
 
-    private let service: ISampleService
+    private let service: DeviceInfoServiceProtocol
 
     @Published var deviceInfos: [DeviceInfo] = []
 
     // MARK: - Constructors
-    init(service: ISampleService = SampleService()) {
+    init(service: DeviceInfoServiceProtocol = DeviceInfoService()) {
         self.service = service
 
         super.init()

@@ -6,46 +6,71 @@
 //
 
 import SwiftUI
-import UIComponents
 
 struct ButtonView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: DSConstants.Spacing.spacing16) {
-                DSButton("Call to action",
-                         style: .filled) {}
-                    .image(.appIcon(.location))
-                    .shadow()
-                DSButton("Call to action",
-                         style: .borderedDestructive) {}
-                DSButton("Call to action",
-                         style: .bordered) {}
-                    .loading(true)
-                DSButton("Call to action",
-                         style: .filledSmall) {}
-                    .loading(true)
+                DSButton(
+                    "Call to action",
+                    image: .appSystemIcon(.apple),
+                    style: .filled
+                ) {}
+                    .dsShadow()
+                
+                DSButton(
+                    "Call to action",
+                    style: .borderedDestructive
+                ) {}
+                
+                DSButton(
+                    "Call to action",
+                    style: .bordered,
+                    loading: true
+                ) {}
+                
+                DSButton(
+                    "Call to action",
+                    style: .filledSmall,
+                    loading: true
+                ) {}
                     .frame(width: 160)
-                DSButton("Call to action",
-                         style: .filledDestructiveSmallFit) {}
-                    .shadow()
+                
+                DSButton(
+                    "Call to action",
+                    style: .filledDestructiveSmallFit
+                ) {}
+                    .dsShadow()
                     .disabled(true)
+                
                 HStack(spacing: DSConstants.Spacing.spacing20) {
-                    DSButton("Small",
-                             style: .borderedSmallFit) {}
-                        .shadow()
-                    DSButton("Medium",
-                             style: .borderedFit) {}
-                        .shadow()
-                    DSButton("Large",
-                             style: .borderedLargeFit) {}
-                        .shadow()
+                    DSButton(
+                        "Small",
+                        style: .borderedSmallFit
+                    ) {}
+                        .dsShadow()
+                    DSButton(
+                        "Medium",
+                        style: .borderedFit
+                    ) {}
+                        .dsShadow()
+                    DSButton(
+                        "Large",
+                        style: .borderedLargeFit
+                    ) {}
+                        .dsShadow()
                 }
+                
                 HStack(spacing: DSConstants.Spacing.spacing20) {
-                    DSButton(image: .appSystemIcon(.apple),
-                             style: .borderedCircleIcon) {}
-                    DSButton(image: .appSystemIcon(.apple),
-                             style: .filledIcon) {}
-                        .shadow()
+                    DSButton(
+                        image: .appSystemIcon(.apple),
+                        style: .borderedCircularIcon
+                    ) {}
+                    DSButton(
+                        image: .appSystemIcon(.apple),
+                        style: .filledIcon
+                    ) {}
+                        .dsShadow()
                 }
             }
             .padding()

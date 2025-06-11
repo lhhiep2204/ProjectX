@@ -5,7 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 27/4/24.
 //
 
-import Utilities
+import Foundation
 
 extension Keys {
     enum Setting: String, LocalizedKey {

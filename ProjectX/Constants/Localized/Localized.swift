@@ -5,7 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
-import Utilities
+import Foundation
 
 extension LocalizedKey where Self == Keys.Common {
     static var common: Keys.Common.Type { Keys.Common.self }

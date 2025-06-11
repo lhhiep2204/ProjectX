@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import UIComponents
 
 struct TextFieldView: View {
     enum FocusField {
@@ -38,25 +37,20 @@ struct TextFieldView: View {
                     .focused($focusField, equals: .password)
                 DSTextField(.constant("Text placeholder"), text: $text)
                     .image(.appSystemIcon(.apple))
-                    .type(.bordered)
                     .focused($editing)
                 DSTextField(text: $text)
                     .image(.appSystemIcon(.apple))
-                    .type(.bordered)
                     .disabled(true)
                     .focused($editing)
                 DSTextField(text: $text, state: .success)
                     .description("Description success text")
-                    .type(.bordered)
                     .focused($editing)
                 DSTextField(text: $text, state: .error)
                     .description("Description error text")
-                    .type(.bordered)
                     .focused($editing)
                 DSTextField(text: $text, state: .normal)
                     .description("Description text")
                     .multiline()
-                    .type(.bordered)
                     .focused($editing)
             }
             .padding()

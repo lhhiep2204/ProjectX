@@ -108,7 +108,7 @@ extension View {
     /// - Returns: A view modified with shadow styling.
     func dsShadow(
         color: Color = .gray.opacity(0.3),
-        radius: CGFloat = DSRadius.medium
+        radius: CGFloat = DSRadius.small
     ) -> some View {
         self.modifier(DSShadowModifier(color: color, radius: radius))
     }

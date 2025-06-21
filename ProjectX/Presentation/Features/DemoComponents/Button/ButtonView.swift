@@ -14,35 +14,29 @@ struct ButtonView: View {
                 DSButton(
                     "Call to action",
                     image: .appSystemIcon(.apple),
-                    style: .filled
+                    style: .filledLarge
                 ) {}
                     .dsShadow()
-                
+
                 DSButton(
                     "Call to action",
-                    style: .borderedDestructive
-                ) {}
-                
-                DSButton(
-                    "Call to action",
-                    style: .bordered,
+                    style: .borderedDestructive,
                     loading: true
                 ) {}
-                
+
                 DSButton(
                     "Call to action",
-                    style: .filledSmall,
-                    loading: true
+                    style: .borderedSmallFit
                 ) {}
                     .frame(width: 160)
-                
+
                 DSButton(
                     "Call to action",
-                    style: .filledDestructiveSmallFit
+                    style: .filledDestructiveLargeFit
                 ) {}
                     .dsShadow()
                     .disabled(true)
-                
+
                 HStack(spacing: DSSpacing.spacing20) {
                     DSButton(
                         "Small",
@@ -60,7 +54,7 @@ struct ButtonView: View {
                     ) {}
                         .dsShadow()
                 }
-                
+
                 HStack(spacing: DSSpacing.spacing20) {
                     DSButton(
                         image: .appSystemIcon(.apple),

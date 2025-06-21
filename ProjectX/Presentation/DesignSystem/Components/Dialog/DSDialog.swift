@@ -38,8 +38,8 @@ struct DSDialog: View {
         .frame(maxWidth: 300)
         .padding(DSSpacing.spacing24)
         .background(.backgroundPrimary)
-        .cornerRadius(DSRadius.xxLarge)
-        .shadow(radius: DSRadius.xxLarge, y: 3)
+        .cornerRadius(DSRadius.xLarge)
+        .shadow(radius: DSRadius.xLarge, y: 3)
     }
     
     @ViewBuilder

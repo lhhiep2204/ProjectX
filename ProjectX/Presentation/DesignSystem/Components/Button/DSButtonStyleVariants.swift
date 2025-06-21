@@ -21,8 +21,8 @@ extension ButtonStyle where Self == DSButtonStyle {
         DSButtonStyle(type: .filled(.large(.expanded)))
     }
     
-    static var filledDestructiveSmallFit: DSButtonStyle {
-        DSButtonStyle(type: .filled(.small(.adaptive)), primaryColor: .red)
+    static var filledDestructiveLargeFit: DSButtonStyle {
+        DSButtonStyle(type: .filled(.large(.adaptive)), primaryColor: .red)
     }
 }
 

@@ -11,19 +11,19 @@ import SwiftUI
 struct DSButton<Style: ButtonStyle>: View {
     /// The button text.
     private let title: String?
-    
+
     /// The button image (optional).
     private let image: Image?
-    
+
     /// The button style.
     private let style: Style
-    
+
     /// Indicates whether the button is in a loading state.
     private let loading: Bool
-    
+
     /// The action executed when the button is tapped.
     private let action: () -> Void
-    
+
     /// Creates a `DSButton` with the specified properties.
     ///
     /// - Parameters:
@@ -45,16 +45,17 @@ struct DSButton<Style: ButtonStyle>: View {
         self.loading = loading
         self.action = action
     }
-    
+
     var body: some View {
         Button(action: action) {
-            if loading {
-                ProgressView()
-                    .tint(.appColor(.gray60))
-            } else {
+            ZStack {
                 HStack {
                     image
                     title.map { Text($0) }
+                }
+                if loading {
+                    ProgressView()
+                        .tint(.appColor(.textPrimary))
                 }
             }
         }
@@ -68,21 +69,59 @@ struct DSButton<Style: ButtonStyle>: View {
     VStack(spacing: DSSpacing.spacing16) {
         DSButton(
             "Call to action",
-            style: .filled
+            image: .appSystemIcon(.apple),
+            style: .filledLarge
         ) {}
             .dsShadow()
-        
+
         DSButton(
             "Call to action",
-            image: .appSystemIcon(.apple),
-            style: .filledSmall
+            style: .borderedDestructive,
+            loading: true
         ) {}
-        
+
         DSButton(
-            image: .appSystemIcon(.apple),
-            style: .borderedCircularIcon
+            "Call to action",
+            style: .borderedSmallFit
+        ) {}
+            .frame(width: 160)
+
+        DSButton(
+            "Call to action",
+            style: .filledDestructiveLargeFit
         ) {}
             .dsShadow()
+            .disabled(true)
+
+        HStack(spacing: DSSpacing.spacing20) {
+            DSButton(
+                "Small",
+                style: .borderedSmallFit
+            ) {}
+                .dsShadow()
+            DSButton(
+                "Medium",
+                style: .borderedFit
+            ) {}
+                .dsShadow()
+            DSButton(
+                "Large",
+                style: .borderedLargeFit
+            ) {}
+                .dsShadow()
+        }
+
+        HStack(spacing: DSSpacing.spacing20) {
+            DSButton(
+                image: .appSystemIcon(.apple),
+                style: .borderedCircularIcon
+            ) {}
+            DSButton(
+                image: .appSystemIcon(.apple),
+                style: .filledIcon
+            ) {}
+                .dsShadow()
+        }
     }
     .padding()
 }

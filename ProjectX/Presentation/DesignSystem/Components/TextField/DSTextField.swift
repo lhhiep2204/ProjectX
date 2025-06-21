@@ -42,6 +42,7 @@ struct DSTextField: View {
 
     private let isSecure: Bool
     private let state: DSTextFieldState
+    private let translucent: Bool
 
     /// Initializes a `DSTextField` with a placeholder and text binding.
     /// - Parameters:
@@ -49,16 +50,19 @@ struct DSTextField: View {
     ///   - text: A binding to the user-inputted text.
     ///   - isSecure: A Boolean indicating if the text field is for secure input (e.g., passwords).
     ///   - state: The state of the text field, affecting its appearance.
+    ///   - translucent: Whether the background is translucent (opacity = 0.6).
     init(
         _ placeholder: Binding<String>,
         text: Binding<String>,
         isSecure: Bool = false,
-        state: DSTextFieldState = .normal
+        state: DSTextFieldState = .normal,
+        translucent: Bool = true
     ) {
         _placeholder = placeholder
         _text = text
         self.isSecure = isSecure
         self.state = state
+        self.translucent = translucent
     }
 
     /// Initializes a `DSTextField` without a placeholder.
@@ -66,15 +70,18 @@ struct DSTextField: View {
     ///   - text: A binding to the user-inputted text.
     ///   - isSecure: A Boolean indicating if the text field is for secure input.
     ///   - state: The state of the text field.
+    ///   - translucent: Whether the background is translucent (opacity = 0.6).
     init(
         text: Binding<String>,
         isSecure: Bool = false,
-        state: DSTextFieldState = .normal
+        state: DSTextFieldState = .normal,
+        translucent: Bool = true
     ) {
         _placeholder = .constant("")
         _text = text
         self.isSecure = isSecure
         self.state = state
+        self.translucent = translucent
     }
 
     /// Computes the border color based on the state of the text field.
@@ -88,7 +95,7 @@ struct DSTextField: View {
 
     /// Computes the border width based on the disabled state.
     private var borderWidth: CGFloat {
-        object.disabled ? 0 : DSStroke.thick
+        object.disabled ? 0 : DSStroke.thin
     }
 
     /// Computes the background color when the text field is disabled.
@@ -147,14 +154,18 @@ extension DSTextField {
             }
         }
         .padding(.horizontal, DSSpacing.spacing12)
-        .background(Color.appColor(.bgSecondary))
-        .cornerRadius(DSRadius.xxLarge)
+        .if(translucent) {
+            $0.background(Color.appColor(.bgSecondary).opacity(0.6))
+        } else: {
+            $0.background(Color.appColor(.bgSecondary))
+        }
+        .cornerRadius(DSRadius.xLarge)
         .overlay {
-            RoundedRectangle(cornerRadius: DSRadius.xxLarge)
+            RoundedRectangle(cornerRadius: DSRadius.xLarge)
                 .stroke(borderColor, lineWidth: borderWidth)
                 .if(object.disabled) {
                     $0.background(disabledBackground)
-                        .cornerRadius(DSRadius.xxLarge)
+                        .cornerRadius(DSRadius.xLarge)
                 }
         }
     }
@@ -179,7 +190,7 @@ extension DSTextField {
             DSTextFieldStyle()
         )
         .if(object.axis == .horizontal) {
-            $0.frame(height: DSSize.textFieldHeight)
+            $0.frame(height: DSSize.size36)
         } else: {
             $0.padding(.vertical, DSSpacing.spacing8)
         }
@@ -206,6 +217,7 @@ extension DSTextField {
             Image
                 .appSystemIcon(showPassword ? .passwordShown : .passwordHidden)
                 .foregroundStyle(.textSecondary)
+                .font(.appFont(.regular(.medium)))
         })
     }
 }
@@ -253,11 +265,9 @@ extension DSTextField {
     }
 
     /// Configures the text field to support multiline input.
-    /// - Parameters:
-    ///   - multiline: A Boolean value indicating whether multiline input is enabled.
-    ///   - lineLimit: The maximum number of lines for the text field.
+    /// - Parameter multiline: A Boolean value indicating whether multiline input is enabled.
     /// - Returns: The updated DSTextField.
-    func multiline(_ multiline: Bool = true, lineLimit: Int = 5) -> Self {
+    func multiline(_ multiline: Bool = true) -> Self {
         object.axis = multiline ? .vertical : .horizontal
         return self
     }
@@ -288,12 +298,12 @@ extension DSTextField {
             .constant("Text placeholder"),
             text: .constant("")
         )
-        .image(.appIcon(.location))
+        .image(.appSystemIcon(.apple))
 
         DSTextField(
             text: .constant("Disabled")
         )
-        .image(.appIcon(.location))
+        .image(.appSystemIcon(.apple))
         .disabled(true)
 
         DSTextField(

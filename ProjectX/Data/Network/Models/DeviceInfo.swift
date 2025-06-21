@@ -2,7 +2,7 @@
 //  DeviceInfo.swift
 //  ProjectX
 //
-//  Created by Hoàng Hiệp Lê on 16/03/2024.
+//  Created by Hoàng Hiệp Lê on 21/6/25.
 //
 
 import Foundation

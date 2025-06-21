@@ -83,9 +83,9 @@ enum DSButtonSize: Equatable {
     /// Retrieves the font size for the button based on its size.
     var fontSize: Font {
         switch self {
-        case .small: .appFont(.bold(.small))
-        case .medium: .appFont(.bold(.medium))
-        case .large: .appFont(.bold(.medium))
+        case .small: .appFont(.bold(.custom(12)))
+        case .medium: .appFont(.bold(.custom(14)))
+        case .large: .appFont(.bold(.custom(16)))
         }
     }
     
@@ -101,9 +101,9 @@ enum DSButtonSize: Equatable {
     /// Retrieves the height value for the button.
     var height: CGFloat {
         switch self {
-        case .small: 36
-        case .medium: 40
-        case .large: 44
+        case .small: 24
+        case .medium: 32
+        case .large: 40
         }
     }
 }

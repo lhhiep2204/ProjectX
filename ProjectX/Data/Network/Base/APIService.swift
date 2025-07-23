@@ -134,7 +134,7 @@ extension APIService {
         else if [.post, .put, .patch, .delete].contains(target.method), case .encodable(let encodableData) = body {
             do {
                 let encoder = JSONEncoder()
-                urlRequest.httpBody = try encoder.encode(AnyEncodable(encodableData))
+                urlRequest.httpBody = try encoder.encode(encodableData)
             } catch {
                 NetworkLogger.httpErrorLogger(error)
                 return nil
@@ -235,6 +235,8 @@ extension APIService {
             } catch {
                 throw decodingError
             }
+        } catch {
+            throw APIError.custom(error.localizedDescription)
         }
     }
 
@@ -345,21 +347,5 @@ extension APIService {
             // Don't retry client errors (4xx) except for specific cases
             throw error
         }
-    }
-}
-
-/// A type-erasing wrapper for Encodable values.
-///
-/// This struct allows any Encodable type to be wrapped in a common type,
-/// which is useful when dealing with heterogeneous collections of Encodable objects
-struct AnyEncodable: Encodable {
-    private let encode: (Encoder) throws -> Void
-
-    init(_ value: Encodable) {
-        self.encode = value.encode
-    }
-
-    func encode(to encoder: Encoder) throws {
-        try encode(encoder)
     }
 }

@@ -30,8 +30,8 @@ struct DSButtonStyle: ButtonStyle {
     ///   - secondaryColor: The secondary color for the button (default is `.appColor(.bgPrimary)`)
     init(
         type: DSButtonType,
-        primaryColor: Color = .teal,
-        secondaryColor: Color = .appColor(.bgPrimary),
+        primaryColor: Color = .appColor(.accent),
+        secondaryColor: Color = .appColor(.backgroundPrimary),
         translucent: Bool = true
     ) {
         self.type = type

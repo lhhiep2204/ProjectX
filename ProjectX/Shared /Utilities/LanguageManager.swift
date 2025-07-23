@@ -9,28 +9,26 @@ import SwiftUI
 
 // MARK: - Localization
 struct Keys {}
-protocol LocalizedKey {}
+protocol LocalizedKey: RawRepresentable where RawValue == String {}
 
 extension LocalizedKey {
-    var identifier: String {
-        (self as? (any RawRepresentable))?.rawValue as? String ?? ""
-    }
+    var identifier: String { rawValue }
 }
 
 extension String {
-    static func localized(_ key: LocalizedKey) -> String {
+    static func localized(_ key: some LocalizedKey) -> String {
         NSLocalizedString(key.identifier, bundle: LanguageManager.bundle, comment: "")
     }
 }
 
 extension Text {
-    init(_ key: LocalizedKey) {
+    init(_ key: some LocalizedKey) {
         self.init(String.localized(key))
     }
 }
 
 extension Button where Label == Text {
-    init(_ key: LocalizedKey, action: @escaping () -> Void) {
+    init(_ key: some LocalizedKey, action: @escaping () -> Void) {
         self.init(String.localized(key), action: action)
     }
 }

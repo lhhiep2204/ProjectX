@@ -24,7 +24,7 @@ extension DeviceInfoRequest: APITargetProtocol {
             "objects"
         }
     }
-
+    
     var method: HTTPMethod {
         switch self {
         case .getDeviceInfo: .get
@@ -34,7 +34,7 @@ extension DeviceInfoRequest: APITargetProtocol {
         case .deleteDeviceInfo: .delete
         }
     }
-
+    
     var body: RequestBody? {
         switch self {
         case .getDeviceInfo:
@@ -47,7 +47,7 @@ extension DeviceInfoRequest: APITargetProtocol {
             return .parameters(["id": "5"])
         }
     }
-
+    
     var requiresAuthentication: Bool {
         false
     }

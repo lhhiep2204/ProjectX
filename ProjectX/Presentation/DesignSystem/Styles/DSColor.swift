@@ -10,18 +10,22 @@ import SwiftUI
 /// A design system enum that defines color names used in the app.
 /// These values should match the color names defined in the asset catalog.
 enum DSColor: String {
-    // MARK: - Background
-    case bgPrimary = "background.primary"
-    case bgSecondary = "background.secondary"
-    
-    // MARK: - Text
+    /// Accent Colors
+    case accent = "AccentColor"
+
+    /// Background Colors
+    case backgroundPrimary = "background.primary"
+    case backgroundSecondary = "background.secondary"
+    case backgroundPrimaryInverted = "background.primary.inverted"
+    case backgroundSecondaryInverted = "background.secondary.inverted"
+
+    /// Text Colors
     case textPrimary = "text.primary"
     case textSecondary = "text.secondary"
-    
-    // MARK: - Shade
-    case blue10 = "blue.10"
-    case blue100 = "blue.100"
-    
+    case textPrimaryInverted = "text.primary.inverted"
+    case textSecondaryInverted = "text.secondary.inverted"
+
+    /// Shade
     case gray20 = "gray.20"
     case gray40 = "gray.40"
     case gray60 = "gray.60"

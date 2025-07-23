@@ -5,7 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
-import Combine
+import Foundation
 
 protocol DeviceInfoServiceProtocol {
     func getDeviceInfo() async throws -> [DeviceInfo]

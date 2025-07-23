@@ -10,11 +10,19 @@ import Foundation
 /// A utility class for logging network-related information including HTTP requests, responses, and errors.
 /// This logger is only active in DEBUG builds and provides formatted output for debugging network issues.
 enum NetworkLogger {
+    /// Write a message to the console output based on the current environment.
+    ///
+    /// - Parameter message: The message string to be written to the console.
+    private static func write(_ message: String) {
+#if DEBUG
+        print(message)
+#endif
+    }
+
     /// Log details of an HTTP request.
     ///
     /// - Parameter request: The URLRequest to be logged.
     static func httpRequestLogger(_ request: URLRequest) {
-#if DEBUG
         var output = "🟡 Request:\n"
         var curl = String.empty
 
@@ -40,10 +48,7 @@ enum NetworkLogger {
             output += "- Body: \(bodyString)\n"
             curl += " -d '\(bodyString)'"
         }
-
-        print(output)
-        print(curl + "\n")
-#endif
+        write(output + curl + "\n")
     }
 
     /// Log details of an HTTP response.
@@ -52,7 +57,6 @@ enum NetworkLogger {
     ///   - data: The response data.
     ///   - response: The URLResponse to be logged.
     static func httpResponseLogger(_ data: Data, _ response: URLResponse) {
-#if DEBUG
         var output = "🟢 Response:\n"
 
         if let httpResponse = response as? HTTPURLResponse {
@@ -73,17 +77,15 @@ enum NetworkLogger {
             output += "- Response Data: \(responseString)\n"
         }
 
-        print(output)
-#endif
+        write(output)
     }
 
     /// Log details of network errors.
     ///
     /// - Parameter error: The error that occurred.
     static func httpErrorLogger(_ error: Error) {
-#if DEBUG
         var output = "🔴 Error:\n"
-        
+
         if let apiError = error as? APIError {
             output += "- APIError: \(apiError.errorDescription)\n"
         } else if let urlError = error as? URLError {
@@ -94,7 +96,6 @@ enum NetworkLogger {
             output += "- Description: \(error.localizedDescription)\n"
         }
 
-        print(output)
-#endif
+        write(output)
     }
 }

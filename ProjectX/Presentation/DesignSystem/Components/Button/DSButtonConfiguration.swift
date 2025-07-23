@@ -1,5 +1,5 @@
 //
-//  DSButtonType.swift
+//  DSButtonConfiguration.swift
 //  UIComponents
 //
 //  Created by Hoàng Hiệp Lê on 12/4/24.

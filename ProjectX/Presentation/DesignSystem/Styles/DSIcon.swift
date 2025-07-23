@@ -9,7 +9,7 @@ import SwiftUI
 
 /// A design system enum that defines custom icons used in the app.
 enum DSIcon: String {
-    case location = "ic.location"
+    case marker = "ic.marker"
 }
 
 /// A design system enum that defines system-provided SF Symbols used in the app.

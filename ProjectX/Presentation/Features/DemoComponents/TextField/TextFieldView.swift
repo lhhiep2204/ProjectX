@@ -19,39 +19,87 @@ struct TextFieldView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: DSSpacing.spacing16) {
-                DSTextField(.constant("Username"), text: $text)
-                    .label("Username")
+                // 1. Standard with placeholder and label
+                DSTextField(
+                    .constant("Username"),
+                    text: .constant("")
+                )
+                .label("Username")
 #if os(iOS)
-                    .keyboardType(.emailAddress)
+                .keyboardType(.emailAddress)
 #endif
-                    .submitLabel(.next)
-                    .focused($focusField, equals: .username)
-                    .onSubmit {
-                        focusField = .password
-                    }
-                DSTextField(.constant("Password"), text: $text, isSecure: true)
-                    .label("Password")
+                .focused($editing)
+
+                // 2. Secure field (password)
+                DSTextField(
+                    .constant("Password"),
+                    text: .constant(""),
+                    isSecure: true
+                )
+                .label("Password")
 #if os(iOS)
-                    .keyboardType(.numberPad)
+                .keyboardType(.numberPad)
 #endif
-                    .focused($focusField, equals: .password)
-                DSTextField(.constant("Text placeholder"), text: $text)
-                    .image(.appSystemIcon(.apple))
-                    .focused($editing)
-                DSTextField(text: $text)
-                    .image(.appSystemIcon(.apple))
-                    .disabled(true)
-                    .focused($editing)
-                DSTextField(text: $text, state: .success)
-                    .description("Description success text")
-                    .focused($editing)
-                DSTextField(text: $text, state: .error)
-                    .description("Description error text")
-                    .focused($editing)
-                DSTextField(text: $text, state: .normal)
-                    .description("Description text")
-                    .multiline()
-                    .focused($editing)
+                .focused($editing)
+
+                // 3. With icon
+                DSTextField(
+                    .constant("Text placeholder"),
+                    text: .constant("")
+                )
+                .image(.appSystemIcon(.apple))
+                .focused($editing)
+
+                // 4. Disabled
+                DSTextField(
+                    text: .constant("Disabled")
+                )
+                .image(.appSystemIcon(.apple))
+                .disabled(true)
+                .focused($editing)
+
+                // 5. Success state
+                DSTextField(
+                    text: .constant("Success"),
+                    state: .success
+                )
+                .description("Description success text")
+                .focused($editing)
+
+                // 6. Error state
+                DSTextField(
+                    text: .constant("Error"),
+                    state: .error
+                )
+                .description("Description error text")
+                .focused($editing)
+
+                // 7. Multiline
+                DSTextField(
+                    text: .constant("Multiline\nLine 2\nLine 3"),
+                    state: .normal
+                )
+                .description("Description text")
+                .multiline()
+                .focused($editing)
+
+                // 8. Max Length (set to 3)
+                DSTextField(
+                    .constant("Limited"),
+                    text: .constant("12345")
+                )
+                .label("Max Length 3")
+                .maxLength(3)
+                .focused($editing)
+
+                // 9. Non-translucent field
+                DSTextField(
+                    .constant("Opaque"),
+                    text: .constant("Text"),
+                    translucent: false
+                )
+                .label("Opaque Background")
+                .focused($editing)
             }
             .padding()
         }

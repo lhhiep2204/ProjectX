@@ -5,7 +5,6 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
-import Combine
 import SwiftUI
 
 typealias RouterHandler = View & Hashable
@@ -24,8 +23,10 @@ final class RouterManager<Route: AppRoute>: ObservableObject {
     /// Initializes the `RouterManager` with a root view.
     ///
     /// - Parameter rootView: The root view of the navigation hierarchy.
-    init(paths: NavigationPath = .init(),
-                root: Route) {
+    init(
+        paths: NavigationPath = .init(),
+        root: Route
+    ) {
         self.paths = paths
         self.root = root
     }

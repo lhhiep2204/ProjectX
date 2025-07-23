@@ -40,7 +40,7 @@ struct ProjectXApp: App {
     var body: some Scene {
         WindowGroup {
             RouterView(routerManager)
-                .tint(.appColor(.blue100))
+                .tint(.appColor(.accent))
                 .preferredColorScheme(themeManager.currentTheme.colorScheme)
         }
         .modelContainer(container)

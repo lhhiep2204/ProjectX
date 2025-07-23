@@ -155,9 +155,9 @@ extension DSTextField {
         }
         .padding(.horizontal, DSSpacing.spacing12)
         .if(translucent) {
-            $0.background(Color.appColor(.bgSecondary).opacity(0.6))
+            $0.background(Color.appColor(.backgroundSecondary).opacity(0.6))
         } else: {
-            $0.background(Color.appColor(.bgSecondary))
+            $0.background(Color.appColor(.backgroundSecondary))
         }
         .cornerRadius(DSRadius.xLarge)
         .overlay {
@@ -274,56 +274,81 @@ extension DSTextField {
 }
 
 #Preview {
-    VStack(spacing: DSSpacing.spacing16) {
-        DSTextField(
-            .constant("Username"),
-            text: .constant("")
-        )
-        .label("Username")
+    ScrollView {
+        VStack(spacing: DSSpacing.spacing16) {
+            // 1. Standard with placeholder and label
+            DSTextField(
+                .constant("Username"),
+                text: .constant("")
+            )
+            .label("Username")
 #if os(iOS)
-        .keyboardType(.emailAddress)
+            .keyboardType(.emailAddress)
 #endif
 
-        DSTextField(
-            .constant("Password"),
-            text: .constant(""),
-            isSecure: true
-        )
-        .label("Password")
+            // 2. Secure field (password)
+            DSTextField(
+                .constant("Password"),
+                text: .constant(""),
+                isSecure: true
+            )
+            .label("Password")
 #if os(iOS)
-        .keyboardType(.numberPad)
+            .keyboardType(.numberPad)
 #endif
 
-        DSTextField(
-            .constant("Text placeholder"),
-            text: .constant("")
-        )
-        .image(.appSystemIcon(.apple))
+            // 3. With icon
+            DSTextField(
+                .constant("Text placeholder"),
+                text: .constant("")
+            )
+            .image(.appSystemIcon(.apple))
 
-        DSTextField(
-            text: .constant("Disabled")
-        )
-        .image(.appSystemIcon(.apple))
-        .disabled(true)
+            // 4. Disabled
+            DSTextField(
+                text: .constant("Disabled")
+            )
+            .image(.appSystemIcon(.apple))
+            .disabled(true)
 
-        DSTextField(
-            text: .constant("Success"),
-            state: .success
-        )
-        .description("Description success text")
+            // 5. Success state
+            DSTextField(
+                text: .constant("Success"),
+                state: .success
+            )
+            .description("Description success text")
 
-        DSTextField(
-            text: .constant("Error"),
-            state: .error
-        )
-        .description("Description error text")
+            // 6. Error state
+            DSTextField(
+                text: .constant("Error"),
+                state: .error
+            )
+            .description("Description error text")
 
-        DSTextField(
-            text: .constant("Multiline"),
-            state: .normal
-        )
-        .description("Description text")
-        .multiline()
+            // 7. Multiline
+            DSTextField(
+                text: .constant("Multiline\nLine 2\nLine 3"),
+                state: .normal
+            )
+            .description("Description text")
+            .multiline()
+
+            // 8. Max Length (set to 3)
+            DSTextField(
+                .constant("Limited"),
+                text: .constant("12345")
+            )
+            .label("Max Length 3")
+            .maxLength(3)
+
+            // 9. Non-translucent field
+            DSTextField(
+                .constant("Opaque"),
+                text: .constant("Text"),
+                translucent: false
+            )
+            .label("Opaque Background")
+        }
+        .padding()
     }
-    .padding()
 }

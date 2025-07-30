@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FeaturesView: View {
-    @EnvironmentObject private var routerManager: RouterManager<Route>
+    @EnvironmentObject private var routerManager: Router<Route>
     @StateObject private var viewModel = FeaturesViewModel()
 
     @EnvironmentObject var languageManager: LanguageManager

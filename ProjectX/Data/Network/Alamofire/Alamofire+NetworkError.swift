@@ -5,6 +5,7 @@
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
 //
 
+/**
 import Alamofire
 
 enum NetworkErrorType {
@@ -49,3 +50,4 @@ struct NetworkError: Error {
         }
     }
 }
+**/

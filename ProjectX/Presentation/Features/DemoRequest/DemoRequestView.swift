@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DemoRequestView: View {
     // MARK: - Properties
-    @EnvironmentObject private var routerManager: RouterManager<Route>
+    @EnvironmentObject private var routerManager: Router<Route>
     @StateObject private var viewModel = DemoRequestViewModel()
 
     var body: some View {

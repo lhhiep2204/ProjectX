@@ -1,5 +1,5 @@
 //
-//  RouterManager.swift
+//  Router.swift
 //  CoreModule
 //
 //  Created by Hoàng Hiệp Lê on 16/03/2024.
@@ -7,20 +7,24 @@
 
 import SwiftUI
 
+/// A protocol that represents a route in the navigation stack.
+///
+/// Any conforming type must be both a `View` and `Hashable` to support
+/// SwiftUI navigation and identity tracking.
 typealias RouterHandler = View & Hashable
+protocol AppRoute: RouterHandler {}
 
-protocol AppRoute: RouterHandler { }
-
-/// A class responsible for managing navigation paths in a SwiftUI application.
-final class RouterManager<Route: AppRoute>: ObservableObject {
-    // MARK: - Published Properties
+/// A navigation router for SwiftUI views, handling a stack-based navigation model.
+///
+/// `Router` maintains the current path stack and root view, and provides methods
+/// for navigation actions such as push, pop, and resetting the stack.
+final class Router<Route: AppRoute>: ObservableObject {
     /// The root view of the navigation hierarchy.
     @Published var root: Route
     /// The stack of navigation paths.
     @Published var paths: NavigationPath
 
-    // MARK: - Initializer
-    /// Initializes the `RouterManager` with a root view.
+    /// Initializes the `Router` with a root view.
     ///
     /// - Parameter rootView: The root view of the navigation hierarchy.
     init(
@@ -32,7 +36,7 @@ final class RouterManager<Route: AppRoute>: ObservableObject {
     }
 }
 
-extension RouterManager {
+extension Router {
     /// Pushes a new view onto the navigation stack.
     ///
     /// - Parameter path: The view to be pushed onto the stack.

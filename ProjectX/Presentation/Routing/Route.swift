@@ -16,7 +16,18 @@ enum Route {
 extension Route: AppRoute {
     // MARK: - Views
     var body: some View {
-        switch self {
+        RouteContentView(route: self)
+    }
+}
+
+/// Internal view responsible for resolving routes to their corresponding views with proper dependency injection.
+private struct RouteContentView: View {
+    let route: Route
+
+    @Environment(\.viewModelFactory) private var factory
+
+    var body: some View {
+        switch route {
         case .features:
             FeaturesView()
                 .navigationTitle("Features")

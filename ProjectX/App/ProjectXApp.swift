@@ -11,7 +11,7 @@ import SwiftUI
 @main
 struct ProjectXApp: App {
     // MARK: - Properties
-    private var routerManager: RouterManager<Route> = .init(root: .features)
+    private var routerManager: Router<Route> = .init(root: .features)
     @StateObject private var languageManager = LanguageManager()
     @StateObject private var themeManager = ThemeManager()
 

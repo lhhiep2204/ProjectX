@@ -18,7 +18,7 @@ struct TextFieldView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: DSSpacing.spacing16) {
+            VStack(spacing: DSSpacing.large) {
                 // 1. Standard with placeholder and label
                 DSTextField(
                     .constant("Username"),

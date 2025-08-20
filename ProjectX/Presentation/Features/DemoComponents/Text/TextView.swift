@@ -10,7 +10,7 @@ import SwiftUI
 struct TextView: View {
     var body: some View {
         ScrollView {
-            VStack(spacing: DSSpacing.spacing16) {
+            VStack(spacing: DSSpacing.large) {
                 // Regular Font Weight
                 DSText(
                     "Regular - Small",

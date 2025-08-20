@@ -10,7 +10,7 @@ import SwiftUI
 struct ButtonView: View {
     var body: some View {
         ScrollView {
-            VStack(spacing: DSSpacing.spacing16) {
+            VStack(spacing: DSSpacing.large) {
                 // Filled Buttons
                 DSButton(
                     "Filled Small",
@@ -71,7 +71,7 @@ struct ButtonView: View {
                 ) {}
                 DSButton(
                     "Bordered Destructive",
-                    style: .borderedDestructive,
+                    style: .borderedDestructiveLarge,
                     loading: true
                 ) {}
                 DSButton(
@@ -80,7 +80,7 @@ struct ButtonView: View {
                 ) {}
                 
                 // Icon Buttons
-                HStack(spacing: DSSpacing.spacing24) {
+                HStack(spacing: DSSpacing.xLarge) {
                     DSButton(
                         image: .appSystemIcon(.apple),
                         style: .borderedCircularIcon

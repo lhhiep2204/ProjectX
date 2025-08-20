@@ -34,7 +34,6 @@ struct DSText: View {
         self.color = color
     }
 
-    /// The SwiftUI body that defines the view hierarchy.
     var body: some View {
         Text(title)
             .font(.appFont(font))
@@ -45,7 +44,7 @@ struct DSText: View {
 // MARK: - Preview
 #Preview {
     ScrollView {
-        VStack(spacing: DSSpacing.spacing16) {
+        VStack(spacing: DSSpacing.large) {
             // Regular Font Weight
             DSText(
                 "Regular - Small",

@@ -67,7 +67,7 @@ struct DSButton<Style: ButtonStyle>: View {
 // MARK: - Preview
 #Preview {
     ScrollView {
-        VStack(spacing: DSSpacing.spacing16) {
+        VStack(spacing: DSSpacing.large) {
             // Filled Buttons
             DSButton(
                 "Filled Small",
@@ -128,7 +128,7 @@ struct DSButton<Style: ButtonStyle>: View {
             ) {}
             DSButton(
                 "Bordered Destructive",
-                style: .borderedDestructive,
+                style: .borderedDestructiveLarge,
                 loading: true
             ) {}
             DSButton(
@@ -137,7 +137,7 @@ struct DSButton<Style: ButtonStyle>: View {
             ) {}
 
             // Icon Buttons
-            HStack(spacing: DSSpacing.spacing24) {
+            HStack(spacing: DSSpacing.xLarge) {
                 DSButton(
                     image: .appSystemIcon(.apple),
                     style: .borderedCircularIcon

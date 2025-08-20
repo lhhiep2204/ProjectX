@@ -90,7 +90,7 @@ struct DSTextField: View {
             return .appColor(.gray20)
         }
 
-        return editing ? .teal : state.borderColor
+        return editing ? .accent : state.borderColor
     }
 
     /// Computes the border width based on the disabled state.
@@ -106,7 +106,7 @@ struct DSTextField: View {
     var body: some View {
         VStack(
             alignment: .leading,
-            spacing: DSSpacing.spacing4
+            spacing: DSSpacing.xSmall
         ) {
             if !object.label.isEmpty {
                 DSText(
@@ -126,8 +126,8 @@ struct DSTextField: View {
             }
         }
         .if(object.maxLength > 0) {
-            $0.onReceive(text.publisher.collect()) {
-                text = String($0.prefix(object.maxLength))
+            $0.onChange(of: text) {
+                text = String($1.prefix(object.maxLength))
             }
         }
         .onTapGesture {
@@ -138,9 +138,8 @@ struct DSTextField: View {
 
 // MARK: - Private Methods
 extension DSTextField {
-    /// A view representing the main text field component.
     private var inputView: some View {
-        HStack(spacing: DSSpacing.spacing8) {
+        HStack(spacing: DSSpacing.small) {
             object.image
 
             textFieldView
@@ -153,7 +152,7 @@ extension DSTextField {
                 showPasswordButtonView
             }
         }
-        .padding(.horizontal, DSSpacing.spacing12)
+        .padding(.horizontal, DSSpacing.medium)
         .if(translucent) {
             $0.background(Color.appColor(.backgroundSecondary).opacity(0.6))
         } else: {
@@ -170,7 +169,6 @@ extension DSTextField {
         }
     }
 
-    /// The actual text field input view, supporting secure and non-secure modes.
     private var textFieldView: some View {
         Group {
             if isSecure && !showPassword {
@@ -190,15 +188,14 @@ extension DSTextField {
             DSTextFieldStyle()
         )
         .if(object.axis == .horizontal) {
-            $0.frame(height: DSSize.size36)
+            $0.frame(height: DSSize.xLarge)
         } else: {
-            $0.padding(.vertical, DSSpacing.spacing8)
+            $0.padding(.vertical, DSSpacing.small)
         }
         .focused($editing)
         .disabled(object.disabled)
     }
 
-    /// A button for clearing the text input.
     private var clearButtonView: some View {
         Button(action: {
             text = ""
@@ -209,7 +206,6 @@ extension DSTextField {
         })
     }
 
-    /// A button for toggling the visibility of secure text input.
     private var showPasswordButtonView: some View {
         Button(action: {
             showPassword.toggle()
@@ -222,7 +218,7 @@ extension DSTextField {
     }
 }
 
-// MARK: - methods
+// MARK: - Methods
 extension DSTextField {
     /// Sets the disabled state of the text field.
     /// - Parameter disabled: A Boolean value indicating whether the text field is disabled.
@@ -273,9 +269,10 @@ extension DSTextField {
     }
 }
 
+// MARK: - Preview
 #Preview {
     ScrollView {
-        VStack(spacing: DSSpacing.spacing16) {
+        VStack(spacing: DSSpacing.large) {
             // 1. Standard with placeholder and label
             DSTextField(
                 .constant("Username"),

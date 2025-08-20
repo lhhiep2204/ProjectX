@@ -11,10 +11,10 @@ struct DialogView: View {
     @State private var showDialog: Bool = false
     @State private var showConfirmationDialog: Bool = false
     @State private var showOptionDialog: Bool = false
-    
+
     var body: some View {
         ScrollView {
-            VStack(spacing: DSSpacing.spacing16) {
+            VStack(spacing: DSSpacing.large) {
                 DSButton("Show dialog", style: .filled) {
                     withAnimation {
                         showDialog = true
@@ -37,27 +37,37 @@ struct DialogView: View {
             $showDialog,
             title: "Dialog",
             subtitle: "Alert text goes here",
-            button: .init(title: "Call to action",
-                          action: {})
+            button: .init(
+                title: "Call to action",
+                action: {}
+            )
         )
         .confirmationDialog(
             $showConfirmationDialog,
             title: "Dialog",
             subtitle: "Alert text goes here",
-            leftButton: .init(title: "Cancel",
-                              action: {}),
-            rightButton: .init(title: "Call to action",
-                               action: {})
+            leftButton: .init(
+                title: "Cancel",
+                action: {}
+            ),
+            rightButton: .init(
+                title: "Call to action",
+                action: {}
+            )
         )
         .optionDialog(
             $showOptionDialog,
             title: "Dialog",
             subtitle: "Alert text goes here",
             image: .appSystemIcon(.apple),
-            leftButton: .init(title: "Call to action",
-                              action: {}),
-            rightButton: .init(title: "Call to action",
-                               action: {})
+            leftButton: .init(
+                title: "Call to action",
+                action: {}
+            ),
+            rightButton: .init(
+                title: "Call to action",
+                action: {}
+            )
         )
     }
 }

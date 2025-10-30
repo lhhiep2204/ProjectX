@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct FeaturesView: View {
-    @EnvironmentObject private var routerManager: Router<Route>
-    @StateObject private var viewModel = FeaturesViewModel()
+    @Environment(Router<Route>.self) private var routerManager
+    @State private var viewModel = FeaturesViewModel()
 
-    @EnvironmentObject var languageManager: LanguageManager
-    @EnvironmentObject var themeManager: ThemeManager
+    @Environment(LanguageManager.self) private var languageManager
+    @Environment(ThemeManager.self) private var themeManager
 
     var body: some View {
         containerView
@@ -70,7 +70,10 @@ extension FeaturesView {
     }
 
     private func languageView(_ item: Setting) -> some View {
-        Picker(selection: $languageManager.currentLanguage) {
+        Picker(selection: Binding(
+            get: { languageManager.currentLanguage },
+            set: { languageManager.currentLanguage = $0 }
+        )) {
             ForEach(Language.allCases, id: \.self) { item in
                 var text: String {
                     switch item {
@@ -93,7 +96,10 @@ extension FeaturesView {
     }
 
     private func themeView(_ item: Setting) -> some View {
-        Picker(selection: $themeManager.currentTheme) {
+        Picker(selection: Binding(
+            get: { themeManager.currentTheme },
+            set: { themeManager.currentTheme = $0 }
+        )) {
             ForEach(Theme.allCases, id: \.self) { item in
                 var text: String {
                     switch item {
@@ -117,6 +123,6 @@ extension FeaturesView {
 
 #Preview {
     FeaturesView()
-        .environmentObject(LanguageManager())
-        .environmentObject(ThemeManager())
+        .environment(LanguageManager())
+        .environment(ThemeManager())
 }

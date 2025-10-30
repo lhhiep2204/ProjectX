@@ -18,17 +18,21 @@ protocol AppRoute: RouterHandler {}
 ///
 /// `Router` maintains the current path stack and root view, and provides methods
 /// for navigation actions such as push, pop, and resetting the stack.
-final class Router<Route: AppRoute>: ObservableObject {
-    /// The root view of the navigation hierarchy.
-    @Published var root: Route
-    /// The stack of navigation paths.
-    @Published var paths: NavigationPath
+@Observable @MainActor
+final class Router<Route: AppRoute> {
+    /// The stack of navigation paths, excluding the root.
+    var paths: [Route]
 
-    /// Initializes the `Router` with a root view.
+    /// The root view of the navigation hierarchy.
+    var root: Route
+
+    /// Initializes the router with an optional path stack and a required root view.
     ///
-    /// - Parameter rootView: The root view of the navigation hierarchy.
+    /// - Parameters:
+    ///   - paths: The initial navigation stack. Defaults to an empty stack.
+    ///   - root: The root view of the navigation hierarchy.
     init(
-        paths: NavigationPath = .init(),
+        paths: [Route] = [],
         root: Route
     ) {
         self.paths = paths
@@ -39,26 +43,38 @@ final class Router<Route: AppRoute>: ObservableObject {
 extension Router {
     /// Pushes a new view onto the navigation stack.
     ///
-    /// - Parameter path: The view to be pushed onto the stack.
-    func push(_ path: Route) {
-        paths.append(path)
+    /// - Parameter route: The route to push onto the stack.
+    func push(_ route: Route) {
+        paths.append(route)
     }
 
-    /// Pops the top view from the navigation stack.
+    /// Pops the top view from the navigation stack, if the stack is not empty.
     func pop() {
+        guard !paths.isEmpty else { return }
         paths.removeLast()
     }
 
-    /// Pops all views from the navigation stack, leaving only the root view.
+    /// Pops all views, leaving only the root view in the navigation hierarchy.
     func popToRoot() {
-        paths.removeLast(paths.count)
+        paths.removeAll()
     }
 
-    /// Updates the root view of the navigation hierarchy.
+    /// Pops views until the specified route is the top of the stack.
     ///
-    /// - Parameter rootView: The new root view.
-    func updateRoot(_ rootView: Route) {
-        root = rootView
-        paths.removeLast(paths.count)
+    /// - Parameter route: The route to pop to. If not found, logs an error.
+    func popTo(_ route: Route) {
+        guard let index = paths.firstIndex(of: route) else {
+            Logger.error("Error: Specified route not found in the navigation stack.")
+            return
+        }
+        paths = Array(paths.prefix(upTo: index + 1))
+    }
+
+    /// Replaces the root view and clears all pushed routes.
+    ///
+    /// - Parameter route: The new root route.
+    func updateRoot(_ route: Route) {
+        root = route
+        popToRoot()
     }
 }

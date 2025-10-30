@@ -1,5 +1,5 @@
 //
-//  APIService.swift
+//  APIClient.swift
 //  ProjectX
 //
 //  Created by Hoàng Hiệp Lê on 18/6/25.
@@ -11,7 +11,7 @@ import Foundation
 /// This service provides a standardized way to make API requests using Swift Concurrency.
 /// It handles common networking tasks such as request creation, response parsing, error handling,
 /// and automatic retries for certain error conditions.
-protocol APIService {
+protocol APIClient {
     /// Makes a generic network request and returns the decoded response.
     ///
     /// - Parameter target: The API target containing all necessary request information.
@@ -22,7 +22,7 @@ protocol APIService {
 
 /// Default implementation of the makeRequest method.
 /// This extension provides an interface that delegates to the internal implementation.
-extension APIService {
+extension APIClient {
     func makeRequest<T: APIResponseProtocol>(target: APITargetProtocol) async throws -> T {
         try await performRequest(target: target)
     }
@@ -34,7 +34,7 @@ extension APIService {
 /// handling responses, parsing data, and managing errors and retries.
 /// These implementation details are kept separate from the public interface
 /// to maintain a clean separation of concerns.
-extension APIService {
+extension APIClient {
     /// Internal implementation of the request method with retry capability.
     ///
     /// - Parameters:
@@ -52,7 +52,7 @@ extension APIService {
 
         do {
             let (data, response) = try await session.data(for: urlRequest)
-            let validatedData = try parseHTTPStatusCode(data: data, response: response)
+            let validatedData = try validateHTTPResponse(data: data, response: response)
             let decodedResponse: T = try decodeJson(data: validatedData)
 
             return decodedResponse
@@ -112,7 +112,8 @@ extension APIService {
         }
 
         // Handle GET method with query parameters
-        if target.method == .get, case .parameters(let params) = body {
+        switch body {
+        case .parameters(let params) where target.method == .get:
             guard var urlComponent = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
                 NetworkLogger.httpErrorLogger(APIError.invalidURL)
                 return nil
@@ -128,17 +129,15 @@ extension APIService {
             }
 
             urlRequest.url = updatedURL
-        }
-
-        // Handle methods with request body
-        else if [.post, .put, .patch, .delete].contains(target.method), case .encodable(let encodableData) = body {
+        case .encodable(let data):
             do {
                 let encoder = JSONEncoder()
-                urlRequest.httpBody = try encoder.encode(encodableData)
+                urlRequest.httpBody = try encoder.encode(data)
             } catch {
                 NetworkLogger.httpErrorLogger(error)
                 return nil
             }
+        default: break
         }
 
         NetworkLogger.httpRequestLogger(urlRequest)
@@ -155,18 +154,13 @@ extension APIService {
         case .none:
             break
         case .bearer(let token):
-            if !token.isEmpty {
-                request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-            }
+            request.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
         case .apiKey(let key):
-            if !key.isEmpty {
-                request.addValue(key, forHTTPHeaderField: "X-API-Key")
-            }
+            request.addValue(key, forHTTPHeaderField: "X-API-Key")
         case .basic(let username, let password):
             let credentials = "\(username):\(password)"
             if let data = credentials.data(using: .utf8) {
-                let base64Credentials = data.base64EncodedString()
-                request.addValue("Basic \(base64Credentials)", forHTTPHeaderField: "Authorization")
+                request.addValue("Basic \(data.base64EncodedString())", forHTTPHeaderField: "Authorization")
             }
         }
     }
@@ -176,7 +170,7 @@ extension APIService {
     /// - Parameter output: The output from a URLSession data task.
     /// - Returns: The response data if the status code is valid (200-299).
     /// - Throws: An APIError if the status code indicates an error condition.
-    private func parseHTTPStatusCode(
+    private func validateHTTPResponse(
         data: Data,
         response: URLResponse
     ) throws -> Data {

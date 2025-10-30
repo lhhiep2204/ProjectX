@@ -24,7 +24,7 @@ extension Route: AppRoute {
 private struct RouteContentView: View {
     let route: Route
 
-    @Environment(\.viewModelFactory) private var factory
+    @Environment(\.appContainer) private var factory
 
     var body: some View {
         switch route {

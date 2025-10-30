@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-class ThemeManager: ObservableObject {
-    @Published var currentTheme: Theme {
+@Observable
+class ThemeManager {
+    var currentTheme: Theme {
         didSet {
             UserDefaultsManager.theme = currentTheme
         }

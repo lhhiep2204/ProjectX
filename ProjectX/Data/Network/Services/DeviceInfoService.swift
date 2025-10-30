@@ -15,7 +15,7 @@ protocol DeviceInfoServiceProtocol {
     func deleteDeviceInfo(_ info: DeviceInfo) async throws -> ResponseMessage
 }
 
-struct DeviceInfoService: APIService, DeviceInfoServiceProtocol {
+struct DeviceInfoService: APIClient, DeviceInfoServiceProtocol {
     func getDeviceInfo() async throws -> [DeviceInfo] {
         let response: ArrayResponse<DeviceInfo> = try await makeRequest(target: DeviceInfoRequest.getDeviceInfo)
         return response.items

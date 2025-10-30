@@ -61,7 +61,7 @@ enum Setting: String, CaseIterable {
 struct FeaturesModel {}
 
 class FeaturesViewModel: BaseViewModel {
-    @Published private(set) var state = FeaturesModel()
+    private(set) var state = FeaturesModel()
 
     private let service: DeviceInfoServiceProtocol
 

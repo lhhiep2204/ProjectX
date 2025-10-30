@@ -7,17 +7,15 @@
 
 import Foundation
 
-/// A singleton responsible for creating and providing `ViewModel` instances with all their dependencies.
+/// The root dependency container (Composition Root).
 ///
-/// This factory follows Clean Architecture principles:
-/// - Each `ViewModel` receives only the required `UseCases` or `UseCase` containers
-/// - Each `UseCase` is injected with its corresponding `Repository`
-/// - `Repositories` currently use mock data but are designed to handle local and remote data sources
-/// - Use case containers group related operations by domain
-final class ViewModelFactory {
+/// `AppContainer` wires together the feature-level containers and shared services.
+/// It follows Clean Architecture principles and acts as the single source of truth
+/// for constructing ViewModels and use cases throughout the app.
+final class AppContainer {
     /// Shared singleton instance.
-    static let shared = ViewModelFactory()
+    static let shared = AppContainer()
 
-    /// Private initializer to enforce the singleton pattern.
+    /// Private initializer to enforce singleton usage.
     private init() {}
 }

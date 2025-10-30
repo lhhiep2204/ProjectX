@@ -81,10 +81,11 @@ enum Language: String, CaseIterable {
     }
 }
 
-class LanguageManager: ObservableObject {
+@Observable
+class LanguageManager {
     @LocalizedBundle static var bundle: Bundle
 
-    @Published var currentLanguage: Language {
+    var currentLanguage: Language {
         didSet {
             Bundle.setLanguage(currentLanguage)
         }

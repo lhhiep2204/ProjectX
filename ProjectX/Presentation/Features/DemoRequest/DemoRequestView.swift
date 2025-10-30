@@ -5,12 +5,13 @@
 //  Created by Hoàng Hiệp Lê on 3/7/24.
 //
 
+import Combine
 import SwiftUI
 
 struct DemoRequestView: View {
     // MARK: - Properties
-    @EnvironmentObject private var routerManager: Router<Route>
-    @StateObject private var viewModel = DemoRequestViewModel()
+    @Environment(Router<Route>.self) private var routerManager
+    @State private var viewModel = DemoRequestViewModel()
 
     var body: some View {
         containerView

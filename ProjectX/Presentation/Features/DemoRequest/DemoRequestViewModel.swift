@@ -6,7 +6,6 @@
 //
 
 import Combine
-import Foundation
 
 class DemoRequestViewModel: BaseViewModel {
     // MARK: - Enums
@@ -26,7 +25,7 @@ class DemoRequestViewModel: BaseViewModel {
 
     private let service: DeviceInfoServiceProtocol
 
-    @Published var deviceInfos: [DeviceInfo] = []
+    var deviceInfos: [DeviceInfo] = []
 
     // MARK: - Constructors
     init(service: DeviceInfoServiceProtocol = DeviceInfoService()) {

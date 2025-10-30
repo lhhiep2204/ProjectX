@@ -2,7 +2,7 @@
 //  ProjectXUITestsLaunchTests.swift
 //  ProjectXUITests
 //
-//  Created by Hoàng Hiệp Lê on 16/03/2024.
+//  Created by Hoàng Hiệp Lê on 30/10/25.
 //
 
 import XCTest
@@ -17,6 +17,7 @@ final class ProjectXUITestsLaunchTests: XCTestCase {
         continueAfterFailure = false
     }
 
+    @MainActor
     func testLaunch() throws {
         let app = XCUIApplication()
         app.launch()

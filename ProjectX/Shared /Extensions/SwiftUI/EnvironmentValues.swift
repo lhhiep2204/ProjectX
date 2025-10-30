@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-/// `EnvironmentKey` for injecting the `ViewModelFactory` singleton into the SwiftUI environment.
-struct ViewModelFactoryKey: EnvironmentKey {
-    static let defaultValue: ViewModelFactory = .shared
+/// An `EnvironmentKey` for injecting the `AppContainer` singleton into the SwiftUI environment.
+struct AppContainerKey: EnvironmentKey {
+    static let defaultValue: AppContainer = .shared
 }
 
 extension EnvironmentValues {
-    /// A property to access or set the `ViewModelFactory` instance in the SwiftUI environment.
-    var viewModelFactory: ViewModelFactory {
-        get { self[ViewModelFactoryKey.self] }
-        set { self[ViewModelFactoryKey.self] = newValue }
+    /// A property to access or set the `AppContainer` instance in the SwiftUI environment.
+    var appContainer: AppContainer {
+        get { self[AppContainerKey.self] }
+        set { self[AppContainerKey.self] = newValue }
     }
 }

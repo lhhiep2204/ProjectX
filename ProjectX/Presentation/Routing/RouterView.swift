@@ -7,64 +7,60 @@
 
 import SwiftUI
 
-/// A SwiftUI view that works in conjunction with a `Router` to manage navigation paths.
+/// A SwiftUI view that displays content using a `Router` for navigation management.
+///
+/// `RouterView` is designed to be used when you want a full-screen container view
+/// that handles navigation via a shared `Router` instance.
 struct RouterView<Route: AppRoute>: View {
-    // MARK: - ObservedObject Property
-    /// The observed object responsible for managing navigation paths.
-    @ObservedObject private var router: Router<Route>
+    /// The router managing the navigation stack.
+    @Bindable private var router: Router<Route>
 
-    // MARK: - Initializer
-    /// Initializes the `RouterView` with a `RouterManager`.
+    /// Creates a `RouterView` that observes and manages navigation paths using the provided router.
     ///
-    /// - Parameter router: The `RouterManager` managing the navigation paths.
+    /// - Parameter router: The router responsible for handling navigation paths.
     init(_ router: Router<Route>) {
         self.router = router
     }
 
-    // MARK: - Body
     var body: some View {
         NavigationStack(path: $router.paths) {
-            // Display the root view and provide navigation destination support
             router.root
                 .navigationDestination(for: Route.self) { $0 }
         }
-        // Inject the `RouterManager` as an environment object
-        .environmentObject(router)
+        .environment(router)
     }
 }
 
-/// A view modifier that provides navigation support using a `RouterManager`.
+/// A view modifier that wraps the content in a `NavigationStack` managed by a `Router`.
+///
+/// Use this when you want to embed routing behavior inside an existing view hierarchy,
+/// rather than using a dedicated `RouterView`.
 struct RouterModifier<Route: AppRoute>: ViewModifier {
-    // MARK: - ObservedObject Property
-    /// The observed object responsible for managing navigation paths.
-    @ObservedObject private var manager: Router<Route>
+    /// The router managing the navigation stack.
+    @Bindable private var router: Router<Route>
 
-    // MARK: - Initializer
-    /// Initializes the `RouterModifier` with a `RouterManager`.
+    /// Creates a `RouterModifier` that manages navigation paths using the provided router.
     ///
-    /// - Parameter router: The `RouterManager` managing the navigation paths.
-    init(_ manager: Router<Route>) {
-        self.manager = manager
+    /// - Parameter router: The router responsible for handling navigation paths.
+    init(_ router: Router<Route>) {
+        self.router = router
     }
 
-    // MARK: - Body
     func body(content: Content) -> some View {
-        NavigationStack(path: $manager.paths) {
+        NavigationStack(path: $router.paths) {
             content
                 .navigationDestination(for: Route.self) { $0 }
         }
-        // Inject the `RouterManager` as an environment object
-        .environmentObject(manager)
+        .environment(router)
     }
 }
 
 extension View {
-    // MARK: - Router Modifier Application
-    /// Applies the `RouterModifier` to the view, providing navigation support using a `RouterManager`.
+    /// Applies the `RouterModifier` to the view, enabling navigation support using the given router.
     ///
-    /// - Parameter router: The `RouterManager` managing the navigation paths.
-    /// - Returns: A view modified with navigation support.
-    func applyRouter<Route: AppRoute>(_ manager: Router<Route>) -> some View {
-        modifier(RouterModifier(manager))
+    /// - Parameter router: The router managing the navigation paths.
+    /// - Returns: A view with navigation behavior powered by the provided router.
+    func applyRouter<Route: AppRoute>(_ router: Router<Route>) -> some View {
+        modifier(RouterModifier(router))
     }
 }

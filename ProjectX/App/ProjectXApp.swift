@@ -12,8 +12,8 @@ import SwiftUI
 struct ProjectXApp: App {
     // MARK: - Properties
     private var routerManager: Router<Route> = .init(root: .features)
-    @StateObject private var languageManager = LanguageManager()
-    @StateObject private var themeManager = ThemeManager()
+    private var languageManager = LanguageManager()
+    private var themeManager = ThemeManager()
 
     private var container: ModelContainer = {
         let schema = Schema([/* Add models here */])
@@ -44,7 +44,7 @@ struct ProjectXApp: App {
                 .preferredColorScheme(themeManager.currentTheme.colorScheme)
         }
         .modelContainer(container)
-        .environmentObject(languageManager)
-        .environmentObject(themeManager)
+        .environment(languageManager)
+        .environment(themeManager)
     }
 }

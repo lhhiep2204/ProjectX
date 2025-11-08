@@ -91,11 +91,11 @@ extension APIError {
     var retryDelay: TimeInterval {
         switch self {
         case .connectivity, .serverError, .gatewayTimeout, .rateLimited:
-            return NetworkConfiguration.retryDelay
+            return 3.0
         case .unauthorized:
-            return 0 // Immediate retry for token refresh
+            return 0.0 // Immediate retry for token refresh
         default:
-            return 0
+            return 0.0
         }
     }
 }

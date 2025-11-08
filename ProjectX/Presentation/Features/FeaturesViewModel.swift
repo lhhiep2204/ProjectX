@@ -60,14 +60,13 @@ enum Setting: String, CaseIterable {
 
 struct FeaturesModel {}
 
-class FeaturesViewModel: BaseViewModel {
+@Observable
+class FeaturesViewModel {
     private(set) var state = FeaturesModel()
 
     private let service: DeviceInfoServiceProtocol
 
     init(service: DeviceInfoServiceProtocol = DeviceInfoService()) {
         self.service = service
-
-        super.init()
     }
 }

@@ -13,7 +13,7 @@ enum Route {
     case demoRequest
 }
 
-extension Route: AppRoute {
+extension Route: @MainActor AppRoute {
     // MARK: - Views
     var body: some View {
         RouteContentView(route: self)

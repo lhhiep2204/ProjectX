@@ -17,6 +17,5 @@ struct NetworkConfiguration {
 
     // Retry configuration
     static let retryCount: Int = 3
-    static let retryDelay: TimeInterval = 3.0
     static let maxRetries: Int = 3
 }

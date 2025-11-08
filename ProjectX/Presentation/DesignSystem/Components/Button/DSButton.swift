@@ -7,10 +7,15 @@
 
 import SwiftUI
 
-/// A customizable button component supporting various styles, loading states, and images.
+/// A customizable button component supporting various styles, loading states, images, and reactive localization.
+///
+/// The title can be provided as a raw `String` or as a `LocalizedKey`. When using a `LocalizedKey`,
+/// the button automatically updates when the app language changes via `LanguageManager` in the environment.
 struct DSButton<Style: ButtonStyle>: View {
-    /// The button text.
-    private let title: String?
+    @Environment(LanguageManager.self) private var languageManager
+
+    /// Provides the button title at render time. Returns `nil` for image-only buttons.
+    private let titleProvider: () -> String?
 
     /// The button image (optional).
     private let image: Image?
@@ -39,7 +44,28 @@ struct DSButton<Style: ButtonStyle>: View {
         loading: Bool = false,
         _ action: @escaping () -> Void
     ) {
-        self.title = title
+        self.titleProvider = { title }
+        self.image = image
+        self.style = style
+        self.loading = loading
+        self.action = action
+    }
+    
+    /// Creates a `DSButton` with a localized key for the title. The button updates when language changes.
+    /// - Parameters:
+    ///   - key: The localized key for the button title.
+    ///   - image: An optional image displayed alongside the text.
+    ///   - style: The button style.
+    ///   - loading: Whether the button shows a loading indicator. Defaults to `false`.
+    ///   - action: The closure executed when the button is tapped.
+    init(
+        _ key: some LocalizedKey,
+        image: Image? = nil,
+        style: Style,
+        loading: Bool = false,
+        _ action: @escaping () -> Void
+    ) {
+        self.titleProvider = { .localized(key) }
         self.image = image
         self.style = style
         self.loading = loading
@@ -47,11 +73,12 @@ struct DSButton<Style: ButtonStyle>: View {
     }
 
     var body: some View {
+        let _ = languageManager.currentLanguage
         Button(action: action) {
             ZStack {
                 HStack {
                     image
-                    title.map { Text($0) }
+                    titleProvider().map { Text($0) }
                 }
                 if loading {
                     ProgressView()

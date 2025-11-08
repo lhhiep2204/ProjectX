@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct DeviceInfo: APIResponseProtocol, Encodable, Identifiable {
+struct DeviceInfo: @MainActor APIResponseProtocol, Encodable, Identifiable {
     var id: String = UUID().uuidString
     let name: String
 }
 
-struct ResponseMessage: APIResponseProtocol {
+struct ResponseMessage: @MainActor APIResponseProtocol {
     let message: String
 }

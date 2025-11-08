@@ -75,18 +75,18 @@ extension FeaturesView {
             set: { languageManager.currentLanguage = $0 }
         )) {
             ForEach(Language.allCases, id: \.self) { item in
-                var text: String {
+                var text: any LocalizedKey {
                     switch item {
-                    case .system: .localized(.setting.system)
-                    case .english: .localized(.setting.english)
-                    case .french: .localized(.setting.french)
-                    case .vietnamese: .localized(.setting.vietnamese)
+                    case .system: .setting.system
+                    case .english: .setting.english
+                    case .french: .setting.french
+                    case .vietnamese: .setting.vietnamese
                     }
                 }
                 DSText(text)
             }
         } label: {
-            DSText(.localized(.setting.language))
+            DSText(.setting.language)
         }
 #if os(macOS)
         .pickerStyle(.radioGroup)
@@ -101,17 +101,17 @@ extension FeaturesView {
             set: { themeManager.currentTheme = $0 }
         )) {
             ForEach(Theme.allCases, id: \.self) { item in
-                var text: String {
+                var text: any LocalizedKey {
                     switch item {
-                    case .system: .localized(.setting.system)
-                    case .light: .localized(.setting.light)
-                    case .dark: .localized(.setting.dark)
+                    case .system: .setting.system
+                    case .light: .setting.light
+                    case .dark: .setting.dark
                     }
                 }
                 DSText(text)
             }
         } label: {
-            DSText(.localized(.setting.theme))
+            DSText(.setting.theme)
         }
 #if os(macOS)
         .pickerStyle(.radioGroup)

@@ -9,7 +9,7 @@ import Foundation
 
 /// A generic wrapper for decoding an array of `Decodable` items.
 /// Used when an API returns a raw JSON array (e.g. `[{}, {}, ...]`)
-struct ArrayResponse<T: Decodable>: APIResponseProtocol {
+struct ArrayResponse<T: Decodable>: @MainActor APIResponseProtocol {
     let items: [T]
 
     init(from decoder: Decoder) throws {

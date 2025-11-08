@@ -6,8 +6,10 @@
 //
 
 import Combine
+import Foundation
 
-class DemoRequestViewModel: BaseViewModel {
+@Observable
+class DemoRequestViewModel {
     // MARK: - Enums
     enum State {
         case initial
@@ -23,6 +25,7 @@ class DemoRequestViewModel: BaseViewModel {
     let state = CurrentValueSubject<State, Never>(.initial)
     let intent = PassthroughSubject<Intent, Never>()
 
+    private var subscriptions = Set<AnyCancellable>()
     private let service: DeviceInfoServiceProtocol
 
     var deviceInfos: [DeviceInfo] = []
@@ -30,8 +33,6 @@ class DemoRequestViewModel: BaseViewModel {
     // MARK: - Constructors
     init(service: DeviceInfoServiceProtocol = DeviceInfoService()) {
         self.service = service
-
-        super.init()
 
         intent
             .sink { [weak self] action in

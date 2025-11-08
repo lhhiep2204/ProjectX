@@ -7,10 +7,17 @@
 
 import SwiftUI
 
-/// A customizable text component that supports dynamic styling.
+/// A customizable text component that supports dynamic styling and localization.
+///
+/// - Reactive localization: `DSText` reads `LanguageManager` from the environment
+///   and automatically re-renders when `currentLanguage` changes.
+/// - Usage: Initialize with a raw `String` or a `LocalizedKey` for localized content.
 struct DSText: View {
-    /// The text content to be displayed.
-    private let title: String
+    /// The language manager from the environment used to trigger re-rendering on language changes.
+    @Environment(LanguageManager.self) private var languageManager
+
+    /// A closure that returns the current title. It is evaluated at render time to reflect language changes.
+    private let titleProvider: () -> String
 
     /// The font style used for displaying text.
     private let font: DSFont
@@ -18,10 +25,10 @@ struct DSText: View {
     /// The text color.
     private let color: Color
 
-    /// Creates a `DSText` instance with the specified content and styling.
+    /// Creates a `DSText` instance with a raw string and optional styling.
     ///
     /// - Parameters:
-    ///   - title: The text content to be displayed.
+    ///   - title: The raw text content to be displayed.
     ///   - font: The font style. Defaults to `.regular(.medium)`.
     ///   - color: The text color. Defaults to `.appColor(.textPrimary)`.
     init(
@@ -29,13 +36,37 @@ struct DSText: View {
         font: DSFont = .regular(.medium),
         color: Color = .appColor(.textPrimary)
     ) {
-        self.title = title
+        self.titleProvider = { title }
+        self.font = font
+        self.color = color
+    }
+
+    /// Creates a `DSText` instance using a localized key and optional styling.
+    ///
+    /// The view automatically updates when the app language changes, because it
+    /// depends on `LanguageManager.currentLanguage` via the environment.
+    ///
+    /// - Parameters:
+    ///   - key: A localized key conforming to `LocalizedKey`.
+    ///   - font: The font style. Defaults to `.regular(.medium)`.
+    ///   - color: The text color. Defaults to `.appColor(.textPrimary)`.
+    init(
+        _ key: some LocalizedKey,
+        font: DSFont = .regular(.medium),
+        color: Color = .appColor(.textPrimary)
+    ) {
+        self.titleProvider = { .localized(key) }
         self.font = font
         self.color = color
     }
 
     var body: some View {
-        Text(title)
+        // Establish a dependency on the current language so SwiftUI re-renders this view
+        // when the language changes. The actual string is produced by `titleProvider()`
+        // at render time, which will resolve to the correct localized string.
+        let _ = languageManager.currentLanguage
+
+        Text(titleProvider())
             .font(.appFont(font))
             .foregroundStyle(color)
     }
